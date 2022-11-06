@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.TemplatePage.ProductTemplatePage">
+
+<Frame IsClippedToBounds="True"
+         HasShadow="True"
+         BackgroundColor="Transparent" HorizontalOptions="Center">
+        <Frame.OutlineColor>
+            <OnPlatform x:TypeArguments="Color"
+                  Android="Transparent"
+                  iOS="Gray"/>
+        </Frame.OutlineColor>
+        <Frame.Margin>
+            <OnPlatform x:TypeArguments="Thickness"
+                  Android="5" iOS="10"/>
+        </Frame.Margin>
+        <Frame.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                  Android="0" iOS="0"/>
+        </Frame.Padding>
+        <StackLayout Orientation="Horizontal">
+            <Grid 
+            Padding="0"
+            BackgroundColor="Wheat">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding ProductImage, Mode=TwoWay}" Grid.Row="0" HorizontalOptions="CenterAndExpand"></Image>
+                <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" 
+               Grid.Row="1"  Grid.ColumnSpan="2"
+               FontSize="16"
+               Text="{Binding ProductName, Mode = TwoWay}">
+                </Label>
+                <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" 
+               Grid.Row="2"  Grid.ColumnSpan="2"
+               FontSize="16"
+               Text="{Binding ProductPrice, Mode = TwoWay}">
+                </Label>
+                <Label FontAttributes="Bold" HorizontalOptions="CenterAndExpand" 
+               Grid.Row="3" Grid.ColumnSpan="2"
+               FontSize="16"
+               Text="{Binding ProductSisa, Mode = TwoWay}">
+                </Label>
+            </Grid>
+        </StackLayout>
+       
+    </Frame>
+</ContentView>

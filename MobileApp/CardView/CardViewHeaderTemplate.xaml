@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="MobileApp.CardView.CardViewHeaderTemplate">
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="{Binding CardColor}"
+           BorderColor="{Binding BorderColor}"
+           CornerRadius="5"
+           HasShadow="True"
+           Padding="8"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="175" />
+                <ColumnDefinition Width="175" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{Binding CardTitle, FallbackValue='Card Title'}"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start" />
+            <Image Grid.RowSpan="3"
+                   Grid.Column="1" HorizontalOptions="End" Source="company_logo.png"/>
+            <!--<BoxView Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     BackgroundColor="{Binding BorderColor, FallbackValue='Black'}"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill" />-->
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Text="{Binding CardDescription, FallbackValue='Card description text.'}"
+                   VerticalTextAlignment="Start"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill" />
+
+        </Grid>
+    </Frame>
+</ContentView>

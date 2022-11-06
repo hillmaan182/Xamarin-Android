@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.RegisterPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="30" BackgroundColor="#73d8eb" >
+                <BoxView HeightRequest="10"/>
+                <Label HorizontalOptions="Center" Text="Welcome" FontAttributes="Bold" FontSize="30"/>
+                <Image HorizontalOptions="Center" WidthRequest="150" Source="company_logo.jpg"/>
+                <Frame BackgroundColor="Transparent" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="Email" 
+                           HeightRequest="40"   
+                           Keyboard="Email" Placeholder="enter your email" PlaceholderColor="Gray"
+                           TextColor="Black"/>
+                        <Entry x:Name="Name" Placeholder="enter your username"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           Keyboard="Text"  
+                           TextColor="Black"/>
+                        <Entry x:Name="Password" Placeholder="enter your password"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                        <Entry x:Name="ConfPassword" Placeholder="confirm your password"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="Register" Clicked="BtnRegister_Clicked" BackgroundColor="Beige"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label HorizontalOptions="End" Text="already have an account?" Grid.Column="0" />
+                    <Label HorizontalOptions="Start" Text="Sign in" FontAttributes="Bold" Grid.Column="1">
+                        <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Login_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                
+
+            </StackLayout>
+
+            <!--<Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}" />-->
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

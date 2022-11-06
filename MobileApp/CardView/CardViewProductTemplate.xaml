@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="MobileApp.CardView.CardViewProductTemplate">
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="{Binding BackgroundColor}"
+           BorderColor="{Binding BorderColor}"
+           CornerRadius="5"
+           HasShadow="True"
+           Padding="8"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="0" 
+                   Grid.ColumnSpan="2" Source="{Binding ProductImage,FallbackValue='icon_minus.png'}"
+                   />
+            <Label Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Text="{Binding ProductName,FallbackValue='Product A'}"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" />
+            <Label Grid.ColumnSpan="2" Grid.Row="2"
+                   Text="{Binding ProductPrice, FallbackValue='Rp. XXX'}"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" />
+            <Label Grid.ColumnSpan="2" Grid.Row="3"
+                   Text="{Binding ProductSisa, FallbackValue='-'}"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" />
+        </Grid>
+    </Frame>
+</ContentView>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.TestPage"
+             >
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" BackgroundColor="Aquamarine" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="75" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <Grid>
+                   <SearchBar Text="search . . ." BackgroundColor="Aquamarine"  ></SearchBar>
+                </Grid> 
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Grid >
+                    <Frame Grid.Column="0" BackgroundColor="Aquamarine">
+                        <Button Text="Product" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                    </Frame>
+
+                    <Frame Grid.Column="1" BackgroundColor="Aquamarine">
+                        <Button Text="Service" HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+
+            <ScrollView Grid.Row="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="250" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10" Grid.Row="0">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10" Grid.Row="1">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10" Grid.Row="2">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10" Grid.Row="3">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+                    <Frame WidthRequest="100" HeightRequest="25" BackgroundColor="Beige" Margin="10" CornerRadius="10" Grid.Row="4">
+                        <Grid>
+                            <Label Text="Good morning," Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/>
+                            <Label Text="ABC" Grid.Row="1" Grid.Column="0"/>
+                            <Image Source="company_logo.png" Grid.RowSpan="2" HorizontalOptions="End"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

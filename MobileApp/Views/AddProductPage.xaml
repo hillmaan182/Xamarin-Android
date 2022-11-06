@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.AddProductPage" Title="Add Products"
+            Visual="Material"
+            BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Margin="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+            <ImageButton x:Name="btnImage" Source="icon_image_add.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" Clicked="btnUplImg_Clicked" WidthRequest="155" HeightRequest="155"/>
+            <!--<StackLayout>
+                <Image x:Name="img" WidthRequest="125" HeightRequest="125"></Image>
+            </StackLayout>-->
+            <Entry x:Name="txtName" Placeholder="Enter Product Name" />
+            <StackLayout>
+                <Grid
+                    RowDefinitions="*,*"
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="10">
+                    <Label Text="Category" Grid.ColumnSpan="2" Grid.Row="0"></Label>
+                    <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="1" Content="Product" CheckedChanged="onRBChanged"/>
+                    <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Service"/>
+                </Grid>
+            </StackLayout>
+            <Entry x:Name="txtDescription" Placeholder="Enter Description" />
+            <Entry x:Name="txtSpecification" Placeholder="Enter Specification" />
+            <Entry x:Name="txtPrice" Placeholder="Enter Price" />
+            <Entry x:Name="txtSisa" Placeholder="Enter Total" />
+            <StackLayout>
+                <Grid
+                    RowDefinitions="*,*"
+                    ColumnSpacing="10">
+                    <Button x:Name="btnSaveUpdate" Text="Save" Clicked="btnSaveUpdate_Clicked" Grid.Column="0"/>
+                    <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" Grid.Column="1"/>
+                </Grid>
+            </StackLayout>
+                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

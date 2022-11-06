@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.CompanyProfilePage"
+             xmlns:view="clr-namespace:MobileApp.TemplatePage;assembly=MobileApp"
+             xmlns:views="clr-namespace:MobileApp.CardView;assembly=MobileApp"
+             xmlns:viewModel="clr-namespace:MobileApp.ViewModels;assembly=MobileApp">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Style x:Key="Header" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="35" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="Body" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="25" />
+            </Style>
+            <Style x:Key="Content" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content >
+        <StackLayout Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <ListView x:Name="lvVendor" HasUnevenRows="True" BackgroundColor="#96d1ff">
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <ViewCell >
+                            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#96d1ff">
+                                <Grid BackgroundColor="#96d1ff">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Style="{StaticResource Header}" Text="{Binding VendorName}"   Grid.Row="0" Grid.ColumnSpan="3" />
+
+                                    <Label Style="{StaticResource Body}" Text="About Us"  Grid.Row="1" Grid.ColumnSpan="3"/>
+                                    <Label Style="{StaticResource Content}" Text="{Binding VendorEmail}"   Grid.Row="2" Grid.ColumnSpan="3"/>
+
+                                    <Label Style="{StaticResource Body}" Text="Vision and Mission"   Grid.Row="3" Grid.ColumnSpan="3" />
+                                    <Label Style="{StaticResource Content}" Text="{Binding VendorEmail}"   Grid.Row="4" Grid.ColumnSpan="3" />
+
+                                    <Label Style="{StaticResource Body}" Text="Our Services"   Grid.Row="5" Grid.ColumnSpan="3"/>
+                                    <Button BackgroundColor="Red" Grid.Row="6" Grid.Column="0"/>
+                                    <Button BackgroundColor="Orange" Grid.Row="6" Grid.Column="1"/>
+                                    <Button BackgroundColor="Black" Grid.Row="6" Grid.Column="2"/>
+                                    <!--<Label Style="{StaticResource Content}" Text="{Binding VendorEmail}"   Grid.Row="6" Grid.Column="0" />-->
+
+                                    <Label Style="{StaticResource Body}" Text="Our Experience"   Grid.Row="7" Grid.ColumnSpan="3" />
+                                    <Button BackgroundColor="Red" Grid.Row="8" Grid.Column="0"/>
+                                    <Button BackgroundColor="Orange" Grid.Row="8" Grid.Column="1"/>
+                                    <Button BackgroundColor="Black" Grid.Row="8" Grid.Column="2"/>
+
+                                    <Label Style="{StaticResource Body}" Text="Our Affiliates"   Grid.Row="9" Grid.ColumnSpan="3" />
+                                    <Button BackgroundColor="Red" Grid.Row="10" Grid.Column="0"/>
+                                    <Button BackgroundColor="Orange" Grid.Row="10" Grid.Column="1"/>
+                                    <Button BackgroundColor="Black" Grid.Row="10" Grid.Column="2"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

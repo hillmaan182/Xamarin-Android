@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.OthersPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="25"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Text="My Activity" Grid.ColumnSpan="2" Grid.Row="0" FontAttributes="Bold" FontSize="25"/>
+
+            <Image Source="icon_about.png" Grid.Column="0" Grid.Row="1"/>
+            <Label Text="On Going Transaction" Grid.Column="1" Grid.Row="1" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoing_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Image Source="icon_other.png" Grid.Column="0" Grid.Row="2"/>
+            <Label Text="History" Grid.Column="1" Grid.Row="2" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="History_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            
+            <Image Source="icon_feed.png" Grid.Column="0" Grid.Row="3"/>
+            <Label Text="Trusted Partners" Grid.Column="1" Grid.Row="3" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Trusted_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="My Account" Grid.ColumnSpan="2" Grid.Row="4" FontAttributes="Bold" FontSize="25"/>
+
+            <Image Source="icon_chat.png" Grid.Column="0" Grid.Row="5"/>
+            <Label Text="Company Profile" Grid.Column="1" Grid.Row="5" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Account_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Image Source="icon_other.png" Grid.Column="0" Grid.Row="6"/>
+            <Label Text="Legal Document" Grid.Column="1" Grid.Row="6" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Legal_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label Text="Help Center" Grid.ColumnSpan="2" Grid.Row="7" FontAttributes="Bold" FontSize="25"/>
+
+            <Image Source="icon_product.png" Grid.Column="0" Grid.Row="8"/>
+            <Label Text="Contact Us" Grid.Column="1" Grid.Row="8" FontSize="20" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Contact_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

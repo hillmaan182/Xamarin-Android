@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="30" BackgroundColor="#73d8eb" >
+                <BoxView HeightRequest="10"/>
+                <Label HorizontalOptions="Center" Text="Welcome" FontAttributes="Bold" FontSize="30"/>
+                <Image HorizontalOptions="Center" WidthRequest="150" Source="company_logo.jpg"/>
+                <Frame BackgroundColor="Transparent" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Entry x:Name="txtUsername" 
+                           HeightRequest="40"   
+                           Keyboard="Email" Placeholder="enter your email" PlaceholderColor="Gray"
+                           TextColor="Black"/>
+                        <Entry x:Name="txtPassword" Placeholder="enter your password"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="Login" Clicked="btnLogin_Clicked" BackgroundColor="Beige" CornerRadius="20"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label HorizontalOptions="End" Text="didn't have an account?" Grid.Column="0" />
+                    <Label HorizontalOptions="Start" Text="Sign up" FontAttributes="Bold" Grid.Column="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnRegister_Clicked"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+
+        <!--<StackLayout Orientation="Vertical" Padding="30" Spacing="40" BackgroundColor="#73d8eb">
+            <BoxView HeightRequest="10"/>
+            <Image HorizontalOptions="Center" WidthRequest="300" Source="company_logo.jpg"/>
+            <Frame BackgroundColor="White" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="txtUsername" Text="{Binding Email}" Placeholder="Enter your username"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                    <Entry x:Name="txtPassword" Text="{Binding Password}" Placeholder="Enter your password"   
+                           PlaceholderColor="Black" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+            --><!--<Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>--><!--
+            <Button VerticalOptions="Center" Text="Login" Clicked="btnLogin_Clicked" />
+            <Button VerticalOptions="Center" Text="Register" Clicked="BtnRegister_Clicked" />
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

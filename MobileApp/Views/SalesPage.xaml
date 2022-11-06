@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.SalesPage"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Sales">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="75" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid ColumnSpacing="0" Grid.Row="0" RowSpacing="10">
+                <view:CardViewHeaderTemplate BorderColor="Beige"
+                               CardTitle="Good Morning,"
+                               BackgroundColor="#96d1ff"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="Beige"/>
+            </Grid>
+           
+            <Grid ColumnSpacing="0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Padding="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0">
+                    <Button 
+                    Text="       Income      "
+                    x:Name="btnIncome" 
+                    Clicked="incomeClicked"
+                    BorderWidth="2" 
+                    BorderColor="{Binding BorderIncome}" 
+                    BackgroundColor="Beige" 
+                    BorderRadius="8"
+                    TextColor="Green"
+                    ImageSource="icon_down.png"
+                    CornerRadius="15"
+                    FontAttributes="Bold"
+                    />
+                    
+                </StackLayout>
+
+                <StackLayout Padding="5" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1">
+                    <Button 
+                    Text="       Outcome      "
+                    x:Name="btnOutcome"
+                    Clicked="outcomeClicked"
+                    BorderWidth="2" 
+                    BorderColor="{Binding BorderOutcome}" 
+                    BackgroundColor="Beige" 
+                    BorderRadius="8"
+                    TextColor="Red"
+                    ImageSource="icon_up.png"
+                    CornerRadius="15"
+                    />
+
+
+                </StackLayout>
+            </Grid>
+
+            <ScrollView Grid.Row="2" IsVisible="{Binding IsIncome}">
+                <view:CardIncome />
+            </ScrollView>
+
+            <ScrollView Grid.Row="2" IsVisible="{Binding IsOutcome}">
+                <view:CardOutcome/>
+            </ScrollView>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

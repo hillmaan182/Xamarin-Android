@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.VerificationPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="30" BackgroundColor="#73d8eb" >
+            <BoxView HeightRequest="10"/>
+            <Label HorizontalOptions="Center" Text="Enter Verification Code" FontAttributes="Bold" FontSize="30"/>
+            <Label HorizontalTextAlignment="Center" HorizontalOptions="Center" Text="Verification code has been sent to your email!" FontAttributes="Bold" FontSize="20"/>
+            <Frame BackgroundColor="Transparent" HasShadow="False">
+
+                <StackLayout Orientation="Vertical" Spacing="50" Padding="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Entry x:Name="code1" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="0"
+                           TextColor="Black"/>
+                        <Entry x:Name="code2" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"
+                           TextColor="Black"/>
+                        <Entry x:Name="code3" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="2"
+                           TextColor="Black"/>
+                        <Entry x:Name="code4" HorizontalTextAlignment="Center" HeightRequest="40"  Keyboard="Numeric" Grid.Row="0" Grid.Column="3"
+                           TextColor="Black"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label HorizontalOptions="End" Text="already have an account?" Grid.Column="0" />
+                <Label HorizontalOptions="Start" Text="Sign in" FontAttributes="Bold" Grid.Column="1">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Login_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>-->
+
+            <Button Text="Enter" Clicked="BtnEnter_Clicked" BackgroundColor="Beige"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

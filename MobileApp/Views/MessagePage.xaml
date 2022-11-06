@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.MessagePage"
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                               CardTitle="Good Morning,"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="SlateGray"/>
+
+        <Grid RowSpacing="0" ColumnSpacing="0" Grid.Row="1">
+
+            <ScrollView BackgroundColor="#96d1ff">
+                <StackLayout Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <!--<Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                    </Grid>-->
+                    <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Beige" Margin="5" CornerRadius="20">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="50"></RowDefinition>
+                                                <RowDefinition Height="50"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="icon_user.png" Grid.RowSpan="2" Grid.Column="0"/>
+                                            <Label Text="{Binding MessageSender}"   Grid.Row="0" HorizontalOptions="Start" Grid.Column="1" FontAttributes="Bold" FontSize="35"/>
+                                            <Label Text="{Binding MessageUnread}" Grid.Row="1" HorizontalOptions="Start" Grid.Column="1"/>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>

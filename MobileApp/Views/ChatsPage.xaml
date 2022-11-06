@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ChatsPage"
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" 
+             xmlns:local="clr-namespace:MobileApp.ViewModels"  
+             xmlns:model="clr-namespace:MobileApp.Models"  
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="#96d1ff"
+           ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <Grid RowSpacing="0" BackgroundColor="Beige"
+             ColumnSpacing="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="icon_user.png" Grid.Column="0" HorizontalOptions="Start" Margin="5"/>
+                <Label Text="{Binding User}" Grid.Column="1" 
+                       VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" FontSize="25"
+                       ></Label>
+            </Grid>
+            
+            <ListView x:Name="lstData" HasUnevenRows="True"  Grid.Row="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame BackgroundColor="#abdbe3" IsVisible="{Binding Incoming}" Grid.Column="0"
+                                              Padding="10"
+                                              Margin="10,10,80,10"
+                                              HasShadow="false">
+                                    <Label Text="{Binding MessageBody}"/>
+                                </Frame>
+
+                                <Frame BackgroundColor="Beige" IsVisible="{Binding Outgoing}" Grid.Column="1"
+                                              Padding="10"
+                                              Margin="80,10,10,10"
+                                              HasShadow="false">
+                                    <Label Text="{Binding MessageBody}"/>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <BoxView HorizontalOptions="FillAndExpand"
+                 HeightRequest="2"
+                 BackgroundColor="black"
+                 Grid.Row="2"/>
+
+            <Grid Grid.Row="3" RowSpacing="0" 
+                            ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="chatText" 
+                                 Text="asdf"
+                                 Margin="1"  
+                                 TextColor="Black" 
+                                 Keyboard="Chat"  
+                                 HorizontalOptions="FillAndExpand" 
+                                 PlaceholderColor="LightGray"
+                                 Placeholder="Type your message here"
+                                 Grid.Row="0" 
+                                 Grid.Column="0" BackgroundColor="Beige"/>
+                <Label Text="Send"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               VerticalTextAlignment="Center" BackgroundColor="Beige" FontAttributes="Bold" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                                      Tapped="Send_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </Grid>
+        <!--<Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <view:CardViewHeaderTemplate BorderColor="Beige"
+                               CardTitle="Good Morning,"
+                               BackgroundColor="Beige"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="Beige"/>
+
+            <Grid RowSpacing="0" ColumnSpacing="0" Grid.Row="1" >
+                <ScrollView BackgroundColor="#96d1ff" Grid.Row="0">
+                    <StackLayout Margin="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <ListView x:Name="lstData" HasUnevenRows="True"  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Frame BackgroundColor="Aqua" IsVisible="{Binding Incoming}" Grid.Column="0"
+                                              Padding="10"
+                                              Margin="10,10,80,10"
+                                              HasShadow="false">
+                                                <Label Text="{Binding MessageBody}"/>
+                                            </Frame>
+
+                                            <Frame BackgroundColor="Beige" IsVisible="{Binding Outgoing}" Grid.Column="1"
+                                              Padding="10"
+                                              Margin="80,10,10,10"
+                                              HasShadow="false">
+                                                <Label Text="{Binding MessageBody}"/>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        
+
+                    </StackLayout>
+                </ScrollView>
+                <Grid Grid.Row="1" RowSpacing="0" 
+                            ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="chatTextInput" 
+                                 
+                                 Margin="1"  
+                                 TextColor="Black" 
+                                 Keyboard="Chat"  
+                                 HorizontalOptions="FillAndExpand" 
+                                 PlaceholderColor="LightGray"
+                                 Placeholder="Type your message here"
+                                 Grid.Row="0" 
+                                 Grid.Column="0"/>
+                    <Label Text="Send"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               VerticalTextAlignment="Center">
+                        --><!--<Label.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                      Command="{Binding OnSendCommand}"
+                                      Tapped="Handle_Completed"/>
+                                </Label.GestureRecognizers>--><!--
+                    </Label>
+                </Grid>
+            </Grid>
+
+        </Grid>-->
+
+    <!--<Grid>
+        <RefreshView x:DataType="local:ChatViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Grid.Row="0">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Messages}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Message">
+
+                            <Frame x:Name="frame1" BackgroundColor="LightBlue" 
+                              Padding="10" 
+                              HasShadow="false" >
+                                <Label Text="{Binding MessageBody}"/>
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </RefreshView>
+
+        <RefreshView x:DataType="local:ChatViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Grid.Row="1">
+            <CollectionView x:Name="ItemsListView2"
+                ItemsSource="{Binding Messages}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Message">
+
+                            <Frame BackgroundColor="Orange" 
+                              Padding="10"
+                              HasShadow="false" Margin="{Binding margin}">
+                                <Label Text="{Binding MessageBody}"/>
+                            </Frame>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </RefreshView>
+
+    </Grid>-->
+    </ContentPage.Content>
+</ContentPage>

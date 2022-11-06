@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="this"
+             x:Class="MobileApp.CardView.CardSalesTemplate">
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="{Binding CardColor}"
+           BorderColor="{Binding BorderColor}"
+           CornerRadius="5"
+           HasShadow="True"
+           Padding="8"
+           VerticalOptions="Center"
+           HorizontalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0"
+                   Text="{Binding CardTitle, FallbackValue='Card Title'}"
+                   FontSize="18"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start" />
+            <Label Grid.Row="1"
+                   Text="{Binding CardFill, FallbackValue='Rp XXX'}"
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill"
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start"/>
+            <Label Grid.Row="2"
+                   Text="{Binding CardDescription, FallbackValue='from last month.'}"
+                   FontSize="10"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill" 
+                   VerticalTextAlignment="Start"
+                   HorizontalTextAlignment="Start"/>
+
+        </Grid>
+    </Frame>
+</ContentView>
