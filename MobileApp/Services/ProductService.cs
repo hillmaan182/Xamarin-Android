@@ -20,6 +20,15 @@ namespace MobileApp.Services
             var _dbContext = getContext();
             var res = await _dbContext.Product.ToListAsync();
             var result = await _dbContext.Product.Where(x => x.ProductCategory == category).ToListAsync();
+
+            return result;
+        }
+
+        public async Task<List<Products>> GetAllProductsVendor(string category , int? vendorId)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Product.ToListAsync();
+            var result = await _dbContext.Product.Where(x => x.ProductCategory == category && x.VendorID == vendorId).ToListAsync();
             return result;
         }
 

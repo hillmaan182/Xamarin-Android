@@ -50,6 +50,14 @@ namespace MobileApp.ViewModels
             set { SetProperty(ref isOutcome, value); }
         }
 
+        bool isEnabled = false;
+
+        public bool IsEnabled
+        {
+            get { return isEnabled; }
+            set { SetProperty(ref isEnabled, value); }
+        }
+
         Color borderIncome = Color.Beige;
 
         public Color BorderIncome

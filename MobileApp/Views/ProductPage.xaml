@@ -4,116 +4,81 @@
              x:Class="MobileApp.Views.ProductPage"
              xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Products">
 
-    <ContentPage.Content>
 
-        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#73d8eb</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <view:CardViewHeaderTemplate BorderColor="Beige"
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
                                CardTitle="Good Morning,"
-                               BackgroundColor="Beige"
                                CardDescription="{Binding User}"
-                               IconBackgroundColor="Beige"/>
+                               IconBackgroundColor="SlateGray" Grid.Row="0"/>
 
-            <!--<Grid ColumnSpacing="0" Grid.Row="1">
-                <SearchBar Placeholder="Search products..."
-                   CancelButtonColor="Black"
-                   PlaceholderColor="Beige"
-                   TextColor="Black"
-                   TextTransform="Lowercase"
-                   HorizontalTextAlignment="Center"
-                   FontSize="Medium"
-                   FontAttributes="Bold" BackgroundColor="Transparent" Margin="20"/>
-            </Grid>-->
-            
-            <Grid ColumnSpacing="0" Grid.Row="1">
-                <StackLayout Padding="10" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Button 
+        <Button 
                     Text="Add Product"
                     x:Name="btnAddRecord" Clicked="btnAddRecord_Clicked" 
                     BorderWidth="1" 
-                    BorderColor="Beige" 
-                    BackgroundColor="Beige" 
+                    BorderColor="#153462" 
+                    BackgroundColor="#FBF2CF" 
                     BorderRadius="8"
                     TextColor="Black"
                     ImageSource="icon_add.png"
-                        />
-                </StackLayout>
-            </Grid>
-           
-            <Grid RowSpacing="0" ColumnSpacing="0" Grid.Row="2" >
+                    Grid.Row="1" 
+                    Padding="10" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-                <ScrollView BackgroundColor="#96d1ff">
-
-                    <StackLayout Margin="30" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                        <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" >
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell >
-                                        <Frame BackgroundColor="Beige">
-                                            <Grid BackgroundColor="Transparent">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto"></RowDefinition>
-                                                    <RowDefinition Height="Auto"></RowDefinition>
-                                                    <RowDefinition Height="Auto"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition></ColumnDefinition>
-                                                    <ColumnDefinition></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Text="{Binding ProductName}" Grid.Row="0" Grid.ColumnSpan="2" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="25"/>
-                                                <Label Text="Rp :" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
-                                                <Label Text="{Binding ProductPrice}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" FontSize="20" FontAttributes="Bold"/>
-                                                <Label Text="Sisa Produk : " Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" FontSize="15"/>
-                                                <Label Text="{Binding ProductSisa}" Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" FontSize="15"/>
-                                            </Grid>
-                                        </Frame>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </ScrollView>
-
-            </Grid>
-
-
-
-        </Grid>
-
-        <!--<StackLayout Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Button Text="Add New Record" x:Name="btnAddRecord"  HorizontalOptions="Start"  Clicked="btnAddRecord_Clicked" />
-
-            <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" >
+        <ScrollView Grid.Row="2" BackgroundColor="#73d8eb">
+            <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" Margin="5">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
-                            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                <Grid BackgroundColor="Orange">
+                            <Frame BackgroundColor="White" Padding="12" Margin="15" CornerRadius="8" BorderColor="#40B5AD">
+                                <Grid BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
                                         <RowDefinition Height="Auto"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding ProductName}"   Grid.Row="0" Grid.Column="0" TextColor="Black" />
-                                    <Label Text="{Binding ProductPrice}" Grid.Row="0" Grid.Column="1" />
-                                    <Label Text="{Binding ProductSisa}" Grid.Row="0" Grid.Column="2" />
-                                    -->
-        <!--<Image Source="{Binding ProductImage}" Grid.Row="0" Grid.Column="3"/>-->
-        <!--
+                                    <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
+                                           Grid.Row="0" Grid.ColumnSpan="2" WidthRequest="95" HeightRequest="95"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ProductName}" 
+                                           Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="25"/>
+                                    <!--<Label Text="Rp :" Grid.Row="2" Grid.Column="0" 
+                                           HorizontalOptions="End"  VerticalOptions="End"
+                                           FontSize="20" FontAttributes="Bold"/>-->
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                           Grid.Row="2" Grid.ColumnSpan="2" 
+                                           HorizontalOptions="Center" VerticalOptions="Center"
+                                           FontSize="20" FontAttributes="Bold"/>
+                                    <!--<Label Text="Sisa Produk : " 
+                                           Grid.Row="3" Grid.Column="0" 
+                                           HorizontalOptions="End" VerticalOptions="End" 
+                                           FontSize="15"/>-->
+                                    <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
+                                           Grid.Row="3" Grid.ColumnSpan="2"
+                                           HorizontalOptions="Center" VerticalOptions="Center"
+                                           FontSize="15"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>-->
-    </ContentPage.Content>
+        </ScrollView>
+    </Grid>
 </ContentPage>

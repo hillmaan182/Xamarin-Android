@@ -5,22 +5,19 @@
              xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Sales">
     <ContentPage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="125" />
                 <RowDefinition Height="75" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Grid ColumnSpacing="0" Grid.Row="0" RowSpacing="10">
-                <view:CardViewHeaderTemplate BorderColor="Beige"
+            <view:CardViewHeaderTemplate BorderColor="DarkGray"
                                CardTitle="Good Morning,"
-                               BackgroundColor="#96d1ff"
                                CardDescription="{Binding User}"
-                               IconBackgroundColor="Beige"/>
-            </Grid>
-           
+                               IconBackgroundColor="SlateGray" Grid.Row="0"/>
+
             <Grid ColumnSpacing="0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -39,7 +36,7 @@
                     CornerRadius="15"
                     FontAttributes="Bold"
                     />
-                    
+
                 </StackLayout>
 
                 <StackLayout Padding="5" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1">

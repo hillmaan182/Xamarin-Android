@@ -85,6 +85,8 @@ namespace MobileApp.Views
         {
             Vendor obj = new Vendor();
             obj.VendorName = "Vendor A";
+            obj.VendorAddress = "Jalan A no 1";
+            obj.VendorPhone = "02112345678";
             obj.VendorEmail = "vendorA@gmail.com";
             vendor.InsertVendor(obj);
 

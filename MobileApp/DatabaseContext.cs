@@ -20,7 +20,7 @@ namespace MobileApp
         // overrides the OnConfigure Method 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev11.db");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev17.db");
             optionsBuilder.UseSqlite($"Filename={dbPath}");
         }
     }

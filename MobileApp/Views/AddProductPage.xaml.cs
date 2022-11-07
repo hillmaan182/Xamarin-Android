@@ -17,12 +17,14 @@ namespace MobileApp.Views
         ProductService _services;
         bool _isUpdate;
         int ProductID;
+        int? VendorID;
         public AddProductPage()
         {
             //btnImage.Source = "icon_image_add.png";
             InitializeComponent();
             _services = new ProductService();
             _isUpdate = false;
+            VendorID =  ((App)App.Current).vendorID;
         }
 
         string PhotoPath = null;
@@ -80,8 +82,8 @@ namespace MobileApp.Views
                 string b = "Service";
                 ProductID = obj.ID;
                 txtName.Text = obj.ProductName;
-                txtPrice.Text = obj.ProductPrice;
-                txtSisa.Text = obj.ProductSisa;
+                txtPrice.Text = obj.ProductPrice.ToString();
+                txtSisa.Text = obj.ProductSisa.ToString();
                 txtDescription.Text = obj.ProductDescription;
                 txtSpecification.Text = obj.ProductSpecification;
                 PhotoPath = obj.ProductImage;
@@ -119,11 +121,12 @@ namespace MobileApp.Views
         {
             Products obj = new Products();
             obj.ProductName = txtName.Text;
-            obj.ProductPrice = txtPrice.Text;
-            obj.ProductSisa = txtSisa.Text;
+            obj.ProductPrice = Int32.Parse(txtPrice.Text);
+            obj.ProductSisa = Int32.Parse(txtSisa.Text);
             obj.ProductImage = PhotoPath;
             obj.ProductSpecification = txtSpecification.Text;
             obj.ProductDescription = txtDescription.Text;
+            obj.VendorID = VendorID;
             if (rb1.IsChecked)
             {
                 obj.ProductCategory = "Product";
@@ -132,22 +135,26 @@ namespace MobileApp.Views
             {
                 obj.ProductCategory = "Service";
             }
-            
+
             if (_isUpdate)
             {
                 obj.ID = ProductID;
-                await _services.UpdateProduct(obj);
+                _services.UpdateProduct(obj);
             }
             else
             {
                 _services.InsertProduct(obj);
             }
-            //await this.Navigation.PopAsync();
-            await this.Navigation.PushAsync(new ProductPage());
+            ////await this.Navigation.PopAsync();
+            ////await this.Navigation.PushAsync(new ProductPage());
+            ////this.Navigation.PushAsync(new ProductPage());
+            ////this.Navigation.PopAsync(new ProductPage());
+
+            await Shell.Current.GoToAsync("//ProductPage");
         }
         private async void btnCancel_Clicked(object sender, EventArgs e)
         {
-            await this.Navigation.PushAsync(new ProductPage());
+            await Shell.Current.GoToAsync("//ProductPage");
         }
     }
 

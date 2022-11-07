@@ -2,40 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.AddProductPage" Title="Add Products"
-            Visual="Material"
-            BackgroundColor="White">
+             Visual="Material"
+            >
     <ContentPage.Content>
-        <StackLayout Margin="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-            <ImageButton x:Name="btnImage" Source="icon_image_add.png"
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
+
+
+            <StackLayout Margin="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <ImageButton x:Name="btnImage" Source="icon_image_add.png"
                     HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand" Clicked="btnUplImg_Clicked" WidthRequest="155" HeightRequest="155"/>
-            <!--<StackLayout>
+                    VerticalOptions="CenterAndExpand" Clicked="btnUplImg_Clicked" WidthRequest="155" HeightRequest="155" 
+                             BorderColor="Black" BorderWidth="2"/>
+                <!--<StackLayout>
                 <Image x:Name="img" WidthRequest="125" HeightRequest="125"></Image>
             </StackLayout>-->
-            <Entry x:Name="txtName" Placeholder="Enter Product Name" />
-            <StackLayout>
-                <Grid
+                <Entry x:Name="txtName" Placeholder="Enter Product Name" PlaceholderColor="Gray"/>
+                <StackLayout>
+                    <Grid
                     RowDefinitions="*,*"
                     ColumnDefinitions="*,*"
                     ColumnSpacing="10">
-                    <Label Text="Category" Grid.ColumnSpan="2" Grid.Row="0"></Label>
-                    <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="1" Content="Product" CheckedChanged="onRBChanged"/>
-                    <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Service"/>
-                </Grid>
-            </StackLayout>
-            <Entry x:Name="txtDescription" Placeholder="Enter Description" />
-            <Entry x:Name="txtSpecification" Placeholder="Enter Specification" />
-            <Entry x:Name="txtPrice" Placeholder="Enter Price" />
-            <Entry x:Name="txtSisa" Placeholder="Enter Total" />
-            <StackLayout>
-                <Grid
+                        <Label Text="Category" Grid.ColumnSpan="2" Grid.Row="0"></Label>
+                        <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="1" Content="Product" CheckedChanged="onRBChanged" TextColor="Gray"/>
+                        <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Service" TextColor="Gray"/>
+                    </Grid>
+                </StackLayout>
+                <Entry x:Name="txtDescription" Placeholder="Enter Description" PlaceholderColor="Gray"/>
+                <Entry x:Name="txtSpecification" Placeholder="Enter Specification" PlaceholderColor="Gray"/>
+                <Entry x:Name="txtPrice" Placeholder="Enter Price" PlaceholderColor="Gray" Keyboard="Numeric"/>
+                <Entry x:Name="txtSisa" Placeholder="Enter Total" PlaceholderColor="Gray" Keyboard="Numeric"/>
+                <StackLayout>
+                    <Grid
                     RowDefinitions="*,*"
                     ColumnSpacing="10">
-                    <Button x:Name="btnSaveUpdate" Text="Save" Clicked="btnSaveUpdate_Clicked" Grid.Column="0"/>
-                    <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" Grid.Column="1"/>
-                </Grid>
+                        <Button x:Name="btnSaveUpdate" Text="Save" Clicked="btnSaveUpdate_Clicked" Grid.Column="0" CornerRadius="10" 
+                                BorderColor="#153462" 
+                                BackgroundColor="#FBF2CF"  
+                                BorderWidth="1"/>
+                        <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" Grid.Column="1" CornerRadius="10" 
+                                BorderColor="#153462" 
+                                BackgroundColor="#FBF2CF"  
+                                BorderWidth="1"/>
+                    </Grid>
+                </StackLayout>
+
             </StackLayout>
-                
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

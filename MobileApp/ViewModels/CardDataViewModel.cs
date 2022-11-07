@@ -29,8 +29,8 @@ namespace MobileApp.ViewModels
                 {
                     ProductImage = "company_logo.jpg",
                     ProductName = "Product" + i,
-                    ProductPrice = "Rp. " + i,
-                    ProductSisa = "Sisa " + i,
+                    ProductPrice =  i,
+                    ProductSisa =  i,
                 };
                 CardDataCollection.Add(cardData);
 

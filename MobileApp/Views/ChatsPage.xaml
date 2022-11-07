@@ -7,10 +7,10 @@
              xmlns:model="clr-namespace:MobileApp.Models"  
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Grid RowSpacing="0" BackgroundColor="#96d1ff"
+        <Grid RowSpacing="0" BackgroundColor="#73d8eb"
            ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="125" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="1" />
                 <RowDefinition Height="Auto" />

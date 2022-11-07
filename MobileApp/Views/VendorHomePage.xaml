@@ -12,116 +12,92 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="Accent">#73d8eb</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="125" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        
         <view:CardViewHeaderTemplate BorderColor="DarkGray"
                                CardTitle="Good Morning,"
                                CardDescription="{Binding User}"
-                               IconBackgroundColor="SlateGray"/>
-        
-        <Grid RowSpacing="0" ColumnSpacing="0" Grid.Row="1">
-            
-            <ScrollView BackgroundColor="#96d1ff">
-                <Grid RowSpacing="0" ColumnSpacing="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                               IconBackgroundColor="SlateGray" Grid.Row="0"/>
 
-                    <StackLayout Grid.ColumnSpan="2" Grid.Row="0">
+        <ScrollView BackgroundColor="#73d8eb" Grid.Row="1" Padding="10">
+            <Grid RowSpacing="5" ColumnSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                       
-                    </StackLayout>
+                <Label FontAttributes="Bold" FontSize="20" Text="Important to Notice" Grid.Row="0"></Label>
 
-                    <StackLayout Grid.ColumnSpan="2" Grid.Row="1">
-                        <Label FontAttributes="Bold" FontSize="20" Text="Important to Notice"></Label>
-                    </StackLayout>
-
-                    <StackLayout Grid.Column="0" Grid.Row="2">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Ready to Ship"
                                CardDescription="0"
-                               IconBackgroundColor="SlateGray"/>
-                    </StackLayout>
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="1" Grid.Column="0" Padding="5"/>
 
-                    <StackLayout Grid.Column="1" Grid.Row="2">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="New Order"
                                CardDescription="0"
-                               />
-                    </StackLayout>
+                               Grid.Row="1" Grid.Column="1" Padding="5"/>
 
-                    <StackLayout Grid.Column="0" Grid.Row="3">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Complaint on Order"
                                CardDescription="0"
-                               IconBackgroundColor="SlateGray"/>
-                    </StackLayout>
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="2" Grid.Column="0" Padding="5"/>
 
-                    <StackLayout Grid.Column="1" Grid.Row="3">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Unread Messages"
                                CardDescription="0"
-                               />
-                    </StackLayout>
+                               Grid.Row="2" Grid.Column="1" Padding="5"/>
 
-                    <StackLayout Grid.Column="0" Grid.Row="4">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Unread Discussion"
                                CardDescription="0"
-                               IconBackgroundColor="SlateGray"/>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" Grid.Row="4">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                               IconBackgroundColor="SlateGray"
+                               Grid.Row="3" Grid.Column="0" Padding="5"/>
+
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Unreplied Review"
                                CardDescription="0"
-                               />
-                    </StackLayout>
+                               Grid.Row="3" Grid.Column="1" Padding="5"/>
 
-                    <StackLayout Grid.ColumnSpan="2" Grid.Row="5">
-                        <Label FontAttributes="Bold" FontSize="20" Text="Order Summary"></Label>
-                    </StackLayout>
+                <Label FontAttributes="Bold" FontSize="20" Text="Order Summary" Grid.Row="4"></Label>
 
-                    <StackLayout Grid.Column="0" Grid.Row="6">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Product Seen"
                                CardDescription="10"
-                               IconBackgroundColor="SlateGray"/>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" Grid.Row="6">
-                        <view:CardViewTemplate BorderColor="DarkGray"
+                               IconBackgroundColor="SlateGray"
+                               Grid.Row="5" Grid.Column="0" Padding="5"/>
+                
+                <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Product Sold"
                                CardDescription="10"
-                               />
-                    </StackLayout>
+                               Grid.Row="5" Grid.Column="1" Padding="5"/>
 
-                    <StackLayout Grid.ColumnSpan="2" Grid.Row="7">
-                        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                <view:CardViewHeaderTemplate BorderColor="DarkGray"
                                CardTitle=""
                                CardDescription=""
-                               />
-                    </StackLayout>
+                               Grid.Row="6" Grid.ColumnSpan="2" Padding="5"/>
 
-                </Grid>
-            </ScrollView>
-        </Grid>
+            </Grid>
+        </ScrollView>
     </Grid>
 </ContentPage>

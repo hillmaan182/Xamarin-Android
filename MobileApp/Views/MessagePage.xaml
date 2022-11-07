@@ -9,10 +9,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#96d1ff">
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="125" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -23,7 +23,7 @@
 
         <Grid RowSpacing="0" ColumnSpacing="0" Grid.Row="1">
 
-            <ScrollView BackgroundColor="#96d1ff">
+            <ScrollView BackgroundColor="#73d8eb">
                 <StackLayout Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                     <!--<Grid>
