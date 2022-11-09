@@ -16,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="125" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <view:CardViewHeaderTemplate BorderColor="DarkGray"
@@ -36,14 +36,60 @@
                     Grid.Row="1" 
                     Padding="10" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-        <ScrollView Grid.Row="2" BackgroundColor="#73d8eb">
+        <!--<CarouselView Grid.Row="2" BackgroundColor="#73d8eb" x:Name="lstData">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"
+                           SnapPointsType="MandatorySingle"
+                           SnapPointsAlignment="Start" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame BorderColor="Gray" Margin="8" HasShadow="True" HeightRequest="250" CornerRadius="20" VerticalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}"/>
+                                <Label Text="{Binding ProductName}" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="lstData_ItemSelected"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>-->
+
+        <ScrollView Grid.Row="2" BackgroundColor="#73d8eb" >
             <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" Margin="5">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
-                            <Frame BackgroundColor="White" Padding="12" Margin="15" CornerRadius="8" BorderColor="#40B5AD">
+                        <ViewCell>
+                            <Frame BackgroundColor="White" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
                                 <Grid BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="95"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ProductName}" 
+                                           Grid.Row="0" Grid.Column="1" TextColor="Black" HorizontalOptions="Start" FontSize="25"/>
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                           Grid.Row="1" Grid.Column="1" 
+                                           HorizontalOptions="Start" VerticalOptions="Start"
+                                           FontSize="20" FontAttributes="Bold"/>
+                                    <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
+                                           Grid.Row="2" Grid.Column="1"
+                                           HorizontalOptions="Start" VerticalOptions="Start"
+                                           FontSize="15"/>
+
+                                    <!--<Grid.RowDefinitions>
                                         <RowDefinition Height="100"></RowDefinition>
                                         <RowDefinition Height="Auto"></RowDefinition>
                                         <RowDefinition Height="Auto"></RowDefinition>
@@ -58,21 +104,21 @@
                                            HorizontalOptions="Center" VerticalOptions="Center"/>
                                     <Label Text="{Binding ProductName}" 
                                            Grid.Row="1" Grid.ColumnSpan="2" TextColor="Black" HorizontalOptions="CenterAndExpand" FontSize="25"/>
-                                    <!--<Label Text="Rp :" Grid.Row="2" Grid.Column="0" 
+                                    <Label Text="Rp :" Grid.Row="2" Grid.Column="0" 
                                            HorizontalOptions="End"  VerticalOptions="End"
-                                           FontSize="20" FontAttributes="Bold"/>-->
+                                           FontSize="20" FontAttributes="Bold"/>
                                     <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
                                            Grid.Row="2" Grid.ColumnSpan="2" 
                                            HorizontalOptions="Center" VerticalOptions="Center"
                                            FontSize="20" FontAttributes="Bold"/>
-                                    <!--<Label Text="Sisa Produk : " 
+                                    <Label Text="Sisa Produk : " 
                                            Grid.Row="3" Grid.Column="0" 
                                            HorizontalOptions="End" VerticalOptions="End" 
-                                           FontSize="15"/>-->
+                                           FontSize="15"/>
                                     <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
                                            Grid.Row="3" Grid.ColumnSpan="2"
                                            HorizontalOptions="Center" VerticalOptions="Center"
-                                           FontSize="15"/>
+                                           FontSize="15"/>-->
                                 </Grid>
                             </Frame>
                         </ViewCell>
@@ -80,5 +126,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
+
+
     </Grid>
 </ContentPage>

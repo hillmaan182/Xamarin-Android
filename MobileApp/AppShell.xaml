@@ -110,6 +110,9 @@
     <FlyoutItem Title="Others" Icon="icon_other.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="OthersPage" ContentTemplate="{DataTemplate local:OthersPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Others" Icon="icon_other.png" IsVisible="{Binding IsVendor}">
+        <ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}" />
+    </FlyoutItem>
 
     <!--Shipyard Menu-->
     <FlyoutItem Title="Home" Icon="icon_home.png" IsVisible="{Binding IsUser}">
@@ -142,6 +145,8 @@
         <ShellContent Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
         <ShellContent Route="ChatsPage" ContentTemplate="{DataTemplate local:ChatsPage}" />
         <ShellContent Route="TestPage" ContentTemplate="{DataTemplate local:TestPage}"/>
+        <ShellContent Route="VendorProductPage" ContentTemplate="{DataTemplate local:VendorProductPage}"/>
+        <!--<ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}"/>-->
     </TabBar>
 
     <!-- Optional Templates 

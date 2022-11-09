@@ -12,10 +12,25 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [QueryProperty("Param", "Param")]
     public partial class CompanyProfilePage : ContentPage
     {
         VendorService vs;
         int? id;
+
+        string param;
+        public string Param
+        {
+            set
+            {
+                param = Uri.UnescapeDataString(value ?? string.Empty);
+            }
+            get
+            {
+                return param;
+            }
+        }
+
         public CompanyProfilePage()
         {
             id = ((App)App.Current).vendorID;
@@ -25,11 +40,19 @@ namespace MobileApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            showVendorProfile();
+            int? vendorId;
+            if (id != null)
+            {
+                vendorId = id;
+            }else
+            {
+                vendorId = Convert.ToInt32(param);
+            }
+            showVendorProfile(vendorId);
         }
-        private void showVendorProfile()
+        private void showVendorProfile(int? idvendor)
         {
-            var res = vs.GetVendorById(id).Result;
+            var res = vs.GetVendorById(idvendor).Result;
             lvVendor.ItemsSource = res;
         }
     }

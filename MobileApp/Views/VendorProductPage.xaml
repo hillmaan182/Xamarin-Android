@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.VendorProductPage" Title="Product">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <SearchBar Placeholder="type to search" Grid.Row="0"/>
+
+        <ScrollView Grid.Row="1" BackgroundColor="#73d8eb" >
+            <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="White" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
+                                <Grid BackgroundColor="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="95"
+                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ProductName}" 
+                                           Grid.Row="0" Grid.Column="1" TextColor="Black" HorizontalOptions="Start" FontSize="25"/>
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                           Grid.Row="1" Grid.Column="1" 
+                                           HorizontalOptions="Start" VerticalOptions="Start"
+                                           FontSize="20" FontAttributes="Bold"/>
+                                    <Label Text="{Binding VendorName}" 
+                                           Grid.Row="2" Grid.Column="1"
+                                           HorizontalOptions="Start" VerticalOptions="Start"
+                                           FontSize="15"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        
+    </Grid>
+</ContentPage>

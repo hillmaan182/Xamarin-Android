@@ -44,11 +44,11 @@ namespace MobileApp.Views
 
         private async void lstData_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-           
+
             if (e.SelectedItem != null)
             {
                 Products obj = (Products)e.SelectedItem;
-                string res = await DisplayActionSheet("Operation", "Cancel", null,"Delete");
+                string res = await DisplayActionSheet("Operation", "Cancel", null, "Delete");
 
                 switch (res)
                 {

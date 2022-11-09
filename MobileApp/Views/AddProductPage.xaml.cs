@@ -119,6 +119,7 @@ namespace MobileApp.Views
 
         private async void btnSaveUpdate_Clicked(object sender, EventArgs e)
         {
+
             Products obj = new Products();
             obj.ProductName = txtName.Text;
             obj.ProductPrice = Int32.Parse(txtPrice.Text);
@@ -126,7 +127,7 @@ namespace MobileApp.Views
             obj.ProductImage = PhotoPath;
             obj.ProductSpecification = txtSpecification.Text;
             obj.ProductDescription = txtDescription.Text;
-            obj.VendorID = VendorID;
+            obj.VendorID = (int)VendorID;
             if (rb1.IsChecked)
             {
                 obj.ProductCategory = "Product";

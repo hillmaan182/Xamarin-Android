@@ -15,6 +15,15 @@ namespace MobileApp.Services
             return new DatabaseContext();
         }
 
+        public async Task<List<Products>> GetProductById(int id)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Product.ToListAsync();
+            var result = await _dbContext.Product.Where(x => x.ID == id).ToListAsync();
+
+            return result;
+        }
+
         public async Task<List<Products>> GetAllProducts(string category)
         {
             var _dbContext = getContext();

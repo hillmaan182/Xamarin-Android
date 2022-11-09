@@ -27,7 +27,11 @@ namespace MobileApp
             MainPage = new AppShell();
             if (!IsUserLoggedIn)
             {
+                int id = 1;
                 Shell.Current.GoToAsync("//LoginPage");
+                //Shell.Current.GoToAsync($"//ProductUserDetailPage?param={id.ToString()}");
+                //Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param=1");
+                //Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?id=1");
             }
         }
        

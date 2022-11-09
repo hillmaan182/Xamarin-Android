@@ -45,7 +45,7 @@
                    FontAttributes="Bold"
                    FontSize="18"
                    VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Start" />
+                   HorizontalTextAlignment="Start" TextColor="Black"/>
             <BoxView Grid.Row="1"
                      Grid.ColumnSpan="2"
                      BackgroundColor="{Binding BorderColor, FallbackValue='Black'}"
@@ -56,7 +56,7 @@
                    Text="{Binding CardDescription, FallbackValue='Card description text.'}"
                    VerticalTextAlignment="Start"
                    VerticalOptions="Fill"
-                   HorizontalOptions="Fill" />
+                   HorizontalOptions="Fill" TextColor="Black"/>
 
         </Grid>
     </Frame>

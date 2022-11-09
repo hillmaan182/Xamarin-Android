@@ -38,6 +38,7 @@ namespace MobileApp.Views
         }
         private void BtnRegister_Clicked(object sender, EventArgs e)
         {
+            
             Shell.Current.GoToAsync("//RegisterPage");
             ((App)App.Current).userLoggedIn = "";
         }

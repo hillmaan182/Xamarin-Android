@@ -30,20 +30,16 @@
                    FontAttributes="Bold"
                    FontSize="Large"
                    VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Start" />
+                   HorizontalTextAlignment="Start" TextColor="Black"/>
             <Image Grid.RowSpan="3"
                    Grid.Column="1" HorizontalOptions="End" Source="company_logo.png"/>
-            <!--<BoxView Grid.Row="1"
-                     Grid.ColumnSpan="2"
-                     BackgroundColor="{Binding BorderColor, FallbackValue='Black'}"
-                     HeightRequest="1"
-                     HorizontalOptions="Fill" />-->
+           
             <Label Grid.Row="2"
                    Grid.Column="0"
                    Text="{Binding CardDescription, FallbackValue='Card description text.'}"
                    VerticalTextAlignment="Start"
                    VerticalOptions="Fill"
-                   HorizontalOptions="Fill" />
+                   HorizontalOptions="Fill" TextColor="Black"/>
 
         </Grid>
     </Frame>

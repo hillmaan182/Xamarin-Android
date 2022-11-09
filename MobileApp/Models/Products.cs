@@ -20,7 +20,7 @@ namespace MobileApp.Models
         public string ProductSpecification { get; set; }
         public string ProductDescription { get; set; }
 
-        public int? VendorID { get; set; }
+        public int VendorID { get; set; }
         public Vendor Vendor { get; set; }
 
     }

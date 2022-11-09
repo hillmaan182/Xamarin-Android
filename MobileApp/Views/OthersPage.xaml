@@ -6,127 +6,194 @@
              xmlns:effects="clr-namespace:MobileApp.Effects">
     <ContentPage.Content>
 
-        <StackLayout Margin="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#73d8eb" Padding="15">
+        <StackLayout Margin="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#73d8eb">
             <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Frame BackgroundColor="Transparent" CornerRadius="8" BorderColor="Transparent" Grid.Row="0" Grid.ColumnSpan="2" Padding="5">
-                    <Grid BackgroundColor="Transparent">
+                <Frame Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Transparent">
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="40"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
-                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <ImageButton x:Name="vendorImage" Source="icon_noimage.jpg" 
-                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="100" HeightRequest="100"
-                                           HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" 
-                                           IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
-                                           Clicked="btnUplImg_Clicked"/>
+                                     IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
+                                     Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5"/>
 
-                        <Entry x:Name="txtVendorName" 
-                                           Grid.Row="0" Grid.Column="1" 
-                                           TextColor="Black" HorizontalOptions="Start" FontSize="20" 
-                                           IsEnabled="{Binding IsEnabled}">
+                        <Entry x:Name="txtVendorName" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
                             <Entry.Effects>
                                 <effects:PlainEntry/>
                             </Entry.Effects>
                         </Entry>
 
-                        <Entry x:Name="vendorjenis" Text="Jenis Pekerjaan"
+                        <Entry Text="Title" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
+                            <Entry.Effects>
+                                <effects:PlainEntry/>
+                            </Entry.Effects>
+                        </Entry>
+
+                        <Entry x:Name="txtVendorAddress" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
+                            <Entry.Effects>
+                                <effects:PlainEntry/>
+                            </Entry.Effects>
+                        </Entry>
+
+                        <ImageButton x:Name="updateImg" Source="icon_update.png" Grid.Row="0" Grid.Column="2" BackgroundColor="Transparent"
+                                           HeightRequest="20" Clicked="Update_Clicked"/>
+
+                        <ImageButton Source="icon_check.png" Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsEnabled}" BackgroundColor="Transparent"
+                                           HeightRequest="20"
+                                           Clicked="Check_Clicked"/>
+
+                        <ImageButton Source="icon_close.png" Grid.Row="2" Grid.Column="2" IsVisible="{Binding IsEnabled}" BackgroundColor="Transparent"
+                                           HeightRequest="20" Clicked="Cancel_Clicked"/>
+                    </Grid>
+
+                </Frame>
+                
+                <!--<Frame BackgroundColor="Transparent" CornerRadius="8" BorderColor="Transparent" Grid.Row="0" Grid.ColumnSpan="2" Padding="5">-->
+                <!--<Grid BackgroundColor="Transparent" Grid.Row="10" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    --><!--<ImageButton x:Name="vendorImage" Source="icon_noimage.jpg" 
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="100" HeightRequest="150"
+                                           HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" 
+                                           IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
+                                           Clicked="btnUplImg_Clicked"/>--><!--
+
+                    <Entry x:Name="txtVendorName" 
+                                           Grid.Row="0" Grid.Column="1" 
+                                           TextColor="Black" HorizontalOptions="Start" FontSize="25" 
+                                           IsEnabled="{Binding IsEnabled}">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
+
+                    <Entry x:Name="vendorjenis" Text="Jenis Pekerjaan"
                                            Grid.Row="1" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="20"  
-                                           IsEnabled="{Binding IsEnabled}" />
+                                           FontSize="25" 
+                                           IsEnabled="{Binding IsEnabled}">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
 
-                        <Entry x:Name="txtVendorAddress" 
+                    <Entry x:Name="txtVendorAddress" 
                                            Grid.Row="2" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="20"
-                                           IsEnabled="{Binding IsEnabled}" />
+                                           FontSize="25" 
+                                           IsEnabled="{Binding IsEnabled}">
+                        <Entry.Effects>
+                            <effects:PlainEntry/>
+                        </Entry.Effects>
+                    </Entry>
 
-                        <ImageButton x:Name="updateImg" Source="icon_update.png" Grid.Row="0" Grid.Column="2" 
+                    <ImageButton x:Name="updateImg" Source="icon_update.png" Grid.Row="0" Grid.Column="2" 
                                            VerticalOptions="End" HorizontalOptions="End" Clicked="Update_Clicked"/>
 
-                        <ImageButton Source="icon_check.png" Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsEnabled}" 
+                    <ImageButton Source="icon_check.png" Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsEnabled}" 
                                            VerticalOptions="End" HorizontalOptions="End"
                                            Clicked="Check_Clicked"/>
 
-                        <ImageButton Source="icon_close.png" Grid.Row="2" Grid.Column="2" IsVisible="{Binding IsEnabled}" 
+                    <ImageButton Source="icon_close.png" Grid.Row="2" Grid.Column="2" IsVisible="{Binding IsEnabled}" 
                                            VerticalOptions="End" HorizontalOptions="End" Clicked="Cancel_Clicked"/>
-                    </Grid>
-                </Frame>
+                </Grid>-->
+                <!--</Frame>-->
 
                 <!--<Image Source="company_logo.png" Grid.RowSpan="3" Grid.Column="0"/>
                 <Label Text="PT. XYZ"/>
                 <Label Text="Jenis Pekerjaan"/>
                 <Label Text="Alamat Perusahaan" />-->
+                <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Transparent">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="25"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
 
-                <Label Text="My Activity" Grid.ColumnSpan="2" Grid.Row="1" FontAttributes="Bold" FontSize="25"/>
+                        <Label Text="My Activity" Grid.ColumnSpan="2" Grid.Row="0" FontAttributes="Bold" FontSize="25"/>
 
-                <Image Source="icon_about.png" Grid.Column="0" Grid.Row="2"/>
-                <Label Text="On Going Transaction" Grid.Column="1" Grid.Row="2" FontSize="20" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnGoing_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Image Source="icon_about.png" Grid.Column="0" Grid.Row="1"/>
+                        <Label Text="On Going Transaction" Grid.Column="1" Grid.Row="1" FontSize="20" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGoing_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                <Image Source="icon_other.png" Grid.Column="0" Grid.Row="3"/>
-                <Label Text="History" Grid.Column="1" Grid.Row="3" FontSize="20" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="History_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Image Source="icon_other.png" Grid.Column="0" Grid.Row="2"/>
+                        <Label Text="History" Grid.Column="1" Grid.Row="2" FontSize="20" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="History_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                <Image Source="icon_feed.png" Grid.Column="0" Grid.Row="4"/>
-                <Label Text="Trusted Partners" Grid.Column="1" Grid.Row="4" FontSize="20" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Trusted_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Image Source="icon_feed.png" Grid.Column="0" Grid.Row="3"/>
+                        <Label Text="Trusted Partners" Grid.Column="1" Grid.Row="3" FontSize="20" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Trusted_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                <Label Text="My Account" Grid.ColumnSpan="2" Grid.Row="5" FontAttributes="Bold" FontSize="25"/>
+                        <Label Text="My Account" Grid.ColumnSpan="2" Grid.Row="4" FontAttributes="Bold" FontSize="25"/>
 
-                <Image Source="icon_chat.png" Grid.Column="0" Grid.Row="6"/>
-             
-                <Label Text="Company Profile" Grid.Column="1" Grid.Row="6" FontSize="20">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Account_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
-                <Image Source="icon_other.png" Grid.Column="0" Grid.Row="7"/>
-                <Label Text="Legal Document" Grid.Column="1" Grid.Row="7" FontSize="20" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Legal_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Image Source="icon_chat.png" Grid.Column="0" Grid.Row="5"/>
 
-                <Label Text="Help Center" Grid.ColumnSpan="2" Grid.Row="8" FontAttributes="Bold" FontSize="25"/>
+                        <Label Text="Company Profile" Grid.Column="1" Grid.Row="5" FontSize="20">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Account_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Image Source="icon_other.png" Grid.Column="0" Grid.Row="6"/>
+                        <Label Text="Legal Document" Grid.Column="1" Grid.Row="6" FontSize="20" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Legal_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                <Image Source="icon_product.png" Grid.Column="0" Grid.Row="9"/>
-                <Label Text="Contact Us" Grid.Column="1" Grid.Row="9" FontSize="20" >
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="Contact_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
+                        <Label Text="Help Center" Grid.ColumnSpan="2" Grid.Row="7" FontAttributes="Bold" FontSize="25"/>
+
+                        <Image Source="icon_product.png" Grid.Column="0" Grid.Row="8"/>
+                        <Label Text="Contact Us" Grid.Column="1" Grid.Row="8" FontSize="20" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Contact_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+                
 
             </Grid>
         </StackLayout>

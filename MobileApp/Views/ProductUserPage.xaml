@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ProductUserPage"
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Products">
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                               CardTitle="Good Morning,"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="0"
+                               Grid.ColumnSpan="2"/>
+
+        <SearchBar x:Name="searchText" Text="type to search . . ." BackgroundColor="Transparent"  
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
+
+        <Label Text="Search Category"
+               FontAttributes="Bold"
+               FontSize="30"
+               Grid.Row="2"
+               Grid.ColumnSpan="2"/>
+
+        <Button ImageSource="icon_product_48.png" Text="Product" Grid.Row="3" Grid.Column="0" CornerRadius="8" Padding="5" Margin="5"/>
+        <Button ImageSource="icon_product_48.png" Text="Product" Grid.Row="3" Grid.Column="1" CornerRadius="8" Padding="5" Margin="5"/>
+    </Grid>
+</ContentPage>

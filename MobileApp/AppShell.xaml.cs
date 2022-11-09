@@ -11,6 +11,8 @@ namespace MobileApp
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(ProductUserDetailPage), typeof(ProductUserDetailPage));
+            Routing.RegisterRoute(nameof(CompanyProfilePage), typeof(CompanyProfilePage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
