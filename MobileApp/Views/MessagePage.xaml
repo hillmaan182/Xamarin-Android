@@ -39,7 +39,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Beige" Margin="5" CornerRadius="20">
+                                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Beige" Margin="5" CornerRadius="20" BorderColor="DarkGray">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="50"></RowDefinition>
@@ -49,8 +49,8 @@
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Image Source="icon_user.png" Grid.RowSpan="2" Grid.Column="0"/>
-                                            <Label Text="{Binding MessageSender}"   Grid.Row="0" HorizontalOptions="Start" Grid.Column="1" FontAttributes="Bold" FontSize="35"/>
-                                            <Label Text="{Binding MessageUnread}" Grid.Row="1" HorizontalOptions="Start" Grid.Column="1"/>
+                                            <Label Text="{Binding MessageSender}"   Grid.Row="0" HorizontalOptions="Start" Grid.Column="1" FontAttributes="Bold" FontSize="35" TextColor="Black"/>
+                                            <Label Text="{Binding MessageUnread}" Grid.Row="1" HorizontalOptions="Start" Grid.Column="1" TextColor="Black"/>
                                         </Grid>
                                     </Frame>
                                 </ViewCell>

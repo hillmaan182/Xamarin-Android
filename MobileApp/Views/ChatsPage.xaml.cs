@@ -20,17 +20,21 @@ namespace MobileApp.Views
         private string Username;
         private string Vendorname;
 
-        public ChatsPage(string uname)
+        public ChatsPage(string uname , string vendor)
         {
             InitializeComponent();
-            //this.BindingContext = new CardDataViewModel();
-            //this.BindingContext = new MessageViewModel();
-            this.BindingContext = new ChatViewModel(uname);
-            //BindingContext = _viewModel = new ChatViewModel();
-            
-            ms = new MessageService();
-            Vendorname = ((App)App.Current).vendorName;
+            if (vendor == null)
+            {
+                this.BindingContext = new ChatViewModel(uname);
+                Vendorname = ((App)App.Current).vendorName;
+            } else
+            {
+                this.BindingContext = new ChatViewModel(vendor);
+                Vendorname = vendor;
+                Username = uname;
+            }
 
+            ms = new MessageService();
         }
         private DatabaseContext getContext()
         {
@@ -48,8 +52,7 @@ namespace MobileApp.Views
 
         private void showMessages()
         {
-
-            var res = ms.GetMessagesByUser("user","vendora").Result;
+            var res = ms.GetMessagesByUser(Username, Vendorname).Result;
             lstData.ItemsSource = res;
         }
      
@@ -60,7 +63,7 @@ namespace MobileApp.Views
 
             Message m = new Message();
             m.MessageSender = "user";
-            m.MessageReceiver = "vendora";
+            m.MessageReceiver = "vendorp1";
             m.MessageBody = "Halo min";
             m.MessageTime = DateTime.Now;
             m.MessageIsRead = true;
@@ -68,14 +71,14 @@ namespace MobileApp.Views
 
             Message m2 = new Message();
             m2.MessageSender = "user";
-            m2.MessageReceiver = "vendora";
+            m2.MessageReceiver = "vendorp1";
             m2.MessageBody = "mau nanya nih ...";
             m2.MessageTime = DateTime.Now;
             m2.MessageIsRead = true;
             ms.InsertMessage(m2);
 
             Message m3 = new Message();
-            m3.MessageSender = "vendora";
+            m3.MessageSender = "vendorp1";
             m3.MessageReceiver = "user";
             m3.MessageBody = "iya kak kenapa";
             m3.MessageTime = DateTime.Now;
@@ -84,14 +87,14 @@ namespace MobileApp.Views
 
             Message m4 = new Message();
             m4.MessageSender = "user";
-            m4.MessageReceiver = "vendora";
+            m4.MessageReceiver = "vendorp1";
             m4.MessageBody = "Harga produk a berapa ya , aku ada rencana mau beli nih ...";
             m4.MessageTime = DateTime.Now;
             m4.MessageIsRead = false;
             ms.InsertMessage(m4);
 
             Message m5 = new Message();
-            m5.MessageSender = "vendora";
+            m5.MessageSender = "vendorp1";
             m5.MessageReceiver = "user";
             m5.MessageBody = "bisa ditanyakan ke nomor xxx ini kak untuk pertanyaan lebih lanjut ...";
             m5.MessageTime = DateTime.Now;
@@ -100,14 +103,14 @@ namespace MobileApp.Views
 
             Message m6 = new Message();
             m6.MessageSender = "userb";
-            m6.MessageReceiver = "vendora";
+            m6.MessageReceiver = "vendorp1";
             m6.MessageBody = "Halo min";
             m6.MessageTime = DateTime.Now;
             m6.MessageIsRead = false;
             ms.InsertMessage(m6);
 
             Message m7 = new Message();
-            m7.MessageSender = "vendora";
+            m7.MessageSender = "vendorp1";
             m7.MessageReceiver = "usera";
             m7.MessageBody = "Iya kak";
             m7.MessageTime = DateTime.Now;
@@ -134,7 +137,7 @@ namespace MobileApp.Views
 
         }
 
-        private async void Send_Tapped(object sender, EventArgs e)
+        private void Send_Tapped(object sender, EventArgs e)
         {
             Message obj = new Message();
             obj.MessageSender = Vendorname;

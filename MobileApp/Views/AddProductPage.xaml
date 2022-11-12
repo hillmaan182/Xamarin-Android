@@ -27,10 +27,10 @@
                         <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Service" TextColor="Gray"/>
                     </Grid>
                 </StackLayout>
-                <Entry x:Name="txtDescription" Placeholder="Enter Description" PlaceholderColor="Gray"/>
-                <Entry x:Name="txtSpecification" Placeholder="Enter Specification" PlaceholderColor="Gray"/>
-                <Entry x:Name="txtPrice" Placeholder="Enter Price" PlaceholderColor="Gray" Keyboard="Numeric"/>
-                <Entry x:Name="txtSisa" Placeholder="Enter Total" PlaceholderColor="Gray" Keyboard="Numeric"/>
+                <Entry x:Name="txtDescription" Placeholder="Enter Description" PlaceholderColor="Gray" TextColor="Black"/>
+                <Entry x:Name="txtSpecification" Placeholder="Enter Specification" PlaceholderColor="Gray" TextColor="Black"/>
+                <Entry x:Name="txtPrice" Placeholder="Enter Price" PlaceholderColor="Gray" Keyboard="Numeric" TextColor="Black"/>
+                <Entry x:Name="txtSisa" Placeholder="Enter Total" PlaceholderColor="Gray" Keyboard="Numeric" TextColor="Black"/>
                 <StackLayout>
                     <Grid
                     RowDefinitions="*,*"

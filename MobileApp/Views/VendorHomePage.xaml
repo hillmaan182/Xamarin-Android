@@ -44,7 +44,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label FontAttributes="Bold" FontSize="20" Text="Important to Notice" Grid.Row="0"></Label>
+                <Label FontAttributes="Bold" FontSize="20" Text="Important to Notice" Grid.Row="0" TextColor="Black"></Label>
 
                 <view:CardViewTemplate BorderColor="DarkGray"
                                CardTitle="Ready to Ship"
@@ -79,20 +79,20 @@
                                CardDescription="0"
                                Grid.Row="3" Grid.Column="1" Padding="5"/>
 
-                <Label FontAttributes="Bold" FontSize="20" Text="Order Summary" Grid.Row="4"></Label>
+                <Label FontAttributes="Bold" FontSize="20" Text="Order Summary" Grid.Row="4" TextColor="Black"></Label>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate 
                                CardTitle="Product Seen"
                                CardDescription="10"
                                IconBackgroundColor="SlateGray"
                                Grid.Row="5" Grid.Column="0" Padding="5"/>
                 
-                <view:CardViewTemplate BorderColor="DarkGray"
+                <view:CardViewTemplate 
                                CardTitle="Product Sold"
                                CardDescription="10"
                                Grid.Row="5" Grid.Column="1" Padding="5"/>
 
-                <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                <view:CardViewHeaderTemplate 
                                CardTitle=""
                                CardDescription=""
                                Grid.Row="6" Grid.ColumnSpan="2" Padding="5"/>

@@ -98,6 +98,9 @@
     <FlyoutItem Title="Home" Icon="icon_home.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="VendorHomePage" ContentTemplate="{DataTemplate local:VendorHomePage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Product" Icon="icon_product.png" IsVisible="{Binding IsVendor}" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="AddProductPage" ContentTemplate="{DataTemplate local:AddProductPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Product" Icon="icon_product.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="ProductPage" ContentTemplate="{DataTemplate local:ProductPage}" />
     </FlyoutItem>
@@ -110,13 +113,20 @@
     <FlyoutItem Title="Others" Icon="icon_other.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="OthersPage" ContentTemplate="{DataTemplate local:OthersPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Others" Icon="icon_other.png" IsVisible="{Binding IsVendor}">
-        <ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}" />
-    </FlyoutItem>
+    
 
     <!--Shipyard Menu-->
-    <FlyoutItem Title="Home" Icon="icon_home.png" IsVisible="{Binding IsUser}">
+    <FlyoutItem Title="Home" Icon="icon_home.png" IsVisible="{Binding IsUser}" >
         <ShellContent Route="UserHomePage" ContentTemplate="{DataTemplate local:UserHomePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="VendorProductPage" ContentTemplate="{DataTemplate local:VendorProductPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="VendorListPage" ContentTemplate="{DataTemplate local:VendorListPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Others" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Favorite" Icon="icon_about.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="FavoritePage" ContentTemplate="{DataTemplate local:FavoritePage}" />
@@ -141,11 +151,11 @@
     -->
     <TabBar Shell.TabBarIsVisible="False">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
-        <ShellContent Route="VerificationPage" ContentTemplate="{DataTemplate local:VerificationPage}" />
+        <ShellContent Route="VerificationPage" ContentTemplate="{DataTemplate local:VerificationPage}"/>
         <ShellContent Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
         <ShellContent Route="ChatsPage" ContentTemplate="{DataTemplate local:ChatsPage}" />
         <ShellContent Route="TestPage" ContentTemplate="{DataTemplate local:TestPage}"/>
-        <ShellContent Route="VendorProductPage" ContentTemplate="{DataTemplate local:VendorProductPage}"/>
+        
         <!--<ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}"/>-->
     </TabBar>
 

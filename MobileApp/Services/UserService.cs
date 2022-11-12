@@ -25,7 +25,7 @@ namespace MobileApp.Services
         {
             var db = getContext();
             int? idVendor = 0;
-            var res = db.User.Where(x => x.Username == username && x.Password == password);
+            var res = db.User.Where(x => x.Email == username && x.Password == password);
             if (res.ToList().Count() > 0)
             {
                 idVendor = res.First().VendorID;
@@ -37,7 +37,7 @@ namespace MobileApp.Services
         {
             var db = getContext();
             int id = 0;
-            var res = db.User.Where(x => x.Username == username && x.Password == password);
+            var res = db.User.Where(x => x.Email == username && x.Password == password);
             if (res.ToList().Count() > 0)
             {
                 id = res.First().ID;
@@ -48,7 +48,7 @@ namespace MobileApp.Services
         public List<User> GetDataUser(string username)
         {
             var db = getContext();
-            var res = db.User.Where(x => x.Username == username).ToList();
+            var res = db.User.Where(x => x.Email == username).ToList();
             return res;
         }
 
@@ -66,6 +66,13 @@ namespace MobileApp.Services
             return res;
         }
 
+        public async Task<List<User>> GetDataUserByVendorId(int? id)
+        {
+            var db = getContext();
+            var res = await db.User.Where(x => x.VendorID == id).ToListAsync();
+            return res;
+        }
+
         public int UpdateVerified(User obj)
         {
             var db = getContext();
@@ -77,7 +84,7 @@ namespace MobileApp.Services
         public async Task<int> LoginUser(string username, string password)
         {
             var db = getContext();
-            var result = await db.User.Where(x => x.Username == username && x.Password == password).ToListAsync();
+            var result = await db.User.Where(x => x.Email == username && x.Password == password).ToListAsync();
 
             int cnt = 0;
             if (result.Count > 0)

@@ -145,7 +145,7 @@ namespace MobileApp.Views
 
                 if (username != "")
                 {
-                    this.Navigation.PushAsync(new ChatsPage(username));
+                    this.Navigation.PushAsync(new ChatsPage(username,null));
                 }
             }
         }

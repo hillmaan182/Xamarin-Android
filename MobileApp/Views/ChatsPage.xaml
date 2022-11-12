@@ -10,7 +10,7 @@
         <Grid RowSpacing="0" BackgroundColor="#73d8eb"
            ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="125" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="1" />
                 <RowDefinition Height="Auto" />
@@ -26,7 +26,7 @@
                 </Grid.ColumnDefinitions>
                 <Image Source="icon_user.png" Grid.Column="0" HorizontalOptions="Start" Margin="5"/>
                 <Label Text="{Binding User}" Grid.Column="1" 
-                       VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" FontSize="25"
+                       VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold" FontSize="25" TextColor="Black"
                        ></Label>
             </Grid>
             
@@ -41,15 +41,15 @@
                                 <Frame BackgroundColor="#abdbe3" IsVisible="{Binding Incoming}" Grid.Column="0"
                                               Padding="10"
                                               Margin="10,10,80,10"
-                                              HasShadow="false">
-                                    <Label Text="{Binding MessageBody}"/>
+                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray">
+                                    <Label Text="{Binding MessageBody}" TextColor="Black"/>
                                 </Frame>
 
                                 <Frame BackgroundColor="Beige" IsVisible="{Binding Outgoing}" Grid.Column="1"
                                               Padding="10"
                                               Margin="80,10,10,10"
-                                              HasShadow="false">
-                                    <Label Text="{Binding MessageBody}"/>
+                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray" >
+                                    <Label Text="{Binding MessageBody}" TextColor="Black"/>
                                 </Frame>
                             </Grid>
                         </ViewCell>
@@ -72,19 +72,18 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="chatText" 
-                                 Text="asdf"
                                  Margin="1"  
                                  TextColor="Black" 
                                  Keyboard="Chat"  
                                  HorizontalOptions="FillAndExpand" 
                                  PlaceholderColor="LightGray"
-                                 Placeholder="Type your message here"
+                                 Placeholder="type your message here . . ."
                                  Grid.Row="0" 
                                  Grid.Column="0" BackgroundColor="Beige"/>
                 <Label Text="Send"
                                Grid.Row="0"
                                Grid.Column="1"
-                               VerticalTextAlignment="Center" BackgroundColor="Beige" FontAttributes="Bold" >
+                               VerticalTextAlignment="Center" BackgroundColor="Beige" FontAttributes="Bold" TextColor="Black" Padding="20,0,20,0">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer
                                       Tapped="Send_Tapped"/>

@@ -64,7 +64,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BackgroundColor="White" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
+                            <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD" HasShadow="True"> 
                                 <Grid BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="35"></RowDefinition>
@@ -76,16 +76,16 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
-                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="95"
-                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="85" HeightRequest="85"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding ProductName}" 
                                            Grid.Row="0" Grid.Column="1" TextColor="Black" HorizontalOptions="Start" FontSize="25"/>
-                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                    <Label Text="{Binding ProductPrice , StringFormat= Rp. {0}}" 
                                            Grid.Row="1" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="20" FontAttributes="Bold"/>
+                                           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
                                     <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
-                                           Grid.Row="2" Grid.Column="1"
+                                           Grid.Row="2" Grid.Column="1" TextColor="Black"
                                            HorizontalOptions="Start" VerticalOptions="Start"
                                            FontSize="15"/>
 

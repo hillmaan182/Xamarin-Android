@@ -13,6 +13,9 @@ namespace MobileApp
         public DbSet<User> User { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<Vendor> Vendor { get; set; }
+        public DbSet<Transaction> Transaction { get; set; }
+        public DbSet<FavoriteProduct> FavoriteProduct { get; set; }
+        public DbSet<FavoriteVendor> FavoriteVendor { get; set; }
         public DatabaseContext()
         {
             this.Database.EnsureCreated();
@@ -20,7 +23,7 @@ namespace MobileApp
         // overrides the OnConfigure Method 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev17.db");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev27.db");
             optionsBuilder.UseSqlite($"Filename={dbPath}");
         }
     }

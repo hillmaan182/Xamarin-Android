@@ -37,9 +37,10 @@ namespace MobileApp.Views
                          select new { q.ID, ProductImage = q.ProductImage == "" ? null : q.ProductImage , q.ProductName, ProductPrice = "Rp. " + q.ProductPrice.ToString() , ProductSisa = "Sisa Produk : " + q.ProductSisa.ToString() };
             lstData.ItemsSource = res;
         }
-        private void btnAddRecord_Clicked(object sender, EventArgs e)
+        private async void btnAddRecord_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new AddProductPage());
+            //this.Navigation.PushAsync(new AddProductPage());
+            await Shell.Current.GoToAsync("//AddProductPage");
         }
 
         private async void lstData_ItemSelected(object sender, SelectedItemChangedEventArgs e)

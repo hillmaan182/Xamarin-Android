@@ -25,6 +25,8 @@ namespace MobileApp
             ((App)App.Current).msgID = 0;
             ((App)App.Current).vendorName = null;
             await Shell.Current.GoToAsync("//LoginPage");
+            //await Shell.Current.GoToAsync("//VendorProductPage");
+            //await Shell.Current.GoToAsync("//VendorListPage");
         }
 
         public class HiddenItem : ShellItem

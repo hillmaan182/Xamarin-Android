@@ -51,10 +51,17 @@ namespace MobileApp.Services
 
         public int InsertProduct(Products obj)
         {
-            var _dbContext = getContext();
-            _dbContext.Product.Add(obj);
-            int c = _dbContext.SaveChanges();
-            return c;
+            var db = getContext();
+
+            var result = db.Product.Where(x => x.ProductName == obj.ProductName).Count();
+            int cnt = 0;
+            if (result == 0)
+            {
+                db.Product.Add(obj);
+                int c = db.SaveChanges();
+                cnt = 1;
+            }
+            return cnt;
         }
 
         public int DeleteProduct(Products obj)

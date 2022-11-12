@@ -7,7 +7,7 @@
              x:Name="this"
              x:Class="MobileApp.CardView.CardSalesTemplate">
     <Frame BindingContext="{x:Reference this}"
-           BackgroundColor="{Binding CardColor}"
+           BackgroundColor="Beige"
            BorderColor="{Binding BorderColor}"
            CornerRadius="5"
            HasShadow="True"
@@ -28,7 +28,7 @@
                    Text="{Binding CardTitle, FallbackValue='Card Title'}"
                    FontSize="18"
                    VerticalTextAlignment="Start"
-                   HorizontalTextAlignment="Start" />
+                   HorizontalTextAlignment="Start" TextColor="Black"/>
             <Label Grid.Row="1"
                    Text="{Binding CardFill, FallbackValue='Rp XXX'}"
                    FontAttributes="Bold"
@@ -36,14 +36,14 @@
                    VerticalOptions="Fill"
                    HorizontalOptions="Fill"
                    VerticalTextAlignment="Start"
-                   HorizontalTextAlignment="Start"/>
+                   HorizontalTextAlignment="Start" TextColor="Black"/>
             <Label Grid.Row="2"
                    Text="{Binding CardDescription, FallbackValue='from last month.'}"
                    FontSize="10"
                    VerticalOptions="Fill"
                    HorizontalOptions="Fill" 
                    VerticalTextAlignment="Start"
-                   HorizontalTextAlignment="Start"/>
+                   HorizontalTextAlignment="Start" TextColor="Black"/>
 
         </Grid>
     </Frame>

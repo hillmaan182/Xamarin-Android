@@ -7,10 +7,9 @@
              x:Name="this"
              x:Class="MobileApp.CardView.CardViewTemplate">
     <Frame BindingContext="{x:Reference this}"
-           BackgroundColor="{Binding CardColor}"
-           BorderColor="{Binding BorderColor}"
+           BackgroundColor="Beige"
+           BorderColor="#40B5AD" HasShadow="True"
            CornerRadius="5"
-           HasShadow="True"
            Padding="8"
            VerticalOptions="Center"
            HorizontalOptions="Center">

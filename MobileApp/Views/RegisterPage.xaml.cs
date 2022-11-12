@@ -55,7 +55,7 @@ namespace MobileApp.Views
                 AlternateView alternate = AlternateView.CreateAlternateViewFromString(body, mimeType);
                 mail.AlternateViews.Add(alternate);
                 
-                mail.From = new MailAddress("dockerdev1@gmail.com", "Mobile App");
+                mail.From = new MailAddress("shipapp.devenv@gmail.com", "Ship App");
                 mail.To.Add(Email.Text);
                 mail.Subject = "Verification Code";
                 mail.IsBodyHtml = true;
@@ -64,7 +64,7 @@ namespace MobileApp.Views
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("dockerdev1@gmail.com", "zhinpeucgflofhlj");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("shipapp.devenv@gmail.com", "fpgmxtmmfaunqcci");
 
                 SmtpServer.Send(mail);
                 // await DisplayActionSheet("Operation", "Cancel", null, "Update", "Delete");

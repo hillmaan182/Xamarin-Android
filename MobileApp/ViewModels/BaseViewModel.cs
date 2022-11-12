@@ -20,6 +20,14 @@ namespace MobileApp.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
+        bool isShow = false;
+
+        public bool IsShow
+        {
+            get { return isShow; }
+            set { SetProperty(ref isShow, value); }
+        }
+
         string title = string.Empty;
         public string Title
         {

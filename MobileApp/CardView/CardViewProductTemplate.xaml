@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
             <Image Grid.Row="0" 
-                   Grid.ColumnSpan="2" Source="{Binding ProductImage,FallbackValue='icon_minus.png'}"
+                   Grid.ColumnSpan="2" Source="{Binding ProductImage,FallbackValue='icon_minus.png'}" WidthRequest="95" HeightRequest="95"
                    />
             <Label Grid.Row="1"
                    Grid.ColumnSpan="2"

@@ -33,6 +33,7 @@ namespace MobileApp.ViewModels
             {
                 IsVendor = false;
                 IsUser = true;
+                IsShow = false;
             });
 
 

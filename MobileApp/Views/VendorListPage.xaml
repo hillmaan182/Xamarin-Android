@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.VendorListPage">
+
+    <Grid RowSpacing="0" BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <SearchBar x:Name="searchVendor" Placeholder="type to search . . ." PlaceholderColor="Gray" Grid.Row="0" Margin="5" TextChanged="searchVendor_TextChanged"/>
+        <ScrollView Grid.Row="1" >
+            <ListView x:Name="lstData" HasUnevenRows="True" Margin="5" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="5">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="25"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.RowSpan="3" Grid.Column="0"/>
+
+                                    <Label Text="{Binding VendorName}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                                    <Label Text="{Binding VendorAddress}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
+                                    <Label Text="{Binding VendorPhone}" Grid.Row="2" Grid.Column="1" TextColor="Black"/>
+
+                                    <Button Text="Visit" Grid.RowSpan="3" Grid.Column="2" CornerRadius="10" Margin="25,20,0,20"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

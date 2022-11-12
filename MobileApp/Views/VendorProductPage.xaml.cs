@@ -1,4 +1,5 @@
 ﻿using MobileApp.Services;
+using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,22 @@ namespace MobileApp.Views
         {
             InitializeComponent();
             ps = new ProductService();
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
             showProduct();
         }
+        //protected override void OnAppearing()
+        //{
+        //    try
+        //    {
+        //        base.OnAppearing();
+        //        showProduct();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        Console.Write(ex.ToString());
+        //    }
+
+        //}
         private void showProduct()
         {
             var db = getContext();
@@ -39,5 +50,15 @@ namespace MobileApp.Views
             lstData.ItemsSource = query.ToList();
         }
 
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+
+            var getParam = tapGesture.CommandParameter;
+            int id = Convert.ToInt32(getParam);
+            await Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param1={id}");
+        }
     }
 }

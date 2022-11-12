@@ -2,51 +2,190 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.UserHomePage"
-             xmlns:vm="clr-namespace:MobileApp.ViewModels"
-             Title="{Binding Title}">
-    
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
-    
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
-    <Grid>
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Products">
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
+            <RowDefinition Height="125" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding OpenWebCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                               CardTitle="Good Morning,"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="0"
+                               Grid.ColumnSpan="2"/>
+
+        <SearchBar x:Name="searchText" Placeholder="type to search . . ." 
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
+
+        <Label Text="Search Category"
+               FontAttributes="Bold"
+               FontSize="20"
+               Grid.Row="2"
+               Grid.ColumnSpan="2" Padding="10"/>
+
+        <Button x:Name="btnProduct" ImageSource="icon_product_48.png" 
+                Text="Product" 
+                Grid.Row="3" Grid.Column="0" 
+                CornerRadius="8" Padding="15" Margin="10" 
+                BorderColor="Gray" BorderWidth="1" 
+                BackgroundColor="Beige"
+                Clicked="btnProduct_Clicked" />
+
+        <Button ImageSource="icon_service.png" x:Name="btnService" 
+                Text="Service"
+                Grid.Row="3" Grid.Column="1" 
+                CornerRadius="8" Padding="15" Margin="10" 
+                BorderColor="Gray" BorderWidth="1" 
+                BackgroundColor="Beige"
+                Clicked="btnService_Clicked"/>
+
+        <ScrollView Grid.Row="4" Grid.ColumnSpan="2">
+            <Grid BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Product Vendor Recommendation" Grid.Row="0" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstProductVendor" Grid.Row="1" BackgroundColor="Transparent" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="Gray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Service Vendor Recommendation" Grid.Row="2" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstServiceVendor" Grid.Row="3" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Service Vendor Recommendation" Grid.Row="4" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstProduct" Grid.Row="5" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Service Vendor Recommendation" Grid.Row="6" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstService" Grid.Row="7" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductPrice , StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </Grid>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>

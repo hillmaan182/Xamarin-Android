@@ -37,5 +37,26 @@ namespace MobileApp.Services
             return result;
         }
 
+        public async Task<List<Vendor>> GetAllVendor()
+        {
+            var db = getContext();
+            var res = await db.Vendor.ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Vendor>> GetAllVendorByCategory(string type)
+        {
+            var db = getContext();
+            var res = await db.Vendor.Where(x=> x.Type == type).ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Vendor>> GetAllVendorByName(string name)
+        {
+            var db = getContext();
+            var res = await db.Vendor.Where(x=> x.VendorName.ToLower().Contains(name.ToLower())).ToListAsync();
+            return res;
+        }
+
     }
 }

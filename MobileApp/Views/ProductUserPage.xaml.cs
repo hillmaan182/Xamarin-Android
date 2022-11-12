@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileApp.Services;
+using MobileApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,11 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductUserPage : ContentPage
     {
+       
         public ProductUserPage()
         {
             InitializeComponent();
         }
+        
     }
 }
