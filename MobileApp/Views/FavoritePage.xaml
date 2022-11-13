@@ -1,12 +1,237 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.FavoritePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="MobileApp.Views.FavoritePage"
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Favorite">
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                               CardTitle="Good Morning,"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="0"/>
+
+        <SearchBar x:Name="searchText" Placeholder="type to search . . ." 
+                   Grid.Row="1"/>
+
+        <ScrollView Grid.Row="2">
+            <Grid BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="185" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="210" />
+                </Grid.RowDefinitions>
+
+
+                <Label Text="Liked Product Vendor" Grid.Row="0" FontAttributes="Bold" FontSize="20" Padding="10,10,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstProductVendor" Grid.Row="1" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True" >
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="CenterAndExpand" HeightRequest="150">
+                                <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="Gray" 
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Liked Service Vendor" Grid.Row="2" FontAttributes="Bold" FontSize="20" Padding="10,10,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstServiceVendor" Grid.Row="3" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True" >
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="CenterAndExpand">
+                                <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="Gray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Liked Product" Grid.Row="4" FontAttributes="Bold" FontSize="20" Padding="10,10,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstProduct" Grid.Row="5" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True" >
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="CenterAndExpand">
+                                <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <Label Text="Liked Service" Grid.Row="6" FontAttributes="Bold" FontSize="20" Padding="10,10,0,0" TextColor="Black"/>
+
+                <CarouselView x:Name="lstService" Grid.Row="7" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True" >
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="CenterAndExpand">
+                                <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="175"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>

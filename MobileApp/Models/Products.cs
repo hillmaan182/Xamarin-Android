@@ -20,6 +20,8 @@ namespace MobileApp.Models
         public string ProductCategory { get; set; }
         public string ProductSpecification { get; set; }
         public string ProductDescription { get; set; }
+        public int ProductSeen { get; set; }
+
         public int VendorID { get; set; }
         public Vendor Vendor { get; set; }
 

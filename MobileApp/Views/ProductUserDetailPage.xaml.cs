@@ -55,15 +55,16 @@ namespace MobileApp.Views
             userID = ((App)App.Current).userID;
             userName = ((App)App.Current).userLoggedIn;
             btnFavorite2.IsVisible = false;
+
+            
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             productID = Convert.ToInt32(param1);
             showAll(productID);
-
+            updateSeen();
         }
 
         private void showAll(int id)
@@ -164,7 +165,7 @@ namespace MobileApp.Views
             total += 1;
             totalCnt.Text = total.ToString();
         }
-
+        
         private void btnFavorite_Clicked(object sender, EventArgs e)
         {
             try
@@ -192,6 +193,31 @@ namespace MobileApp.Views
             {
                int c = fp.DelFavoriteProduct(favoriteId);
             }
+        }
+
+        private void updateSeen()
+        {
+            var db = getContext();
+            var res = db.Product.Where(x => x.ID == productID);
+            foreach (var x in res)
+            {
+                Products obj = new Products();
+                obj.ID = x.ID;
+                obj.ProductName = x.ProductName;
+                obj.ProductPrice = x.ProductPrice;
+                obj.ProductSisa = x.ProductSisa;
+                obj.ProductCategory = x.ProductCategory;
+                obj.ProductDescription = x.ProductDescription;
+                obj.ProductImage = x.ProductImage;
+                obj.ProductSeen = x.ProductSeen + 1;
+                obj.VendorID = x.VendorID;
+                ps.UpdateProduct(obj);
+            }
+        }
+
+        private DatabaseContext getContext()
+        {
+            return new DatabaseContext();
         }
     }
 }

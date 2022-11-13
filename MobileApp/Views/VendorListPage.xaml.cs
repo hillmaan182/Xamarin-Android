@@ -37,5 +37,12 @@ namespace MobileApp.Views
             var res = vs.GetAllVendorByName(searchVendor.Text).Result;
             lstData.ItemsSource = res;
         }
+
+        private void btnVisit_Clicked(object sender, EventArgs e)
+        {
+            var getParam = ((Button)sender).CommandParameter;
+            int idVendor = Convert.ToInt32(getParam);
+            Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+        }
     }
 }

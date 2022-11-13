@@ -104,6 +104,7 @@ namespace MobileApp.Views
             objP.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP.ProductSpecification = "x:10 y:5";
             objP.VendorID = obj.ID;
+            objP.ProductSeen = 0;
             ps.InsertProduct(objP);
             
 
@@ -114,6 +115,7 @@ namespace MobileApp.Views
             objP2.ProductCategory = "Product";
             objP2.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP2.ProductSpecification = "x:10 y:5";
+            objP2.ProductSeen = 0;
             objP2.VendorID = obj.ID;
             ps.InsertProduct(objP2);
 
@@ -124,6 +126,7 @@ namespace MobileApp.Views
             objP3.ProductCategory = "Product";
             objP3.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP3.ProductSpecification = "x:10 y:5";
+            objP3.ProductSeen = 0;
             objP3.VendorID = obj.ID;
             ps.InsertProduct(objP3);
             //
@@ -141,8 +144,8 @@ namespace MobileApp.Views
 
             Vendor obj2 = new Vendor();
             obj2.VendorName = "Vendor Service A";
-            obj.VendorAddress = "Jalan A no 1";
-            obj.VendorPhone = "02112345678";
+            obj2.VendorAddress = "Jalan A no 1";
+            obj2.VendorPhone = "02112345678";
             obj2.VendorEmail = "vendorB@gmail.com";
             obj2.Type = "Service";
             vendor.InsertVendor(obj2);
@@ -155,7 +158,8 @@ namespace MobileApp.Views
             objS.ProductCategory = "Service";
             objS.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS.ProductSpecification = "x:10 y:5";
-            objS.VendorID = obj.ID;
+            objS.ProductSeen = 0;
+            objS.VendorID = obj2.ID;
             ps.InsertProduct(objS);
 
 
@@ -166,7 +170,8 @@ namespace MobileApp.Views
             objS2.ProductCategory = "Service";
             objS2.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS2.ProductSpecification = "x:10 y:5";
-            objS2.VendorID = obj.ID;
+            objS2.ProductSeen = 0;
+            objS2.VendorID = obj2.ID;
             ps.InsertProduct(objS2);
 
             Products objS3 = new Products();
@@ -176,7 +181,8 @@ namespace MobileApp.Views
             objS3.ProductCategory = "Service";
             objS3.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS3.ProductSpecification = "x:10 y:5";
-            objS3.VendorID = obj.ID;
+            objS3.ProductSeen = 0;
+            objS3.VendorID = obj2.ID;
             ps.InsertProduct(objS3);
             //
 
@@ -219,6 +225,7 @@ namespace MobileApp.Views
             objP.ProductCategory = "Product";
             objP.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP.ProductSpecification = "x:10 y:5";
+            objP.ProductSeen = 0;
             objP.VendorID = obj.ID;
             ps.InsertProduct(objP);
 
@@ -230,6 +237,7 @@ namespace MobileApp.Views
             objP2.ProductCategory = "Product";
             objP2.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP2.ProductSpecification = "x:10 y:5";
+            objP2.ProductSeen = 0;
             objP2.VendorID = obj.ID;
             ps.InsertProduct(objP2);
 
@@ -240,6 +248,7 @@ namespace MobileApp.Views
             objP3.ProductCategory = "Product";
             objP3.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objP3.ProductSpecification = "x:10 y:5";
+            objP3.ProductSeen = 0;
             objP3.VendorID = obj.ID;
             ps.InsertProduct(objP3);
             //
@@ -257,8 +266,8 @@ namespace MobileApp.Views
 
             Vendor obj2 = new Vendor();
             obj2.VendorName = "Vendor Service B";
-            obj.VendorAddress = "Jalan A no 1";
-            obj.VendorPhone = "02112345678";
+            obj2.VendorAddress = "Jalan A no 1";
+            obj2.VendorPhone = "02112345678";
             obj2.VendorEmail = "vendorB2@gmail.com";
             obj2.Type = "Service";
             vendor.InsertVendor(obj2);
@@ -271,7 +280,8 @@ namespace MobileApp.Views
             objS.ProductCategory = "Service";
             objS.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS.ProductSpecification = "x:10 y:5";
-            objS.VendorID = obj.ID;
+            objS.ProductSeen = 0;
+            objS.VendorID = obj2.ID;
             ps.InsertProduct(objS);
 
             Products objS2 = new Products();
@@ -281,7 +291,8 @@ namespace MobileApp.Views
             objS2.ProductCategory = "Service";
             objS2.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS2.ProductSpecification = "x:10 y:5";
-            objS2.VendorID = obj.ID;
+            objS2.ProductSeen = 0;
+            objS2.VendorID = obj2.ID;
             ps.InsertProduct(objS2);
 
             Products objS3 = new Products();
@@ -291,7 +302,8 @@ namespace MobileApp.Views
             objS3.ProductCategory = "Service";
             objS3.ProductDescription = "Lorem ipsum abcdefgh ijkl mn o pq";
             objS3.ProductSpecification = "x:10 y:5";
-            objS3.VendorID = obj.ID;
+            objS3.ProductSeen = 0;
+            objS3.VendorID = obj2.ID;
             ps.InsertProduct(objS3);
             //
 

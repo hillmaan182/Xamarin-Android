@@ -14,7 +14,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Padding="5">
+                            <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
                                 <Grid RowSpacing="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="50"/>
@@ -34,7 +34,7 @@
                                     <Label Text="{Binding VendorAddress}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
                                     <Label Text="{Binding VendorPhone}" Grid.Row="2" Grid.Column="1" TextColor="Black"/>
 
-                                    <Button Text="Visit" Grid.RowSpan="3" Grid.Column="2" CornerRadius="10" Margin="25,20,0,20"/>
+                                    <Button x:Name="btnVisit" Clicked="btnVisit_Clicked" CommandParameter="{Binding ID}" Text="Visit" Grid.RowSpan="3" Grid.Column="2" CornerRadius="10" Margin="25,20,0,20"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

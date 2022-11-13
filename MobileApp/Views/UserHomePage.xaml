@@ -53,13 +53,13 @@
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
                 </Grid.RowDefinitions>
 
                 <Label Text="Product Vendor Recommendation" Grid.Row="0" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
@@ -74,6 +74,9 @@
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="Gray" HeightRequest="175"
                                    CornerRadius="8" HorizontalOptions="Center">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frameProductVendor_Tapped" CommandParameter="{Binding ID}"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -104,6 +107,9 @@
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
                                    CornerRadius="8" HorizontalOptions="Center">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frameServiceVendor_Tapped" CommandParameter="{Binding ID}"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -134,6 +140,9 @@
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
                                    CornerRadius="8" HorizontalOptions="Center">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frameProduct_Tapped" CommandParameter="{Binding ID}"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -164,6 +173,9 @@
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
                                    CornerRadius="8" HorizontalOptions="Center">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="frameService_Tapped" CommandParameter="{Binding ID}"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>

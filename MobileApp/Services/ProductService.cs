@@ -41,12 +41,42 @@ namespace MobileApp.Services
             return result;
         }
 
-        public async Task<int> UpdateProduct(Products obj)
+        public async Task<List<Products>> GetAllProductsByIdVendor(int? vendorId)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Product.ToListAsync();
+            var result = await _dbContext.Product.Where(x =>  x.VendorID == vendorId).ToListAsync();
+            return result;
+        }
+
+        public int UpdateProduct(Products obj)
         {
             var _dbContext = getContext();
             _dbContext.Product.Update(obj);
-            int c = await _dbContext.SaveChangesAsync();
+            int c = _dbContext.SaveChanges();
             return c;
+        }
+
+        public int UpdateSeen(int id)
+        {
+            var db = getContext();
+            var res = db.Product.Where(x => x.ID == id);
+            foreach (var x in res)
+            {
+                Products obj= new Products();
+                obj.ID = x.ID;
+                obj.ProductName = x.ProductName;
+                obj.ProductPrice = x.ProductPrice;
+                obj.ProductSisa = x.ProductSisa;
+                obj.ProductCategory = x.ProductCategory;
+                obj.ProductDescription = x.ProductDescription;
+                obj.ProductImage = x.ProductImage;
+                obj.ProductSeen = x.ProductSeen + 1;
+                db.Product.Update(obj);
+                int c = db.SaveChanges();
+            }
+            return 1;
+
         }
 
         public int InsertProduct(Products obj)

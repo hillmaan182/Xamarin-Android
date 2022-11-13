@@ -64,5 +64,51 @@ namespace MobileApp.Views
             await Shell.Current.GoToAsync("//VendorListPage");
             //await Shell.Current.GoToAsync("//ServiceUserPage");
         }
+
+        private async void frameProductVendor_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+
+            var getParam = tapGesture.CommandParameter;
+
+            int idVendor = Convert.ToInt32(getParam);
+            await Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+
+        }
+
+        private async void frameServiceVendor_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+
+            var getParam = tapGesture.CommandParameter;
+
+            int idVendor = Convert.ToInt32(getParam);
+            await Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+
+        }
+
+        private async void frameProduct_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+
+            var getParam = tapGesture.CommandParameter;
+            int id = Convert.ToInt32(getParam);
+            await Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param1={id}");
+
+        }
+
+        private async void frameService_Tapped(object sender, EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            TapGestureRecognizer tapGesture = (TapGestureRecognizer)frame.GestureRecognizers[0];
+
+            var getParam = tapGesture.CommandParameter;
+            int id = Convert.ToInt32(getParam);
+            await Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param1={id}");
+
+        }
     }
 }

@@ -22,23 +22,23 @@
             <RowDefinition Height="125" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <view:CardViewHeaderTemplate BorderColor="DarkGray"
                                CardTitle="Good Morning,"
                                CardDescription="{Binding User}"
                                IconBackgroundColor="SlateGray" Grid.Row="0"/>
 
         <ScrollView BackgroundColor="#73d8eb" Grid.Row="1" Padding="10">
-            <Grid RowSpacing="5" ColumnSpacing="5">
+            <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="125" />
+                    <RowDefinition Height="125" />
+                    <RowDefinition Height="125" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="125" />
                 </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -46,56 +46,226 @@
 
                 <Label FontAttributes="Bold" FontSize="20" Text="Important to Notice" Grid.Row="0" TextColor="Black"></Label>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="Ready to Ship"
-                               CardDescription="0"
-                               IconBackgroundColor="SlateGray" 
-                               Grid.Row="1" Grid.Column="0" Padding="5"/>
+                <CollectionView x:Name="lstData" Grid.Row="1" Grid.Column="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                                <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="New Order"
+                                       CardDescription="{Binding Total}"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="New Order"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="New Order"
-                               CardDescription="0"
-                               Grid.Row="1" Grid.Column="1" Padding="5"/>
+                <CollectionView x:Name="lstData2"  Grid.Row="1" Grid.Column="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent">
+                                <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Ready to Ship"
+                                       CardDescription="{Binding Total}"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Ready to Ship"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="Complaint on Order"
-                               CardDescription="0"
-                               IconBackgroundColor="SlateGray" 
-                               Grid.Row="2" Grid.Column="0" Padding="5"/>
+                <CollectionView x:Name="lstData3" Grid.Row="2" Grid.Column="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent">
+                                <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Complaint on Order"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Complaint on Order"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="Unread Messages"
-                               CardDescription="0"
-                               Grid.Row="2" Grid.Column="1" Padding="5"/>
+                <CollectionView x:Name="lstData4" Grid.Row="2" Grid.Column="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unread Messages"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unread Messages"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="Unread Discussion"
-                               CardDescription="0"
-                               IconBackgroundColor="SlateGray"
-                               Grid.Row="3" Grid.Column="0" Padding="5"/>
+                <CollectionView x:Name="lstData5" Grid.Row="3" Grid.Column="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unread Discussion"
+                                       CardDescription="0"
+                                       IconBackgroundColor="SlateGray"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unread Discussion"
+                                       CardDescription="0"
+                                       IconBackgroundColor="SlateGray"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewTemplate BorderColor="DarkGray"
-                               CardTitle="Unreplied Review"
-                               CardDescription="0"
-                               Grid.Row="3" Grid.Column="1" Padding="5"/>
+                <CollectionView x:Name="lstData6" Grid.Row="3" Grid.Column="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unreplied Review"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate BorderColor="DarkGray"
+                                       CardTitle="Unreplied Review"
+                                       CardDescription="0"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
                 <Label FontAttributes="Bold" FontSize="20" Text="Order Summary" Grid.Row="4" TextColor="Black"></Label>
 
-                <view:CardViewTemplate 
-                               CardTitle="Product Seen"
-                               CardDescription="10"
-                               IconBackgroundColor="SlateGray"
-                               Grid.Row="5" Grid.Column="0" Padding="5"/>
-                
-                <view:CardViewTemplate 
-                               CardTitle="Product Sold"
-                               CardDescription="10"
-                               Grid.Row="5" Grid.Column="1" Padding="5"/>
+                <CollectionView x:Name="lstData7" Grid.Row="5" Grid.Column="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                <view:CardViewTemplate 
+                                       CardTitle="Product Seen"
+                                       CardDescription="{Binding Total}"
+                                       IconBackgroundColor="SlateGray"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate 
+                                       CardTitle="Product Seen"
+                                       CardDescription="0"
+                                       IconBackgroundColor="SlateGray"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
 
-                <view:CardViewHeaderTemplate 
-                               CardTitle=""
-                               CardDescription=""
-                               Grid.Row="6" Grid.ColumnSpan="2" Padding="5"/>
+                <CollectionView x:Name="lstData8" Grid.Row="5" Grid.Column="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <view:CardViewTemplate 
+                                       CardTitle="Product Sold"
+                                       CardDescription="10"
+                                       Padding="5"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Start">
+                                <Frame HasShadow="True" BackgroundColor="Transparent" Padding="10,0,0,0">
+                                    <view:CardViewTemplate 
+                                       CardTitle="Product Sold"
+                                       CardDescription="10"
+                                       Padding="5"/>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+                <!--<view:CardViewHeaderTemplate 
+                      CardTitle=""
+                      CardDescription=""
+                      Grid.Row="6" Grid.ColumnSpan="2" Padding="5"/>-->
 
             </Grid>
         </ScrollView>

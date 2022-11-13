@@ -20,18 +20,26 @@ namespace MobileApp.Views
         private string Username;
         private string Vendorname;
 
+        private string senderM;
+        private string receiverM;
+
         public ChatsPage(string uname , string vendor)
         {
             InitializeComponent();
             if (vendor == null)
             {
                 this.BindingContext = new ChatViewModel(uname);
+                Username = uname;
+                senderM = Vendorname;
                 Vendorname = ((App)App.Current).vendorName;
+                receiverM = Username;
             } else
             {
                 this.BindingContext = new ChatViewModel(vendor);
                 Vendorname = vendor;
+                receiverM = Vendorname;
                 Username = uname;
+                senderM = Username;
             }
 
             ms = new MessageService();
@@ -52,7 +60,7 @@ namespace MobileApp.Views
 
         private void showMessages()
         {
-            var res = ms.GetMessagesByUser(Username, Vendorname).Result;
+            var res = ms.GetMessagesByUser(senderM, receiverM).Result;
             lstData.ItemsSource = res;
         }
      
@@ -140,8 +148,8 @@ namespace MobileApp.Views
         private void Send_Tapped(object sender, EventArgs e)
         {
             Message obj = new Message();
-            obj.MessageSender = Vendorname;
-            obj.MessageReceiver = Username;
+            obj.MessageSender = senderM;
+            obj.MessageReceiver = receiverM;
             obj.MessageBody = chatText.Text;
             obj.MessageTime = DateTime.Now;
             obj.MessageIsRead = false;

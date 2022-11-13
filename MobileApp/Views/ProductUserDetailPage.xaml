@@ -52,16 +52,16 @@
                                            FontSize="20" FontAttributes="Bold"/>
 
                                             <Label Text="{Binding ProductCategory}" 
-                                           Grid.Row="2" Grid.Column="0" 
-                                           BackgroundColor="White" TextColor="Black"/>
+                                           Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                                           TextColor="Black"/>
 
                                             <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
-                                           Grid.Row="3" Grid.Column="1"
-                                           FontSize="15" BackgroundColor="White" TextColor="Black"/>
+                                           Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"
+                                           FontSize="15" TextColor="Black"/>
 
                                             <Label Text="Last Updated" 
-                                           Grid.Row="3" Grid.Column="2" 
-                                           BackgroundColor="White" TextColor="Black"/>
+                                           Grid.Row="2" Grid.Column="2" HorizontalOptions="Center"
+                                          TextColor="Black"/>
 
                                             <Label Text="Product Description" 
                                                Grid.Row="3" Grid.ColumnSpan="3" FontAttributes="Bold"
