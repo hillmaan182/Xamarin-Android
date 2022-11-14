@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.UserTransaction" 
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Transaction">
+
+    <Grid RowSpacing="0" BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <view:CardViewHeaderTemplate BorderColor="DarkGray"
+                               CardTitle="Good Morning,"
+                               CardDescription="{Binding User}"
+                               IconBackgroundColor="SlateGray" 
+                               Grid.Row="0"/>
+
+        <ScrollView Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnNew" Clicked="btnNew_Clicked" Text="New Order" Grid.Row="0" Grid.Column="0" CornerRadius="10" BackgroundColor="Gray" BorderColor="DarkGray" BorderWidth="1" Margin="5,0,0,0" ImageSource="icon_new_order.png" FontSize="10"/>
+                <Button x:Name="btnDone" Clicked="btnDone_Clicked" Text="Finished" Grid.Row="0" Grid.Column="1" CornerRadius="10" BackgroundColor="Beige" BorderColor="DarkGray" BorderWidth="1" Margin="0,0,5,0" ImageSource="icon_finished.png" FontSize="10"/>
+
+                <CollectionView x:Name="lstNew" Grid.Row="1" Grid.ColumnSpan="2" Margin="15" IsVisible="True">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
+
+                                    <BoxView Grid.Row="1"
+                                     Grid.ColumnSpan="3"
+                                     BackgroundColor="Gray"
+                                     HeightRequest="1"
+                                     HorizontalOptions="Fill" />
+
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0"/>
+
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"/>
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"/>
+                                    
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Start">
+                                <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label Text="No results matched your filter. New"
+                                       Margin="10,25,10,10"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                    <Label Text="Try a broader filter?"
+                                       FontAttributes="Italic"
+                                       FontSize="12"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+                
+                <CollectionView x:Name="lstDone" Grid.Row="1" Grid.ColumnSpan="2" Margin="15" IsVisible="False">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
+
+                                    <BoxView Grid.Row="1"
+                                     Grid.ColumnSpan="3"
+                                     BackgroundColor="Gray"
+                                     HeightRequest="1"
+                                     HorizontalOptions="Fill" />
+
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0" BackgroundColor="Transparent"/>
+
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"/>
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"/>
+
+                                    <Button x:Name="btnAddReview" Clicked="btnAddReview_Clicked" CommandParameter="{Binding ID}" Text="Give Review" Grid.Row="5" Grid.Column="2" CornerRadius="10"/>
+                                    
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Start">
+                                <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label Text="No results matched your filter. Done"
+                                       Margin="10,25,10,10"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                    <Label Text="Try a broader filter?"
+                                       FontAttributes="Italic"
+                                       FontSize="12"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ContentView>
+                    </CollectionView.EmptyView>
+                </CollectionView>
+
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

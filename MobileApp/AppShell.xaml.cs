@@ -13,6 +13,8 @@ namespace MobileApp
             InitializeComponent();
             Routing.RegisterRoute(nameof(ProductUserDetailPage), typeof(ProductUserDetailPage));
             Routing.RegisterRoute(nameof(CompanyProfilePage), typeof(CompanyProfilePage));
+            Routing.RegisterRoute(nameof(ReviewAddPage), typeof(ReviewAddPage));
+            Routing.RegisterRoute(nameof(AddProductPage), typeof(AddProductPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }

@@ -107,6 +107,9 @@
     <FlyoutItem Title="Chats" Icon="icon_chat.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="MessagePage" ContentTemplate="{DataTemplate local:MessagePage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Transaction" Icon="icon_feed.png" IsVisible="{Binding IsVendor}">
+        <ShellContent Route="VendorTransaction" ContentTemplate="{DataTemplate local:VendorTransaction}" />
+    </FlyoutItem>
     <FlyoutItem Title="Sales" Icon="icon_sales.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="SalesPage" ContentTemplate="{DataTemplate local:SalesPage}" />
     </FlyoutItem>
@@ -132,10 +135,13 @@
         <ShellContent Route="FavoritePage" ContentTemplate="{DataTemplate local:FavoritePage}" />
     </FlyoutItem>
     <FlyoutItem Title="Transaction" Icon="icon_feed.png" IsVisible="{Binding IsUser}">
-        <ShellContent Route="TransactionPage" ContentTemplate="{DataTemplate local:TransactionPage}" />
+        <ShellContent Route="UserTransaction" ContentTemplate="{DataTemplate local:UserTransaction}" />
     </FlyoutItem>
     <FlyoutItem Title="Other" Icon="icon_feed.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="OtherPage" ContentTemplate="{DataTemplate local:OtherPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Review" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="ReviewAddPage" ContentTemplate="{DataTemplate local:ReviewAddPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

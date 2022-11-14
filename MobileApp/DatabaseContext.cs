@@ -16,6 +16,7 @@ namespace MobileApp
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<FavoriteProduct> FavoriteProduct { get; set; }
         public DbSet<FavoriteVendor> FavoriteVendor { get; set; }
+        public DbSet<Review> Review { get; set; }
         public DatabaseContext()
         {
             this.Database.EnsureCreated();

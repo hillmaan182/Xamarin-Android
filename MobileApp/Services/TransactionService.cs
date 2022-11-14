@@ -22,10 +22,52 @@ namespace MobileApp.Services
             return cnt;
         }
 
+        public int UpdateStatus(int id , string status)
+        {
+            var db = getContext();
+            var res = db.Transaction.Where(x => x.ID == id);
+            foreach (var x in res)
+            {
+                Transaction obj = new Transaction();
+                obj.ID = x.ID;
+                obj.VendorID = x.VendorID;
+                obj.UserID = x.UserID;
+                obj.Price = x.Price;
+                obj.TotalPrice = x.TotalPrice;
+                obj.TotalItem = x.TotalItem;
+                obj.Status =status;
+                db.Transaction.Update(obj);
+                int c = db.SaveChanges();
+            }
+            return 1;
+
+        }
+
         public async Task<List<Transaction>> GetAllTransactions()
         {
             var _dbContext = getContext();
             var res = await _dbContext.Transaction.ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Transaction>> GetAllTransactionsNewOrder(int? id)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Transaction.Where(x=> x.VendorID == id && x.Status == "New Order").ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Transaction>> GetAllTransactionsReadyShip(int? id)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Transaction.Where(x => x.VendorID == id && x.Status == "Ready to Ship").ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Transaction>> GetAllTransactionsFinished(int? id)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Transaction.Where(x => x.VendorID == id && x.Status == "Finished").ToListAsync();
             return res;
         }
 

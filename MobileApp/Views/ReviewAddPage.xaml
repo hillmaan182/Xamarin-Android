@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ReviewAddPage"
+             Title="Add Review"
+             Visual="Material">
+
+    <Grid BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Give a Review" FontSize="20" FontAttributes="Bold" Grid.Row="0" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+        <Label Text="Rating" FontSize="15" FontAttributes="Bold" Grid.Row="1" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+        <Label Text="How much do you like the product?" FontSize="12" Grid.Row="2" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+
+        <ImageButton x:Name="star1" Clicked="star1_Clicked" Source="icon_empty_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="0"/>
+        <ImageButton x:Name="star2" Clicked="star2_Clicked" Source="icon_empty_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1"/>
+        <ImageButton x:Name="star3" Clicked="star3_Clicked" Source="icon_empty_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="2"/>
+        <ImageButton x:Name="star4" Clicked="star4_Clicked" Source="icon_empty_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="3"/>
+        <ImageButton x:Name="star5" Clicked="star5_Clicked" Source="icon_empty_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="4"/>
+
+        <ImageButton x:Name="star1b" Clicked="star1b_Clicked"  Source="icon_full_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="0"/>
+        <ImageButton x:Name="star2b" Clicked="star2b_Clicked" Source="icon_full_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1"/>
+        <ImageButton x:Name="star3b" Clicked="star3b_Clicked" Source="icon_full_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="2"/>
+        <ImageButton x:Name="star4b" Clicked="star4b_Clicked" Source="icon_full_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="3"/>
+        <ImageButton x:Name="star5b" Clicked="star5b_Clicked" Source="icon_full_star.png" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="4"/>
+
+        <Label Text="Review" FontSize="15" FontAttributes="Bold" Grid.Row="4" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+        <Label Text="How is your transaction experience?" FontSize="12" Grid.Row="5" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+
+        <Editor x:Name="txtReview" Placeholder="add your review . . ." Grid.Row="6" Grid.ColumnSpan="5"
+                HeightRequest="200" Margin="10"/>
+
+        <Label Text="Photos" FontSize="15" FontAttributes="Bold" Grid.Row="7" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+        <Label Text="Add photos of the product" FontSize="12" Grid.Row="8" Grid.ColumnSpan="5" Padding="10,0,0,0"/>
+
+        <ImageButton x:Name="btnImage" Clicked="btnImage_Clicked" Source="icon_image_add.png" Grid.Row="9" Grid.ColumnSpan="5" Padding="10" BackgroundColor="Transparent"/>
+
+        <Button x:Name="btnSave" Clicked="btnSave_Clicked" Text="Save Review" Grid.Row="10" Grid.ColumnSpan="5" HorizontalOptions="Center"/>
+
+    </Grid>
+</ContentPage>

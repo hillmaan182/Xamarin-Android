@@ -124,7 +124,7 @@ namespace MobileApp.Views
 
         private void Account_Tapped(object sender, EventArgs e)
         {
-            int? idVendor = ((App)App.Current).vendorID; ;
+            int? idVendor = ((App)App.Current).vendorID; 
             Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
             //this.Navigation.PushAsync(new CompanyProfilePage());
         }
