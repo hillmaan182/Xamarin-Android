@@ -24,7 +24,9 @@ namespace MobileApp
             ((App)App.Current).userLoggedIn = null;
             ((App)App.Current).vendorID = 0;
             ((App)App.Current).userID = 0;
+            ((App)App.Current).shipyardID = 0;
             ((App)App.Current).msgID = 0;
+            ((App)App.Current).userName = null;
             ((App)App.Current).vendorName = null;
             await Shell.Current.GoToAsync("//LoginPage");
             //await Shell.Current.GoToAsync("//VendorProductPage");

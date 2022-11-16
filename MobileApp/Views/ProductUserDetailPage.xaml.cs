@@ -55,8 +55,6 @@ namespace MobileApp.Views
             userID = ((App)App.Current).userID;
             userName = ((App)App.Current).userLoggedIn;
             btnFavorite2.IsVisible = false;
-
-            
         }
 
         protected override void OnAppearing()

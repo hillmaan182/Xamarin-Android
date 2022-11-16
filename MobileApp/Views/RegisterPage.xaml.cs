@@ -17,10 +17,12 @@ namespace MobileApp.Views
     public partial class RegisterPage : ContentPage
     {
         UserService us;
+        ShipyardService ss;
         public RegisterPage()
         {
             InitializeComponent();
             us = new UserService();
+            ss = new ShipyardService();
         }
         private async void BtnRegister_Clicked(object sender, EventArgs e)
         {
@@ -44,6 +46,14 @@ namespace MobileApp.Views
                 obj.Role = "User";
                 us.InsertUser(obj);
 
+                Shipyard objS = new Shipyard();
+                objS.ShipyardName = Name.Text;
+                objS.ShipyardEmail = Email.Text;
+                objS.ShipyardPhone = "00000000";
+                objS.ShipyardAddress = "example street no 32";
+                objS.UserID = obj.ID;
+                ss.InsertShipyard(objS);
+
                 string html = EmailTemplate(Name.Text, code);
 
                 MailMessage mail = new MailMessage();
@@ -55,7 +65,7 @@ namespace MobileApp.Views
                 AlternateView alternate = AlternateView.CreateAlternateViewFromString(body, mimeType);
                 mail.AlternateViews.Add(alternate);
                 
-                mail.From = new MailAddress("shipapp.devenv@gmail.com", "Ship App");
+                mail.From = new MailAddress("shipapp.devenv@gmail.com", "Shipyard App");
                 mail.To.Add(Email.Text);
                 mail.Subject = "Verification Code";
                 mail.IsBodyHtml = true;

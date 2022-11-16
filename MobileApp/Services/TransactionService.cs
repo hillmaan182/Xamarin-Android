@@ -22,24 +22,30 @@ namespace MobileApp.Services
             return cnt;
         }
 
-        public int UpdateStatus(int id , string status)
+        public int UpdateStatus(Transaction obj)
         {
+
             var db = getContext();
-            var res = db.Transaction.Where(x => x.ID == id);
-            foreach (var x in res)
-            {
-                Transaction obj = new Transaction();
-                obj.ID = x.ID;
-                obj.VendorID = x.VendorID;
-                obj.UserID = x.UserID;
-                obj.Price = x.Price;
-                obj.TotalPrice = x.TotalPrice;
-                obj.TotalItem = x.TotalItem;
-                obj.Status =status;
-                db.Transaction.Update(obj);
-                int c = db.SaveChanges();
-            }
-            return 1;
+            db.Transaction.Update(obj);
+            int c = db.SaveChanges();
+            return c;
+
+            //var db = getContext();
+            //var res = db.Transaction.Where(x => x.ID == id);
+            //foreach (var x in res)
+            //{
+            //    Transaction obj = new Transaction();
+            //    obj.ID = x.ID;
+            //    obj.VendorID = x.VendorID;
+            //    obj.UserID = x.UserID;
+            //    obj.Price = x.Price;
+            //    obj.TotalPrice = x.TotalPrice;
+            //    obj.TotalItem = x.TotalItem;
+            //    obj.Status =status;
+            //    db.Transaction.Update(obj);
+            //    int c = db.SaveChanges();
+            //}
+            //return 1;
 
         }
 

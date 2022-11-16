@@ -16,6 +16,8 @@ namespace MobileApp
         public string vendorName { get; set; }
         public string userName { get; set; }
 
+        public int shipyardID { get; set; }
+
         //public bool isVendor { get; set; }
         //public bool isUser { get; set; }
         public App()

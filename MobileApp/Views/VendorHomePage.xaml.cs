@@ -16,12 +16,14 @@ namespace MobileApp.Views
     {
         ProductService ps;
         int? vendorId;
+        private string vendorName;
         public VendorHomePage()
         {
             //User = ((App)App.Current).userLoggedIn;
             InitializeComponent();
             ps = new ProductService();
             vendorId = ((App)App.Current).vendorID;
+            vendorName = ((App)App.Current).vendorName;
             this.BindingContext = new VendorHomeViewModel();
         }
         protected override void OnAppearing()
@@ -55,8 +57,20 @@ namespace MobileApp.Views
                        into g
                        select new { ID = g.Key.VendorID, Total =  g.Sum(x=> x.ProductSeen) };
 
+            //var unreadMsg
+            var unreadMsg = from q in db.Message
+                        where (q.MessageReceiver == vendorName && q.MessageIsRead == false)
+                        select q;
+
+            var newQuery = from p in unreadMsg
+                           group p by new { p.MessageIsRead }
+                           into g
+                           select new { Total = g.Count() };
+
+
             lstData.ItemsSource = query.ToList();
             lstData2.ItemsSource = query2.ToList();
+            lstData4.ItemsSource = newQuery.ToList();
             lstData7.ItemsSource = seen.ToList();
 
         }

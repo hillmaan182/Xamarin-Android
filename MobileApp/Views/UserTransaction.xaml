@@ -49,7 +49,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
+                                    <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
 
                                     <BoxView Grid.Row="1"
                                      Grid.ColumnSpan="3"
@@ -57,7 +57,7 @@
                                      HeightRequest="1"
                                      HorizontalOptions="Fill" />
 
-                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0"/>
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0"/>
 
                                     <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>

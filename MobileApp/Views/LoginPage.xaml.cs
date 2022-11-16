@@ -18,13 +18,15 @@ namespace MobileApp.Views
         UserService user;
         VendorService vendor;
         ProductService ps;
+        ShipyardService ss;
         public LoginPage()
         {
             user = new UserService();
             vendor = new VendorService();
             ps = new ProductService();
+            ss = new ShipyardService();
             addInitial();
-            addInitial2();
+            //addInitial2();
 
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
@@ -51,7 +53,7 @@ namespace MobileApp.Views
             if (val == 1)
             {
                 int? vendor = user.GetVendorUser(txtUsername.Text, txtPassword.Text);
-                var res = user.GetDataUser(txtUsername.Text);
+                var res = user.GetDataUserByEmail(txtUsername.Text);
 
                 ((App)App.Current).vendorName = res.FirstOrDefault().Username;
 
@@ -62,6 +64,8 @@ namespace MobileApp.Views
                 if (res.FirstOrDefault().Role == "Vendor")
                 {
                     MessagingCenter.Send<LoginPage>(this, (res.FirstOrDefault().Role == "Vendor") ? "vendor" : "user");
+                    int id = user.GetUserId(txtUsername.Text, txtPassword.Text);
+                    ((App)App.Current).userID = id;
                     await Shell.Current.GoToAsync($"//{nameof(VendorHomePage)}");
                 } else if (res.FirstOrDefault().Role == "Shipyard")
                 {
@@ -69,7 +73,16 @@ namespace MobileApp.Views
                     await Shell.Current.GoToAsync($"//{nameof(VendorHomePage)}");
                 } else
                 {
+
                     MessagingCenter.Send<LoginPage>(this, (res.FirstOrDefault().Role == "User") ? "user" : "vendor");
+                    int id = user.GetUserId(txtUsername.Text, txtPassword.Text);
+
+                    var resShipyard = ss.GetShipyardByUserId(id).Result;
+                    int shipyardId = resShipyard.FirstOrDefault().ID;
+
+
+                    ((App)App.Current).userID = id;
+                    ((App)App.Current).shipyardID = shipyardId;
                     await Shell.Current.GoToAsync($"//{nameof(UserHomePage)}");
                 }
 
@@ -205,6 +218,15 @@ namespace MobileApp.Views
             objUser3.IsVerified = true;
             objUser3.VerifiedCode = "1234";
             user.InsertUser(objUser3);
+
+            Shipyard objShip1 = new Shipyard();
+            objShip1.ShipyardName = "Shipyard A";
+            objShip1.ShipyardAddress = "Ship St no 32";
+            objShip1.ShipyardPhone = "02112345678";
+            objShip1.ShipyardEmail = "shipA@gmail.com";
+            objShip1.UserID = objUser3.ID;
+            ss.InsertShipyard(objShip1);
+            
         }
 
         public void addInitial2()

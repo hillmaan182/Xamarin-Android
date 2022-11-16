@@ -30,16 +30,16 @@ namespace MobileApp.Views
             {
                 this.BindingContext = new ChatViewModel(uname);
                 Username = uname;
-                senderM = Vendorname;
                 Vendorname = ((App)App.Current).vendorName;
+                senderM = Vendorname;
                 receiverM = Username;
             } else
             {
                 this.BindingContext = new ChatViewModel(vendor);
                 Vendorname = vendor;
-                receiverM = Vendorname;
                 Username = uname;
                 senderM = Username;
+                receiverM = Vendorname;
             }
 
             ms = new MessageService();
@@ -51,9 +51,7 @@ namespace MobileApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            init();
-
-
+            //init();
             //_viewModel.OnAppearing();
             showMessages();
         }
@@ -127,7 +125,7 @@ namespace MobileApp.Views
 
             var db = getContext();
             var query = from q in db.Message
-                        where (q.MessageSender == Username && q.MessageReceiver == "vendora")
+                        where (q.MessageSender == senderM && q.MessageReceiver == receiverM)
                         select q;
 
             var newQuery = from p in query

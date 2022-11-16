@@ -48,7 +48,7 @@ namespace MobileApp.Services
         public List<User> GetDataUser(string username)
         {
             var db = getContext();
-            var res = db.User.Where(x => x.Email == username).ToList();
+            var res = db.User.Where(x => x.Username == username).ToList();
             return res;
         }
 

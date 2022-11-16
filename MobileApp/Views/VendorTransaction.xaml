@@ -34,7 +34,7 @@
                 <CollectionView x:Name="lstNew" Grid.Row="1" Grid.ColumnSpan="3" Margin="15" IsVisible="True">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                            <Frame HasShadow="True" BackgroundColor="Beige" CornerRadius="10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -50,7 +50,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
+                                    <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
 
                                     <BoxView Grid.Row="1"
                                      Grid.ColumnSpan="3"
@@ -58,14 +58,14 @@
                                      HeightRequest="1"
                                      HorizontalOptions="Fill" />
 
-                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0"/>
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Row="2" Grid.Column="0"/>
 
-                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"/>
                                     <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"/>
 
-                                    <Button x:Name="btnShipProduct" Clicked="btnShipProduct_Clicked" CommandParameter="{Binding ID}" Text="Ready Ship" Grid.Row="5" Grid.Column="2" CornerRadius="10"/>
+                                    <Button x:Name="btnShipProduct" Clicked="btnShipProduct_Clicked" CommandParameter="{Binding ID}" Text="Ready Ship" Grid.Row="5" Grid.Column="2" CornerRadius="10" BackgroundColor="Beige" BorderWidth="1" BorderColor="Gray"/>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
@@ -96,7 +96,7 @@
                 <CollectionView x:Name="lstShip" Grid.Row="1" Grid.ColumnSpan="3" Margin="15" IsVisible="False">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                            <Frame HasShadow="True" BackgroundColor="Beige" CornerRadius="10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -112,7 +112,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}"/>
+                                    <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding BuyDate , StringFormat='Purchased : {0}'}" />
                                     
                                     <BoxView Grid.Row="1"
                                      Grid.ColumnSpan="3"
@@ -120,53 +120,37 @@
                                      HeightRequest="1"
                                      HorizontalOptions="Fill" />
 
-                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0"/>
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0" BackgroundColor="Transparent"/>
 
-                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
-                                    <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold"/>
+                                    <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"/>
                                     <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"/>
 
-                                    <Button x:Name="btnFinishOrder" Clicked="btnFinishOrder_Clicked" CommandParameter="{Binding ID}" Text="Finished Order" Grid.Row="5" Grid.Column="2" CornerRadius="10"/>
+                                    <Button x:Name="btnFinishOrder" Clicked="btnFinishOrder_Clicked" CommandParameter="{Binding ID}" Text="Finished Order" Grid.Row="5" Grid.Column="2" CornerRadius="10" BackgroundColor="White" BorderColor="#73d8eb" BorderWidth="1"/>
                                 </Grid>
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                     <CollectionView.EmptyView>
                         <ContentView>
-                            <Frame HasShadow="True" BackgroundColor="Beige" >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25" />
-                                        <RowDefinition Height="1" />
-                                        <RowDefinition Height="25" />
-                                        <RowDefinition Height="25" />
-                                        <RowDefinition Height="25" />
-                                        <RowDefinition Height="35" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Row="0" Text="test"/>
-
-                                    <BoxView Grid.Row="1"
-                                     Grid.ColumnSpan="3"
-                                     BackgroundColor="Gray"
-                                     HeightRequest="1"
-                                     HorizontalOptions="Fill" />
-
-                                    <Image Source="company_logo.png" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0"/>
-
-                                    <Label Text="test" Grid.Row="2" Grid.Column="1"/>
-                                    <Label Text="test" Grid.Row="3" Grid.Column="1"/>
-                                    <Label Text="test}" Grid.Row="4" Grid.Column="1"/>
-                                    <Label Text="test" Grid.Row="5" Grid.Column="1"/>
-
-                                </Grid>
-                            </Frame>
+                            <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Start">
+                                <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label Text="No results matched your filter. Ship"
+                                       Margin="10,25,10,10"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                    <Label Text="Try a broader filter?"
+                                       FontAttributes="Italic"
+                                       FontSize="12"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </StackLayout>
                         </ContentView>
                     </CollectionView.EmptyView>
                 </CollectionView>
@@ -174,7 +158,7 @@
                 <CollectionView x:Name="lstDone" Grid.Row="1" Grid.ColumnSpan="3" Margin="15" IsVisible="False">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame HasShadow="True" BackgroundColor="Transparent" >
+                            <Frame HasShadow="True" BackgroundColor="Beige" CornerRadius="10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
@@ -200,7 +184,7 @@
 
                                     <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" Grid.RowSpan="4" Grid.Column="0"/>
 
-                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" FontAttributes="Bold"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1"/>
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"/>
                                     <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"/>

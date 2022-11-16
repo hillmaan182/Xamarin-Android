@@ -5,7 +5,6 @@
              Visual="Material"
              xmlns:effects="clr-namespace:MobileApp.Effects">
     <ContentPage.Content>
-
         <StackLayout Margin="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#73d8eb">
             <Grid RowSpacing="0">
                 <Grid.RowDefinitions>

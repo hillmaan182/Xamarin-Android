@@ -46,13 +46,11 @@ namespace MobileApp.Services
                 var res = await _dbContext.Message.Where(x => (x.MessageSender == user && x.MessageReceiver == vendor) || (x.MessageSender == vendor && x.MessageReceiver == user)).OrderBy(x => x.MessageTime).ToListAsync();
                 foreach (var item in res)
                 {
-                    if (item.MessageSender == "user")
+                    if (item.MessageSender == vendor)
                     {
                         item.Incoming = true;
                         item.Outgoing = false;
                     }
-
-
                     else
                     {
                         item.Incoming = false;

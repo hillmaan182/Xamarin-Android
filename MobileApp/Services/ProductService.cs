@@ -17,43 +17,43 @@ namespace MobileApp.Services
 
         public async Task<List<Products>> GetProductById(int id)
         {
-            var _dbContext = getContext();
-            var res = await _dbContext.Product.ToListAsync();
-            var result = await _dbContext.Product.Where(x => x.ID == id).ToListAsync();
+            var db = getContext();
+            var res = await db.Product.ToListAsync();
+            var result = await db.Product.Where(x => x.ID == id).ToListAsync();
 
             return result;
         }
 
         public async Task<List<Products>> GetAllProducts(string category)
         {
-            var _dbContext = getContext();
-            var res = await _dbContext.Product.ToListAsync();
-            var result = await _dbContext.Product.Where(x => x.ProductCategory == category).ToListAsync();
+            var db = getContext();
+            var res = await db.Product.ToListAsync();
+            var result = await db.Product.Where(x => x.ProductCategory == category).ToListAsync();
 
             return result;
         }
 
         public async Task<List<Products>> GetAllProductsVendor(string category , int? vendorId)
         {
-            var _dbContext = getContext();
-            var res = await _dbContext.Product.ToListAsync();
-            var result = await _dbContext.Product.Where(x => x.ProductCategory == category && x.VendorID == vendorId).ToListAsync();
+            var db = getContext();
+            var res = await db.Product.ToListAsync();
+            var result = await db.Product.Where(x => x.ProductCategory == category && x.VendorID == vendorId).ToListAsync();
             return result;
         }
 
         public async Task<List<Products>> GetAllProductsByIdVendor(int? vendorId)
         {
-            var _dbContext = getContext();
-            var res = await _dbContext.Product.ToListAsync();
-            var result = await _dbContext.Product.Where(x =>  x.VendorID == vendorId).ToListAsync();
+            var db = getContext();
+            var res = await db.Product.ToListAsync();
+            var result = await db.Product.Where(x =>  x.VendorID == vendorId).ToListAsync();
             return result;
         }
 
         public int UpdateProduct(Products obj)
         {
-            var _dbContext = getContext();
-            _dbContext.Product.Update(obj);
-            int c = _dbContext.SaveChanges();
+            var db = getContext();
+            db.Product.Update(obj);
+            int c = db.SaveChanges();
             return c;
         }
 
@@ -96,9 +96,9 @@ namespace MobileApp.Services
 
         public int DeleteProduct(Products obj)
         {
-            var _dbContext = getContext();
-            _dbContext.Product.Remove(obj);
-            int c = _dbContext.SaveChanges();
+            var db = getContext();
+            db.Product.Remove(obj);
+            int c = db.SaveChanges();
             return c;
         }
     }

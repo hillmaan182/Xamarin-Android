@@ -1,4 +1,5 @@
-﻿using MobileApp.Services;
+﻿using MobileApp.Models;
+using MobileApp.Services;
 using MobileApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,12 @@ namespace MobileApp.Views
             InitializeComponent();
             this.BindingContext = new CardDataViewModel();
             ts = new TransactionService();
+           
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             vendorId = ((App)App.Current).vendorID;
             showData();
         }
@@ -91,14 +98,47 @@ namespace MobileApp.Views
         {
             var getParam = ((Button)sender).CommandParameter;
             int idTrans = Convert.ToInt32(getParam);
-            var res = ts.UpdateStatus(idTrans, "Ready to Ship");
+
+            var db = getContext();
+            var res = db.Transaction.Where(x => x.ID == idTrans);
+            foreach (var x in res)
+            {
+                Transaction obj = new Transaction();
+                obj.ID = x.ID;
+                obj.VendorID = x.VendorID;
+                obj.UserID = x.UserID;
+                obj.ProductID = x.ProductID;
+                obj.BuyDate = x.BuyDate;
+                obj.Price = x.Price;
+                obj.TotalPrice = x.TotalPrice;
+                obj.TotalItem = x.TotalItem;
+                obj.Status = "Ready to Ship";
+                ts.UpdateStatus(obj);
+            }
+            showData();
         }
 
         private void btnFinishOrder_Clicked(object sender, EventArgs e)
         {
             var getParam = ((Button)sender).CommandParameter;
             int idTrans = Convert.ToInt32(getParam);
-            var res = ts.UpdateStatus(idTrans, "Finished");
+            var db = getContext();
+            var res = db.Transaction.Where(x => x.ID == idTrans);
+            foreach (var x in res)
+            {
+                Transaction obj = new Transaction();
+                obj.ID = x.ID;
+                obj.VendorID = x.VendorID;
+                obj.UserID = x.UserID;
+                obj.ProductID = x.ProductID;
+                obj.BuyDate = x.BuyDate;
+                obj.Price = x.Price;
+                obj.TotalPrice = x.TotalPrice;
+                obj.TotalItem = x.TotalItem;
+                obj.Status = "Finished";
+                ts.UpdateStatus(obj);
+            }
+            showData();
         }
     }
 }
