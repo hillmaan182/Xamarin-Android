@@ -126,7 +126,13 @@
         <ShellContent Route="VendorProductPage" ContentTemplate="{DataTemplate local:VendorProductPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="VendorServicePage" ContentTemplate="{DataTemplate local:VendorServicePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="VendorListPage" ContentTemplate="{DataTemplate local:VendorListPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="VendorServiceListPage" ContentTemplate="{DataTemplate local:VendorServiceListPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Others" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}" />
@@ -142,6 +148,15 @@
     </FlyoutItem>
     <FlyoutItem Title="Review" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ReviewAddPage" ContentTemplate="{DataTemplate local:ReviewAddPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="ShipyardProjectPage" ContentTemplate="{DataTemplate local:ShipyardProjectPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="AddShipyardProjectPage" ContentTemplate="{DataTemplate local:AddShipyardProjectPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="ProjectProductPage" ContentTemplate="{DataTemplate local:ProjectProductPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

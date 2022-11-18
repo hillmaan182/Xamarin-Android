@@ -61,7 +61,7 @@ namespace MobileApp.Views
 
         private async void btnService_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//VendorListPage");
+            await Shell.Current.GoToAsync("//VendorServicePage");
             //await Shell.Current.GoToAsync("//ServiceUserPage");
         }
 

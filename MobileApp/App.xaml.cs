@@ -3,6 +3,7 @@ using MobileApp.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Data;
 
 namespace MobileApp
 {
@@ -17,6 +18,7 @@ namespace MobileApp
         public string userName { get; set; }
 
         public int shipyardID { get; set; }
+        public DataTable globalDT { get; set; }
 
         //public bool isVendor { get; set; }
         //public bool isUser { get; set; }
@@ -31,6 +33,7 @@ namespace MobileApp
             {
                 int id = 1;
                 Shell.Current.GoToAsync("//LoginPage");
+                //Shell.Current.GoToAsync("//AddShipyardProjectPage");
                 //Shell.Current.GoToAsync($"//ProductUserDetailPage?param={id.ToString()}");
                 //Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param=1");
                 //Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?id=1");

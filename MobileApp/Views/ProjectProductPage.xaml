@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.VendorProductPage" Title="Product">
+             x:Class="MobileApp.Views.ProjectProductPage"
+             xmlns:vm="clr-namespace:MobileApp.ViewModels">
+
     <Grid BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
@@ -18,15 +19,17 @@
                         <ViewCell>
                             <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding ID}"/>
+                                    <TapGestureRecognizer  CommandParameter="{Binding ID}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="35"></RowDefinition>
                                         <RowDefinition Height="25"></RowDefinition>
-                                        <RowDefinition Height="25"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
@@ -43,6 +46,8 @@
                                            Grid.Row="2" Grid.Column="1" TextColor="Black"
                                            HorizontalOptions="Start" VerticalOptions="Start"
                                            FontSize="15"/>
+
+                                    <Button x:Name="addServiceBtn" CommandParameter="{Binding ID}" Clicked="addServiceBtn_Clicked" Text="add to project" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" FontSize="12"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>
@@ -51,7 +56,9 @@
             </ListView>
         </ScrollView>
 
-        <StackLayout Grid.Row="2" BackgroundColor="Transparent">
+        <!--<Button x:Name="addProjectBtn" Clicked="addProjectBtn_Clicked" Text=" add" Grid.Row="1"/>-->
+
+        <!--<StackLayout Grid.Row="2" BackgroundColor="Transparent">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -61,7 +68,7 @@
                 <Button ImageSource="icon_vendor_24.png" Text="Vendor" x:Name="vendorBtn" Clicked="vendorBtn_Clicked" Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
 
             </Grid>
-        </StackLayout>
-        
+        </StackLayout>-->
+
     </Grid>
 </ContentPage>

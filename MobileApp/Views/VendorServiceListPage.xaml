@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.VendorListPage" Title="Product Vendor">
-
+             x:Class="MobileApp.Views.VendorServiceListPage" Title="Service Vendor">
     <Grid RowSpacing="0" BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -50,11 +49,10 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Button ImageSource="icon_product_24.png" Text="Product" x:Name="productBtn" Clicked="productBtn_Clicked" Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
-                <Button ImageSource="icon_vendor_24.png" Text="Vendor" x:Name="vendorBtn" Clicked="vendorBtn_Clicked" Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="Gray" BorderWidth="1"  BackgroundColor="#40B5AD"/>
+                <Button ImageSource="icon_service_24.png" Text="Service" x:Name="serviceBtn" Clicked="serviceBtn_Clicked" Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
+                <Button ImageSource="icon_vendor_24.png" Text="Vendor" x:Name="vendorBtn" Clicked="vendorBtn_Clicked" Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="#40B5AD"/>
 
             </Grid>
         </StackLayout>
-
     </Grid>
 </ContentPage>

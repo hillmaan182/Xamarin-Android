@@ -42,6 +42,13 @@ namespace MobileApp.ViewModels
             set { SetProperty(ref user, value); }
         }
 
+        int projectId = 0;
+        public int ProjectId
+        {
+            get { return projectId; }
+            set { SetProperty(ref projectId, value); }
+        }
+
         bool isIncome = false;
 
         public bool IsIncome

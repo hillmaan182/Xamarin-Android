@@ -58,5 +58,19 @@ namespace MobileApp.Services
             return res;
         }
 
+        public async Task<List<Vendor>> GetAllVendorProductByName(string name)
+        {
+            var db = getContext();
+            var res = await db.Vendor.Where(x => x.VendorName.ToLower().Contains(name.ToLower()) && x.Type == "Product").ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Vendor>> GetAllVendorServiceByName(string name)
+        {
+            var db = getContext();
+            var res = await db.Vendor.Where(x => x.VendorName.ToLower().Contains(name.ToLower()) && x.Type == "Service").ToListAsync();
+            return res;
+        }
+
     }
 }

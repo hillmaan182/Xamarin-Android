@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.AddShipyardProjectPage" Title="Add Projects">
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
+        <ScrollView>
+            <Frame BackgroundColor="Transparent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/> 
+                        <RowDefinition Height="190"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="190"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ImageButton x:Name="btnImage" Source="icon_image_add.png"
+                    HorizontalOptions="Center"
+                    WidthRequest="155" HeightRequest="155"  Grid.Row="0" Grid.ColumnSpan="2"
+                             BorderColor="Black" BorderWidth="2"/>
+
+                    <Entry x:Name="txtShipName" Placeholder="enter ship name . . . " PlaceholderColor="Gray" Grid.Row="1" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="txtOwnerName" Placeholder="enter owner name . . ." PlaceholderColor="Gray" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+                    <Label Text="Project Category" Grid.Row="3" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+
+                    <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="1" Content="Ship Building" CheckedChanged="onRBChanged" TextColor="Gray"/>
+                    <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Ship Reapier" TextColor="Gray"/>
+
+                    <Label Text="Project Span" Grid.Row="5" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+                    <DatePicker x:Name="startDate" Grid.Row="6" HorizontalOptions="Center" Grid.Column="0"/>
+                    <DatePicker x:Name="endDate" Grid.Row="6" HorizontalOptions="Center" Grid.Column="1"/>
+                    <Label Text="Drawings" Grid.Row="7" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+
+                    <Label Text="Product Used" Grid.Row="9" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnAddProduct" Clicked="btnAddProduct_Clicked" Text="browse for product" ImageSource="icon_add.png" Grid.Row="10" HorizontalOptions="Center" Grid.ColumnSpan="2" CornerRadius="10" BackgroundColor="Beige" BorderColor="Gray" BorderWidth="1"/>
+
+                    <CarouselView x:Name="lstDataProduct" Grid.Row="11" Grid.ColumnSpan="2" PeekAreaInsets="100" Loop="False" IsScrollAnimated="True">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="135"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                            <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                                            <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                            <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                        <CarouselView.EmptyView>
+                            <ContentView>
+                                <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                   <Label Text="There is no data"
+                                   Margin="10,0,10,0"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CarouselView.EmptyView>
+                    </CarouselView>
+
+                    <Label Text="Service Used" Grid.Row="12" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+                    <!--<Picker x:Name="picker" Grid.Row="13" Grid.ColumnSpan="2"
+                        Title="browse for service ..."
+                        TitleColor="Beige" ItemDisplayBinding="{Binding Product}" SelectedItem="{Binding SelectedMonkey}" SelectedIndex="{Binding ID}" SelectedIndexChanged="picker_SelectedIndexChanged" >
+                    </Picker>-->
+                    
+                    <Button x:Name="btnAddService" Clicked="btnAddService_Clicked" Text="browse for service" ImageSource="icon_add.png" Grid.Row="13" HorizontalOptions="Center" Grid.ColumnSpan="2" CornerRadius="10" BackgroundColor="Beige" Margin="5" BorderColor="Gray" BorderWidth="1"/>
+
+                    <CarouselView x:Name="lstDataService" Grid.Row="14" Grid.ColumnSpan="2" PeekAreaInsets="100" Loop="False" IsScrollAnimated="True">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="135"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                        <Grid RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+
+                                            <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
+                                            <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                            <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                        <CarouselView.EmptyView>
+                            <ContentView>
+                                <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                    <Label Text="There is no data"
+                                   Margin="10,0,10,0"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CarouselView.EmptyView>
+                    </CarouselView>
+
+                    <Button Text="save" x:Name="btnSaveUpdate" Clicked="btnSaveUpdate_Clicked" Grid.Row="15" Grid.Column="0" CornerRadius="10" BackgroundColor="Beige" BorderColor="Gray" BorderWidth="1"/>
+                    <Button Text="cancel" x:Name="btnCancel" Clicked="btnCancel_Clicked"  Grid.Row="15" Grid.Column="1" CornerRadius="10" BackgroundColor="Beige" BorderColor="Gray" BorderWidth="1"/>
+                </Grid>
+            </Frame>
+        </ScrollView>
+    </Grid>
+</ContentPage>

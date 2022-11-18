@@ -28,6 +28,14 @@ namespace MobileApp.Services
             return result;
         }
 
+        public int UpdateShipyard(Shipyard obj)
+        {
+            var db = getContext();
+            db.Shipyard.Update(obj);
+            int c = db.SaveChanges();
+            return c;
+        }
+
         public int InsertShipyard(Shipyard obj)
         {
             var db = getContext();

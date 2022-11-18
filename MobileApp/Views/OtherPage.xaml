@@ -30,19 +30,19 @@
                                      IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
                                      Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5"/>
 
-                    <Entry x:Name="txtName" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
+                    <Entry x:Name="txtName" Text="Title" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
                         <Entry.Effects>
                             <effects:PlainEntry/>
                         </Entry.Effects>
                     </Entry>
 
-                    <Entry Text="Title" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
+                    <Entry x:Name="txtAddress" Text="Title" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
                         <Entry.Effects>
                             <effects:PlainEntry/>
                         </Entry.Effects>
                     </Entry>
 
-                    <Entry x:Name="txtEmail" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
+                    <Entry x:Name="txtEmail" Text="Title" Grid.Row="2" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
                         <Entry.Effects>
                             <effects:PlainEntry/>
                         </Entry.Effects>
@@ -53,7 +53,7 @@
 
                     <ImageButton Source="icon_check.png" Grid.Row="1" Grid.Column="2" IsVisible="{Binding IsEnabled}" BackgroundColor="Transparent"
                                            HeightRequest="20"
-                                           Clicked="Check_Clicked"/>
+                                           Clicked="Check_Clicked" />
 
                     <ImageButton Source="icon_close.png" Grid.Row="2" Grid.Column="2" IsVisible="{Binding IsEnabled}" BackgroundColor="Transparent"
                                            HeightRequest="20" Clicked="Cancel_Clicked"/>

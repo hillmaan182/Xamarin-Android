@@ -12,40 +12,25 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VendorProductPage : ContentPage
+    public partial class VendorServicePage : ContentPage
     {
         ProductService ps;
         private DatabaseContext getContext()
         {
             return new DatabaseContext();
         }
-
-        public VendorProductPage()
+        public VendorServicePage()
         {
             InitializeComponent();
             ps = new ProductService();
             showProduct();
         }
-        //protected override void OnAppearing()
-        //{
-        //    try
-        //    {
-        //        base.OnAppearing();
-        //        showProduct();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        Console.Write(ex.ToString());
-        //    }
-
-        //}
         private void showProduct()
         {
             var db = getContext();
             var query = from q in db.Product
                         join x in db.Vendor on q.VendorID equals x.ID
-                        where q.ProductCategory == "Product"
+                        where q.ProductCategory == "Service"
                         select new { q.ID, q.ProductImage, q.ProductName, q.ProductPrice, x.VendorName };
 
             lstData.ItemsSource = query.ToList();
@@ -61,14 +46,19 @@ namespace MobileApp.Views
             await Shell.Current.GoToAsync($"{nameof(ProductUserDetailPage)}?Param1={id}");
         }
 
-        private async void productBtn_Clicked(object sender, EventArgs e)
+        private async void serviceBtn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(VendorProductPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(VendorServicePage)}");
         }
 
         private async void vendorBtn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(VendorListPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(VendorServiceListPage)}");
+        }
+
+        private void searchService_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

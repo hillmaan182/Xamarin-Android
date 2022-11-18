@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ShipyardProjectPage">
+    <Grid BackgroundColor="#73d8eb">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Projects" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="20" Padding="25,20,0,0"/>
+        <ImageButton x:Name="addProjectBtn" Clicked="addProjectBtn_Clicked" Source="icon_add.png" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" Padding="0,20,25,0"/>
+
+        <Button x:Name="ongoingBtn" Clicked="ongoingBtn_Clicked" Text="Ongoing" Grid.Row="1" Grid.Column="0" CornerRadius="10" FontSize="12"/>
+        <Button x:Name="finishedBtn" Clicked="finishedBtn_Clicked" Text="Finished" Grid.Row="1" Grid.Column="1" CornerRadius="10" FontSize="12"/>
+
+        <ScrollView Grid.Row="2" Grid.ColumnSpan="2">
+            <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="Beige">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding ProjectCategory}" Grid.Row="0" Grid.ColumnSpan="3"/>
+                                    <Label Text="{Binding ProjectStartTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="0"/>
+                                    <Label Text="{Binding ProjectEndTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="1"/>
+                                    <BoxView BackgroundColor="Gray" WidthRequest="1" Grid.Row="2" Grid.ColumnSpan="3"/>
+
+                                    <Image Source="{Binding ProjectImage,TargetNullValue='icon_noimage.png'}" 
+                                           Grid.Row="3" Grid.RowSpan="3" Grid.Column="0" WidthRequest="85" HeightRequest="85"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                                    <Label Text="{Binding ProjectName}" Grid.Row="4"  Grid.Column="1"/>
+                                    <Label Text="{Binding ProjectOwner}" Grid.Row="5" Grid.Column="1"/>
+
+                                    <Button Text="Expand" Grid.Row="6" Grid.Column="2" CornerRadius="10" Padding="10" Margin="20,25,0,0" FontSize="12"/>
+                                    <Button x:Name="btnFinished" Text="Finished" Grid.Row="6" Grid.Column="1" CornerRadius="10" FontSize="12"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

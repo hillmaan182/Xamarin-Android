@@ -11,30 +11,24 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VendorListPage : ContentPage
+    public partial class VendorServiceListPage : ContentPage
     {
         VendorService vs;
-        public VendorListPage()
+        public VendorServiceListPage()
         {
             InitializeComponent();
             vs = new VendorService();
             showVendor();
         }
-
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    showVendor();
-        //}
         private void showVendor()
         {
-            var res = vs.GetAllVendorByCategory("Product").Result;
+            var res = vs.GetAllVendorByCategory("Service").Result;
             lstData.ItemsSource = res;
         }
 
         private void searchVendor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var res = vs.GetAllVendorProductByName(searchVendor.Text).Result;
+            var res = vs.GetAllVendorServiceByName(searchVendor.Text).Result;
             lstData.ItemsSource = res;
         }
 
@@ -44,15 +38,14 @@ namespace MobileApp.Views
             int idVendor = Convert.ToInt32(getParam);
             Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
         }
-        private async void productBtn_Clicked(object sender, EventArgs e)
+        private async void serviceBtn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(VendorProductPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(VendorServicePage)}");
         }
 
         private async void vendorBtn_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(VendorListPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(VendorServicePage)}");
         }
-
     }
 }

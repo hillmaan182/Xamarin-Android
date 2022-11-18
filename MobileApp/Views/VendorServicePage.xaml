@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.VendorProductPage" Title="Product">
+             x:Class="MobileApp.Views.VendorServicePage"
+             Title="Service">
     <Grid BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -9,7 +10,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <SearchBar Placeholder="type to search" Grid.Row="0"/>
+        <SearchBar x:Name="searchService" TextChanged="searchService_TextChanged" Placeholder="type to search" Grid.Row="0" BackgroundColor="Beige"/>
 
         <ScrollView Grid.Row="1" BackgroundColor="#73d8eb" >
             <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">
@@ -51,17 +52,17 @@
             </ListView>
         </ScrollView>
 
-        <StackLayout Grid.Row="2" BackgroundColor="Transparent">
-            <Grid>
+        <StackLayout Grid.Row="2" BackgroundColor="#73d8eb">
+            <Grid BackgroundColor="#73d8eb">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Button ImageSource="icon_product_24.png" Text="Product" x:Name="productBtn" Clicked="productBtn_Clicked" Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="#40B5AD"/>
+                <Button ImageSource="icon_service_24.png" Text="Service" x:Name="serviceBtn" Clicked="serviceBtn_Clicked" Grid.Row="0" Grid.Column="0" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="#40B5AD"/>
                 <Button ImageSource="icon_vendor_24.png" Text="Vendor" x:Name="vendorBtn" Clicked="vendorBtn_Clicked" Grid.Row="0" Grid.Column="1" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
 
             </Grid>
         </StackLayout>
-        
+
     </Grid>
 </ContentPage>

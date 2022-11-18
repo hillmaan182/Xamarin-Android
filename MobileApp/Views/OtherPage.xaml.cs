@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MobileApp.Models;
 
 namespace MobileApp.Views
 {
@@ -47,18 +48,30 @@ namespace MobileApp.Views
         private void showProfile()
         {
             var res = ss.GetShipyardById(shipyardID).Result;
-            //var res = us.GetDataUser(username);
             foreach (var x in res)
             {
                 txtName.Text = x.ShipyardName;
                 txtEmail.Text = x.ShipyardEmail;
+                txtAddress.Text = x.ShipyardAddress;
             }
-            //lstData.ItemsSource = res;
         }
 
         private void Check_Clicked(object sender, EventArgs e)
         {
+            Shipyard obj = new Shipyard();
+            var res = ss.GetShipyardById(shipyardID).Result;
+            foreach (var x in res)
+            {
+                obj.ID = x.ID;
+                obj.ShipyardName = txtName.Text;
+                obj.ShipyardEmail = txtEmail.Text;
+                obj.ShipyardAddress = txtAddress.Text;
+                obj.ShipyardPhone = x.ShipyardPhone;
+                obj.ShipyardImage = PhotoPath;
+                obj.UserID = x.UserID;
 
+                ss.UpdateShipyard(obj);
+            }
         }
 
         async Task PickerPhotoAsync()
@@ -103,9 +116,9 @@ namespace MobileApp.Views
             updateImg.IsVisible = false;
         }
 
-        private void Projects_Tapped(object sender, EventArgs e)
+        private async void Projects_Tapped(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync($"//{nameof(ShipyardProjectPage)}");
         }
 
         private void History_Tapped(object sender, EventArgs e)
@@ -118,9 +131,9 @@ namespace MobileApp.Views
 
         }
 
-        private void Chat_Tapped(object sender, EventArgs e)
+        private async void Chat_Tapped(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync($"//{nameof(MessagePage)}");
         }
 
         private void Account_Tapped(object sender, EventArgs e)
