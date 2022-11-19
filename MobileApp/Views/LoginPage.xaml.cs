@@ -25,11 +25,12 @@ namespace MobileApp.Views
             vendor = new VendorService();
             ps = new ProductService();
             ss = new ShipyardService();
+
             addInitial();
             //addInitial2();
 
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            //this.BindingContext = new LoginViewModel();
         }
         public LoginPage(User obj)
         {
@@ -83,6 +84,7 @@ namespace MobileApp.Views
 
                     ((App)App.Current).userID = id;
                     ((App)App.Current).shipyardID = shipyardId;
+                    ((App)App.Current).userName = resShipyard.FirstOrDefault().ShipyardName;
                     await Shell.Current.GoToAsync($"//{nameof(UserHomePage)}");
                 }
 
@@ -100,12 +102,15 @@ namespace MobileApp.Views
 
         public void addInitial()
         {
+
             Vendor obj = new Vendor();
             obj.VendorName = "Vendor Product A";
             obj.VendorAddress = "Jalan A no 1";
             obj.VendorPhone = "02112345678";
             obj.VendorEmail = "vendorA@gmail.com";
             obj.Type = "Product";
+            obj.VendorAbout = "Lorem ipsum dolor sit amet, consectetur adisipicing elit. Nunc vulputate";
+            obj.VendorMission = "Happy Live Laugh";
             vendor.InsertVendor(obj);
 
             //
@@ -161,6 +166,8 @@ namespace MobileApp.Views
             obj2.VendorPhone = "02112345678";
             obj2.VendorEmail = "vendorB@gmail.com";
             obj2.Type = "Service";
+            obj2.VendorAbout = "Lorem ipsum dolor sit amet, consectetur adisipicing elit. Nunc vulputate";
+            obj2.VendorMission = "Happy Live Laugh";
             vendor.InsertVendor(obj2);
 
             //
@@ -224,6 +231,8 @@ namespace MobileApp.Views
             objShip1.ShipyardAddress = "Ship St no 32";
             objShip1.ShipyardPhone = "02112345678";
             objShip1.ShipyardEmail = "shipA@gmail.com";
+            objShip1.ShipyardAbout = "Lorem ipsum dolor sit amet, consectetur adisipicing elit. Nunc vulputate";
+            objShip1.ShipyardMission = "Happy Live Laugh";
             objShip1.UserID = objUser3.ID;
             ss.InsertShipyard(objShip1);
             

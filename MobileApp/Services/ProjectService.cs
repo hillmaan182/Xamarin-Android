@@ -35,5 +35,14 @@ namespace MobileApp.Services
             int c = db.SaveChanges();
             return c;
         }
+
+        public int UpdateProject(Project obj)
+        {
+            var db = getContext();
+            db.Project.Update(obj);
+            int c = db.SaveChanges();
+            return c;
+        }
+
     }
 }

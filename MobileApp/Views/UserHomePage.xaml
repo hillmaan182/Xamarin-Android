@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.UserHomePage"
-             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" Title="Products">
+             xmlns:view="clr-namespace:MobileApp.CardView;assembly=MobileApp" 
+             Title="Products">
     <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
             <RowDefinition Height="125" />
@@ -13,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <view:CardViewHeaderTemplate BorderColor="DarkGray"

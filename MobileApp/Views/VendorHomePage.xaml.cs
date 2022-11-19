@@ -67,7 +67,6 @@ namespace MobileApp.Views
                            into g
                            select new { Total = g.Count() };
 
-
             lstData.ItemsSource = query.ToList();
             lstData2.ItemsSource = query2.ToList();
             lstData4.ItemsSource = newQuery.ToList();

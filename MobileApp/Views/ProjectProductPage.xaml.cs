@@ -20,7 +20,6 @@ namespace MobileApp.Views
     {
         private int ProjectID;
         ProjectProductService pps;
-        ProjectProductViewModel ppvm;
         ProductService ps;
         private string param1;
         private string param2;

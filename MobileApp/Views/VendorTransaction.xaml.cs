@@ -16,12 +16,14 @@ namespace MobileApp.Views
     public partial class VendorTransaction : ContentPage
     {
         TransactionService ts;
+        ProductService ps;
         private int? vendorId;
         public VendorTransaction()
         {
             InitializeComponent();
             this.BindingContext = new CardDataViewModel();
             ts = new TransactionService();
+            ps = new ProductService(); 
            
         }
 
@@ -137,6 +139,22 @@ namespace MobileApp.Views
                 obj.TotalItem = x.TotalItem;
                 obj.Status = "Finished";
                 ts.UpdateStatus(obj);
+
+                var minusProduct = db.Product.Where(q => q.ID == x.ProductID);
+                foreach(var q in minusProduct)
+                {
+                    Products p = new Products();
+                    p.ID = q.ID;
+                    p.ProductName = q.ProductName;
+                    p.ProductPrice = q.ProductPrice;
+                    p.ProductDescription = q.ProductDescription;
+                    p.ProductCategory = q.ProductCategory;
+                    p.VendorID = q.VendorID;
+                    p.ProductImage = q.ProductImage;
+                    p.ProductSeen = q.ProductSeen;
+                    p.ProductSisa = p.ProductSisa - x.TotalItem;
+                    ps.UpdateProduct(p);
+                }
             }
             showData();
         }

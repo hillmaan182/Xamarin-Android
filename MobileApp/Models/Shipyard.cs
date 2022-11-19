@@ -15,7 +15,8 @@ namespace MobileApp.Models
         public string ShipyardPhone { get; set; }
         public string ShipyardAddress { get; set; }
         public string ShipyardImage { get; set; }
-
+        public string ShipyardAbout { get; set; }
+        public string ShipyardMission { get; set; }
         public int UserID { get; set; }
     }
 }

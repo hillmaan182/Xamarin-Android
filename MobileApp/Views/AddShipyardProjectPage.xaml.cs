@@ -35,26 +35,6 @@ namespace MobileApp.Views
             base.OnAppearing();
             var res = pps.GetProjectProductByShipyard(ShipyardID);
             var db = getContext();
-            var query = from q in db.ProjectProduct
-                        join x in db.Product on q.ProductID equals x.ID
-                        where q.ProjectID == ShipyardID && x.ProductCategory == "Product"
-                        select new { x.ID , x.ProductName , x.ProductImage , x.ProductPrice };
-
-            var query2 = from q in db.ProjectProduct
-                        join x in db.Product on q.ProductID equals x.ID
-                        join z in db.Vendor on x.VendorID equals z.ID
-                        where q.ProjectID == ShipyardID && x.ProductCategory == "Service"
-                        select new { x.ID, x.ProductName, x.ProductImage, x.ProductPrice , z.VendorName };
-
-            //lstDataProduct.ItemsSource = query.ToList();
-            //lstDataService.ItemsSource = query2.ToList();
-
-            var product = from q in db.Product
-                          join x in db.Vendor on q.VendorID equals x.ID
-                          where q.ProductCategory == "Product"
-                          select new { q.ID, Product = q.ProductName.ToString() + " - " + q.ProductPrice.ToString()  + " - " + x.VendorName.ToString()};
-            
-            //picker.ItemsSource = product.ToList();
 
             if (((App)App.Current).globalDT != null)
             {
@@ -66,10 +46,6 @@ namespace MobileApp.Views
                 foreach (DataRow row in dt.Rows)
                 {
                     lst.Add(new ProjectProduct { ID = id, ProductID = Convert.ToInt32(row["ProductId"]), ProjectID = Convert.ToInt32(row["ProjectId"]) });
-                    //ProjectProduct obj = new ProjectProduct();
-                    //lst.ID = id;
-                    //obj.ProductID = Convert.ToInt32(row["ProductId"]);
-                    //obj.ProjectID = Convert.ToInt32(row["ProjectId"]);
                     id--;
                 }
 
@@ -89,14 +65,16 @@ namespace MobileApp.Views
                                    select new { x.ID, x.ProductName, x.ProductImage, x.ProductPrice, z.VendorName };
 
                 lstDataService.ItemsSource = queryService.ToList();
+            } else
+            {
+                lstDataProduct.ItemsSource = null;
+                lstDataService.ItemsSource = null;
             }
            
         }
 
         protected override bool OnBackButtonPressed()
         {
-            //base.OnBackButtonPressed();
-            //((App)App.Current).globalDT = null;
             return true;
         }
 

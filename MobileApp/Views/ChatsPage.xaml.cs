@@ -16,7 +16,6 @@ namespace MobileApp.Views
     public partial class ChatsPage : ContentPage
     {
         MessageService ms;
-        ChatViewModel _viewModel;
         private string Username;
         private string Vendorname;
 

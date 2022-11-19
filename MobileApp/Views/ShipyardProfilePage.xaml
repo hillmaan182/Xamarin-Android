@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.CompanyProfilePage"
-             xmlns:view="clr-namespace:MobileApp.TemplatePage;assembly=MobileApp"
-             xmlns:views="clr-namespace:MobileApp.CardView;assembly=MobileApp"
-             xmlns:viewModel="clr-namespace:MobileApp.ViewModels;assembly=MobileApp" Title="Profile">
+             x:Class="MobileApp.Views.ShipyardProfilePage" Title="Profile">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#73d8eb</Color>
@@ -27,7 +24,7 @@
 
     <ContentPage.Content >
         <ScrollView>
-            <ListView x:Name="lvVendor" HasUnevenRows="True" BackgroundColor="#73d8eb">
+            <ListView x:Name="lstShipyard" HasUnevenRows="True" BackgroundColor="#73d8eb">
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <ViewCell >
@@ -53,19 +50,21 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Label Style="{StaticResource Header}" Text="{Binding VendorName}"   Grid.Row="0" Grid.ColumnSpan="3" />
+                                    <Label Style="{StaticResource Header}" Text="{Binding ShipyardName}"   Grid.Row="0" Grid.ColumnSpan="3" />
 
                                     <Label Style="{StaticResource Body}" Text="About Us"  Grid.Row="1" Grid.ColumnSpan="3"/>
-                                    <Label Style="{StaticResource Content}" Text="{Binding VendorAbout}"   Grid.Row="2" Grid.ColumnSpan="3"/>
+                                    <Label Style="{StaticResource Content}" Text="{Binding ShipyardAbout}"   Grid.Row="2" Grid.ColumnSpan="3"/>
 
                                     <Label Style="{StaticResource Body}" Text="Vision and Mission"   Grid.Row="3" Grid.ColumnSpan="3" />
-                                    <Label Style="{StaticResource Content}" Text="{Binding VendorMission}"   Grid.Row="4" Grid.ColumnSpan="3" />
+                                    <Label Style="{StaticResource Content}" Text="{Binding ShipyardMission}"   Grid.Row="4" Grid.ColumnSpan="3" />
 
                                     <Label Style="{StaticResource Body}" Text="Our Services"   Grid.Row="5" Grid.ColumnSpan="3"/>
                                     <Image Source="icon_photo1.png" Grid.Row="6" Grid.Column="0"/>
                                     <Image Source="icon_photo2.png" Grid.Row="6" Grid.Column="1"/>
                                     <Image Source="icon_photo3.png" Grid.Row="6" Grid.Column="2"/>
-                                    
+
+                                    <!--<Label Style="{StaticResource Content}" Text="{Binding VendorEmail}"   Grid.Row="6" Grid.Column="0" />-->
+
                                     <Label Style="{StaticResource Body}" Text="Our Experience"   Grid.Row="7" Grid.ColumnSpan="3" />
                                     <Button BackgroundColor="Red" Grid.Row="8" Grid.Column="0"/>
                                     <Button BackgroundColor="Orange" Grid.Row="8" Grid.Column="1"/>
@@ -84,13 +83,13 @@
                                     <Label Style="{StaticResource Body}" Text="Contact Us"   Grid.Row="13" Grid.ColumnSpan="3" />
 
                                     <Image Source="icon_location.png" Grid.Row="14" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorAddress}"   Grid.Row="14" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ShipyardAddress}"   Grid.Row="14" Grid.Column="1" VerticalOptions="Center"/>
 
                                     <Image Source="icon_phone.png" Grid.Row="15" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorPhone}"   Grid.Row="15" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ShipyardPhone}"   Grid.Row="15" Grid.Column="1" VerticalOptions="Center"/>
 
                                     <Image Source="icon_email.png" Grid.Row="16" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorEmail}"   Grid.Row="16" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Label Text="{Binding ShipyardEmail}"   Grid.Row="16" Grid.Column="1" VerticalOptions="Center"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

@@ -109,6 +109,13 @@ namespace MobileApp.Views
         {
             try
             {
+                var res = ps.GetProductById(productID).Result;
+                int sisa = res.FirstOrDefault().ProductSisa;
+                if (Convert.ToInt32(totalCnt.Text) > sisa)
+                {
+                    throw new InvalidOperationException("Item amount exceeded");
+                }
+
                 Transaction obj = new Transaction();
                 obj.VendorID = vendorID;
                 obj.ProductID = productID;
@@ -135,17 +142,17 @@ namespace MobileApp.Views
             this.Navigation.PushAsync(new ChatsPage(userName, vendorName));
         }
 
-        private void btnBuy_Clicked(object sender, EventArgs e)
+        private async void btnBuy_Clicked(object sender, EventArgs e)
         {
             try
             {
                 insertTransaction();
-                DisplayAlert("Success", "You've just buy the product", "OK");
-                Shell.Current.GoToAsync("//ProductUserPage");
+                await DisplayAlert("Success", "You've just buy the product", "OK");
+                await Shell.Current.GoToAsync("//ProductUserPage");
             }
             catch (Exception ex)
             {
-                DisplayAlert("Error", ex.ToString(), "OK");
+                await DisplayAlert("Error", ex.ToString(), "OK");
             }
         }
 
@@ -163,7 +170,7 @@ namespace MobileApp.Views
             total += 1;
             totalCnt.Text = total.ToString();
         }
-        
+
         private void btnFavorite_Clicked(object sender, EventArgs e)
         {
             try
@@ -189,7 +196,7 @@ namespace MobileApp.Views
             btnFavorite2.IsVisible = false;
             if (favoriteId != 0)
             {
-               int c = fp.DelFavoriteProduct(favoriteId);
+                int c = fp.DelFavoriteProduct(favoriteId);
             }
         }
 

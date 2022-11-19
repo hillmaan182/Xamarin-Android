@@ -76,7 +76,7 @@ namespace MobileApp.Services
         public int UpdateVerified(User obj)
         {
             var db = getContext();
-            var res = db.User.Update(obj);
+            db.User.Update(obj);
             int c = db.SaveChanges();
             return c;
         }

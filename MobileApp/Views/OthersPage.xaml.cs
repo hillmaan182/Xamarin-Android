@@ -18,7 +18,6 @@ namespace MobileApp.Views
     {
         VendorService vs;
         int? VendorID;
-        OthersViewModel ovm;
         public OthersPage()
         {
             InitializeComponent();

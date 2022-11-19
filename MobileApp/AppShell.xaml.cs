@@ -13,6 +13,7 @@ namespace MobileApp
             InitializeComponent();
             Routing.RegisterRoute(nameof(ProductUserDetailPage), typeof(ProductUserDetailPage));
             Routing.RegisterRoute(nameof(CompanyProfilePage), typeof(CompanyProfilePage));
+            Routing.RegisterRoute(nameof(ShipyardProfilePage), typeof(ShipyardProfilePage));
             Routing.RegisterRoute(nameof(ReviewAddPage), typeof(ReviewAddPage));
             Routing.RegisterRoute(nameof(AddProductPage), typeof(AddProductPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
@@ -32,6 +33,8 @@ namespace MobileApp
             ((App)App.Current).msgID = 0;
             ((App)App.Current).userName = null;
             ((App)App.Current).vendorName = null;
+            ((App)App.Current).globalDT = null;
+            ((App)App.Current).IsUserLoggedIn = false;
             await Shell.Current.GoToAsync("//LoginPage");
             //await Shell.Current.GoToAsync("//VendorProductPage");
             //await Shell.Current.GoToAsync("//VendorListPage");

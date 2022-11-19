@@ -31,7 +31,6 @@ namespace MobileApp
             MainPage = new AppShell();
             if (!IsUserLoggedIn)
             {
-                int id = 1;
                 Shell.Current.GoToAsync("//LoginPage");
                 //Shell.Current.GoToAsync("//AddShipyardProjectPage");
                 //Shell.Current.GoToAsync($"//ProductUserDetailPage?param={id.ToString()}");

@@ -29,8 +29,15 @@ namespace MobileApp.Views
         }
         private void showProject(string status)
         {
-            var res = ps.GetProjectByStatus(status,UserId).Result;
-            lstData.ItemsSource = res;
+            var res = ps.GetProjectByStatus(status, UserId).Result;
+            if (status == "OnGoing")
+            {
+                lstDataOngoing.ItemsSource = res;
+            }
+            else
+            {
+                lstDataFinished.ItemsSource = res;
+            }
         }
 
         private async void addProjectBtn_Clicked(object sender, EventArgs e)
@@ -40,14 +47,55 @@ namespace MobileApp.Views
 
         private void ongoingBtn_Clicked(object sender, EventArgs e)
         {
+            scOngoing.IsVisible = true;
+            scFinished.IsVisible = false;
             showProject("OnGoing");
-            finishedBtn.IsVisible = true;
         }
 
         private void finishedBtn_Clicked(object sender, EventArgs e)
         {
+            scOngoing.IsVisible = false;
+            scFinished.IsVisible = true;
             showProject("Finished");
-            finishedBtn.IsVisible = false;
+        }
+
+        private void btnFinished_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var getParam = ((Button)sender).CommandParameter;
+                int idProject = Convert.ToInt32(getParam);
+                var db = getContext();
+                var query = from q in db.Project
+                            where q.ID == idProject
+                            select q;
+
+                foreach (var x in query.ToList())
+                {
+                    Project p = new Project();
+                    p.ProjectName = x.ProjectName;
+                    p.ProjectOwner = x.ProjectOwner;
+                    p.ProjectCategory = x.ProjectCategory;
+                    p.ProjectStartTime = x.ProjectStartTime;
+                    p.ProjectEndTime = x.ProjectEndTime;
+                    p.UserID = x.UserID;
+                    p.ProjectImage = x.ProjectImage;
+                    p.ProjectStatus = "Finished";
+                    p.ID = x.ID;
+
+                    ps.UpdateProject(p);
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", ex.ToString(), "OK");
+            }
+            
+        }
+
+        private DatabaseContext getContext()
+        {
+            return new DatabaseContext();
         }
     }
 }

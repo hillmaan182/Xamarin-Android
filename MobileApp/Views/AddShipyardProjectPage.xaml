@@ -40,8 +40,8 @@
 
                     <Label Text="Project Category" Grid.Row="3" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
 
-                    <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="1" Content="Ship Building" CheckedChanged="onRBChanged" TextColor="Gray"/>
-                    <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="1" Content="Ship Reapier" TextColor="Gray"/>
+                    <RadioButton x:Name="rb1" GroupName="Category" Grid.Column="0" Grid.Row="4" Content="Ship Building" CheckedChanged="onRBChanged" TextColor="Gray"/>
+                    <RadioButton x:Name="rb2" GroupName="Category" Grid.Column="1" Grid.Row="4" Content="Ship Repair" TextColor="Gray"/>
 
                     <Label Text="Project Span" Grid.Row="5" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
                     <DatePicker x:Name="startDate" Grid.Row="6" HorizontalOptions="Center" Grid.Column="0"/>

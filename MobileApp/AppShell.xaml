@@ -107,7 +107,7 @@
     <FlyoutItem Title="Chats" Icon="icon_chat.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="MessagePage" ContentTemplate="{DataTemplate local:MessagePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Transaction" Icon="icon_feed.png" IsVisible="{Binding IsVendor}">
+    <FlyoutItem Title="Transaction" Icon="icon_transaction.png" IsVisible="{Binding IsVendor}">
         <ShellContent Route="VendorTransaction" ContentTemplate="{DataTemplate local:VendorTransaction}" />
     </FlyoutItem>
     <FlyoutItem Title="Sales" Icon="icon_sales.png" IsVisible="{Binding IsVendor}">
@@ -122,40 +122,43 @@
     <FlyoutItem Title="Home" Icon="icon_home.png" IsVisible="{Binding IsUser}" >
         <ShellContent Route="UserHomePage" ContentTemplate="{DataTemplate local:UserHomePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="a" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="VendorProductPage" ContentTemplate="{DataTemplate local:VendorProductPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="b" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="VendorServicePage" ContentTemplate="{DataTemplate local:VendorServicePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="c" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="VendorListPage" ContentTemplate="{DataTemplate local:VendorListPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="d" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="VendorServiceListPage" ContentTemplate="{DataTemplate local:VendorServiceListPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Others" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="e" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Favorite" Icon="icon_about.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="FavoritePage" ContentTemplate="{DataTemplate local:FavoritePage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Transaction" Icon="icon_feed.png" IsVisible="{Binding IsUser}">
+    <FlyoutItem Title="Transaction" Icon="icon_transaction.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="UserTransaction" ContentTemplate="{DataTemplate local:UserTransaction}" />
     </FlyoutItem>
     <FlyoutItem Title="Other" Icon="icon_feed.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="OtherPage" ContentTemplate="{DataTemplate local:OtherPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Review" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="k" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="ShipyardProfilePage" ContentTemplate="{DataTemplate local:ShipyardProfilePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="f" Icon="icon_other.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ReviewAddPage" ContentTemplate="{DataTemplate local:ReviewAddPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="g" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ShipyardProjectPage" ContentTemplate="{DataTemplate local:ShipyardProjectPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="h" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="AddShipyardProjectPage" ContentTemplate="{DataTemplate local:AddShipyardProjectPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Home" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+    <FlyoutItem Title="i" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ProjectProductPage" ContentTemplate="{DataTemplate local:ProjectProductPage}" />
     </FlyoutItem>
 

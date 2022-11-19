@@ -133,12 +133,12 @@ namespace MobileApp.Views
 
         private async void Chat_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(MessagePage)}");
+            await Shell.Current.GoToAsync($"{nameof(MessagePage)}");
         }
 
-        private void Account_Tapped(object sender, EventArgs e)
+        private async void Account_Tapped(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync($"{nameof(ShipyardProfilePage)}");
         }
 
         private void Legal_Tapped(object sender, EventArgs e)

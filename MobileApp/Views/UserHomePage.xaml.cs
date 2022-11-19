@@ -11,17 +11,17 @@ using Xamarin.Forms.Xaml;
 
 namespace MobileApp.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserHomePage : ContentPage 
     {
         VendorService vs;
-        ProductService ps;
+        //ProductService ps;
         public UserHomePage()
         {
             vs = new VendorService();
             InitializeComponent();
             this.BindingContext = new CardDataViewModel();
             showData();
+            
         }
 
         private void showData()
@@ -62,7 +62,6 @@ namespace MobileApp.Views
         private async void btnService_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//VendorServicePage");
-            //await Shell.Current.GoToAsync("//ServiceUserPage");
         }
 
         private async void frameProductVendor_Tapped(object sender, EventArgs e)

@@ -9,7 +9,6 @@ namespace MobileApp.ViewModels
 {
     public class AppViewModel : BaseViewModel
     {
-        UserService services;
         private bool isVendor;
         private bool isUser;
         public bool IsVendor { get => isVendor; set => SetProperty(ref isVendor, value); }
@@ -17,8 +16,6 @@ namespace MobileApp.ViewModels
 
         public AppViewModel()
         {
-            services = new UserService();
-
             MessagingCenter.Subscribe<LoginPage>(this, "vendor", (sender) =>
             {
                 IsVendor = true;

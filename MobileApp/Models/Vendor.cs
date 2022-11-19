@@ -14,9 +14,9 @@ namespace MobileApp.Models
         public string VendorPhone { get; set; }
         public string VendorAddress { get; set; }
         public string VendorImage { get; set; }
-
+        public string VendorAbout { get; set; }
+        public string VendorMission { get; set; }
         public string Type { get; set; }
-        public User User { get; set; }
 
     }
 }
