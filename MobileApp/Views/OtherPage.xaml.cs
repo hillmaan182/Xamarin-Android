@@ -69,6 +69,7 @@ namespace MobileApp.Views
                 obj.ShipyardPhone = x.ShipyardPhone;
                 obj.ShipyardImage = PhotoPath;
                 obj.UserID = x.UserID;
+                obj.ShipyardImage = PhotoPath;
 
                 ss.UpdateShipyard(obj);
             }
@@ -133,7 +134,7 @@ namespace MobileApp.Views
 
         private async void Chat_Tapped(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(MessagePage)}");
+            await Shell.Current.GoToAsync($"//{nameof(MessagePage)}");
         }
 
         private async void Account_Tapped(object sender, EventArgs e)
@@ -141,9 +142,9 @@ namespace MobileApp.Views
             await Shell.Current.GoToAsync($"{nameof(ShipyardProfilePage)}");
         }
 
-        private void Legal_Tapped(object sender, EventArgs e)
+        private async void Legal_Tapped(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync($"//{nameof(DocumentPage)}");
         }
 
         private void Contact_Tapped(object sender, EventArgs e)

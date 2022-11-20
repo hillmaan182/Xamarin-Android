@@ -20,8 +20,10 @@ namespace MobileApp
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(ProjectProductPage), typeof(ProjectProductPage));
             Routing.RegisterRoute(nameof(AddShipyardProjectPage), typeof(AddShipyardProjectPage));
+            Routing.RegisterRoute(nameof(DocumentPage), typeof(DocumentPage));
+            Routing.RegisterRoute(nameof(MessagePage), typeof(MessagePage));
             //Routing.RegisterRoute(nameof(ShipyardProjectPage), typeof(ShipyardProjectPage));
-            
+
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

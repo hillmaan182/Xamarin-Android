@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.DocumentPage" Title="Document Legal">
+    <StackLayout BackgroundColor="#73d8eb">
+        <Grid BackgroundColor="#73d8eb" Margin="10">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+
+
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Akta Pendirian" Grid.Row="0" Grid.Column="0"/>
+            <Image x:Name="ok1" Source="icon_ok.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok1" Source="icon_nok.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="0" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap1" Tapped="tap1_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="1" Grid.ColumnSpan="3"/>
+
+            <Label Text="Akta Perubahan Terakhir" Grid.Row="2" Grid.Column="0"/>
+            <Image x:Name="ok2" Source="icon_ok.png" Grid.Row="2" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok2" Source="icon_nok.png" Grid.Row="2" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="2" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap2" Tapped="tap2_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="3" Grid.ColumnSpan="3"/>
+
+            <Label Text="Surat Izin Usaha Perdagangan" Grid.Row="4" Grid.Column="0"/>
+            <Image x:Name="ok3" Source="icon_ok.png" Grid.Row="4" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok3" Source="icon_nok.png" Grid.Row="4" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="4" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap3" Tapped="tap3_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="5" Grid.ColumnSpan="3"/>
+
+            <Label Text="Nomor Induk Berusaha" Grid.Row="6" Grid.Column="0"/>
+            <Image x:Name="ok4" Source="icon_ok.png" Grid.Row="6" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok4" Source="icon_nok.png" Grid.Row="6" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="6" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap4" Tapped="tap4_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="7" Grid.ColumnSpan="3"/>
+
+            <Label Text="Surat Keterangan Terdaftar Pajak" Grid.Row="8" Grid.Column="0"/>
+            <Image x:Name="ok5" Source="icon_ok.png" Grid.Row="8" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok5" Source="icon_nok.png" Grid.Row="8" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="8" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap5" Tapped="tap5_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="9" Grid.ColumnSpan="3"/>
+
+            <Label Text="Nomor Pokok Wajib Pajak" Grid.Row="10" Grid.Column="0"/>
+            <Image x:Name="ok6" Source="icon_ok.png" Grid.Row="10" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok6" Source="icon_nok.png" Grid.Row="10" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="10" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap6" Tapped="tap6_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="11" Grid.ColumnSpan="3"/>
+
+            <Label Text="Pengukuhan Pengusaha Kena Pajak" Grid.Row="12" Grid.Column="0"/>
+            <Image x:Name="ok7" Source="icon_ok.png" Grid.Row="12" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok7" Source="icon_nok.png" Grid.Row="12" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="12" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap7" Tapped="tap7_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="13" Grid.ColumnSpan="3"/>
+
+            <Label Text="Referensi Bank Terbaru" Grid.Row="14" Grid.Column="0"/>
+            <Image x:Name="ok8" Source="icon_ok.png" Grid.Row="14" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok8" Source="icon_nok.png" Grid.Row="14" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="14" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap8" Tapped="tap8_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="15" Grid.ColumnSpan="3"/>
+
+            <Label Text="Surat Keterangan Domisili Terbaru" Grid.Row="16" Grid.Column="0"/>
+            <Image x:Name="ok9" Source="icon_ok.png" Grid.Row="16" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok9" Source="icon_nok.png" Grid.Row="16" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="16" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap9" Tapped="tap9_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="17" Grid.ColumnSpan="3"/>
+
+            <Label Text="Bukti Keanggotan BPJS" Grid.Row="18" Grid.Column="0"/>
+            <Image x:Name="ok10" Source="icon_ok.png" Grid.Row="18" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok10" Source="icon_nok.png" Grid.Row="18" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="18" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap10" Tapped="tap10_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="19" Grid.ColumnSpan="3"/>
+
+            <Label Text="Organization Chart" Grid.Row="20" Grid.Column="0"/>
+            <Image x:Name="ok11" Source="icon_ok.png" Grid.Row="20" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok11" Source="icon_nok.png" Grid.Row="20" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="20" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap11" Tapped="tap11_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="21" Grid.ColumnSpan="3"/>
+
+            <Label Text="Company Rules" Grid.Row="22" Grid.Column="0"/>
+            <Image x:Name="ok12" Source="icon_ok.png" Grid.Row="22" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok12" Source="icon_nok.png" Grid.Row="22" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="22" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap12" Tapped="tap12_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="23" Grid.ColumnSpan="3"/>
+
+            <Label Text="Number and Status of Employees" Grid.Row="24" Grid.Column="0"/>
+            <Image x:Name="ok13" Source="icon_ok.png" Grid.Row="24" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok13" Source="icon_nok.png" Grid.Row="24" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="24" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap13" Tapped="tap13_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="25" Grid.ColumnSpan="3"/>
+
+            <Label Text="Certification" Grid.Row="26" Grid.Column="0"/>
+            <Image x:Name="ok14" Source="icon_ok.png" Grid.Row="26" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok14" Source="icon_nok.png" Grid.Row="26" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="26" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap14" Tapped="tap14_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="27" Grid.ColumnSpan="3"/>
+
+            <Label Text="Bukti Pembayaran Pajak Terakhir" Grid.Row="28" Grid.Column="0"/>
+            <Image x:Name="ok15" Source="icon_ok.png" Grid.Row="28" Grid.Column="1" HorizontalOptions="End"/>
+            <Image x:Name="nok15" Source="icon_nok.png" Grid.Row="28" Grid.Column="1" HorizontalOptions="End"/>
+            <Image Source="icon_upload.png" Grid.Row="28" Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tap15" Tapped="tap15_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="29" Grid.ColumnSpan="3"/>
+            
+        </Grid>
+    </StackLayout>
+</ContentPage>

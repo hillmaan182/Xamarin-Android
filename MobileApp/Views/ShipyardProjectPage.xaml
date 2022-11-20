@@ -18,18 +18,18 @@
         <ImageButton x:Name="addProjectBtn" Clicked="addProjectBtn_Clicked" Source="icon_add.png" Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" HorizontalOptions="End" Padding="0,20,25,0"/>
 
         <Button x:Name="ongoingBtn" ImageSource="icon_ongoing.png" Clicked="ongoingBtn_Clicked" Text="Ongoing" 
-                Grid.Row="1" Grid.Column="0" CornerRadius="10" FontSize="12" Margin="10,0,0,0"
-                BorderWidth="1" BorderColor="Beige"/>
+                Grid.Row="1" Grid.Column="0" CornerRadius="10" FontSize="12" Margin="10,0,0,0" BackgroundColor="Beige"
+                BorderWidth="1" BorderColor="Gray"/>
         <Button x:Name="finishedBtn" ImageSource="icon_finish.png" Clicked="finishedBtn_Clicked" Text="Finished" 
-                Grid.Row="1" Grid.Column="1" CornerRadius="10" FontSize="12" Margin="0,0,10,0"
-                BorderWidth="1" BorderColor="Beige"/>
+                Grid.Row="1" Grid.Column="1" CornerRadius="10" FontSize="12" Margin="0,0,10,0" BackgroundColor="Beige"
+                BorderWidth="1" BorderColor="Gray"/>
 
         <ScrollView x:Name="scOngoing" Grid.Row="2" Grid.ColumnSpan="2">
             <ListView x:Name="lstDataOngoing" HasUnevenRows="True" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BackgroundColor="Beige" Padding="10">
+                            <Frame BackgroundColor="Beige" Padding="10" CornerRadius="10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -46,21 +46,22 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding ProjectCategory}" Grid.Row="0" Grid.ColumnSpan="3"/>
-                                    <Label Text="{Binding ProjectStartTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="0"/>
-                                    <Label Text="{Binding ProjectEndTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="{Binding ProjectCategory}" Grid.Row="0" Grid.ColumnSpan="3" TextColor="Black"/>
+                                    <Label Text="{Binding ProjectStartTime, StringFormat='{0:yyyy-MM-dd}'}" Grid.Row="1" Grid.Column="0" TextColor="Black"/>
+                                    <Label Text="{Binding ProjectEndTime, StringFormat='{0:yyyy-MM-dd}'}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
                                     <BoxView BackgroundColor="Gray" WidthRequest="1" Grid.Row="2" Grid.ColumnSpan="3"/>
 
                                     <Image Source="{Binding ProjectImage,TargetNullValue='icon_noimage.png'}" 
                                            Grid.Row="3" Grid.RowSpan="3" Grid.Column="0" WidthRequest="100" HeightRequest="100"
                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
-                                    <Label Text="{Binding ProjectName}" Grid.Row="4"  Grid.Column="1"/>
-                                    <Label Text="{Binding ProjectOwner}" Grid.Row="5" Grid.Column="1"/>
+                                    <Label Text="{Binding ProjectName}" Grid.Row="4"  Grid.Column="1" TextColor="Black"/>
+                                    <Label Text="{Binding ProjectOwner}" Grid.Row="5" Grid.Column="1" TextColor="Black"/>
 
                                     <Button Text="Expand" ImageSource="icon_expand.png" Grid.Row="5" Grid.Column="2" CornerRadius="10" 
                                             HeightRequest="35"
                                             FontSize="10" BorderWidth="1"
+                                            BackgroundColor="White"
                                             BorderColor="Gray"/>
                                     <Button x:Name="btnFinished" Clicked="btnFinished_Clicked" 
                                             ImageSource="icon_finish.png" CommandParameter="{Binding ID}" 
@@ -69,6 +70,7 @@
                                             HeightRequest="35"
                                             FontSize="10"
                                             BorderWidth="1"
+                                            BackgroundColor="White"
                                             BorderColor="Gray"/>
                                 </Grid>
                             </Frame>
@@ -79,19 +81,18 @@
         </ScrollView>
 
         <ScrollView x:Name="scFinished" Grid.Row="2" Grid.ColumnSpan="2">
-            <ListView x:Name="lstDataFinished" HasUnevenRows="True" Margin="5">
+            <ListView x:Name="lstDataFinished" HasUnevenRows="True" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BackgroundColor="Beige">
+                            <Frame BackgroundColor="Beige" Padding="10" CornerRadius="10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="1"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
@@ -101,19 +102,24 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding ProjectCategory}" Grid.Row="0" Grid.ColumnSpan="3"/>
-                                    <Label Text="{Binding ProjectStartTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="0"/>
-                                    <Label Text="{Binding ProjectEndTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="{Binding ProjectCategory}" Grid.Row="0" Grid.ColumnSpan="3" TextColor="Black"/>
+                                    <Label Text="{Binding ProjectStartTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="0" TextColor="Black"/>
+                                    <Label Text="{Binding ProjectEndTime, StringFormat='{0:yyy-MM-dd}'}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
                                     <BoxView BackgroundColor="Gray" WidthRequest="1" Grid.Row="2" Grid.ColumnSpan="3"/>
 
                                     <Image Source="{Binding ProjectImage,TargetNullValue='icon_noimage.png'}" 
-                                           Grid.Row="3" Grid.RowSpan="3" Grid.Column="0" WidthRequest="85" HeightRequest="85"
+                                           Grid.Row="3" Grid.RowSpan="3" Grid.Column="0"
+                                           WidthRequest="85" HeightRequest="85"
                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
 
-                                    <Label Text="{Binding ProjectName}" Grid.Row="4"  Grid.Column="1"/>
-                                    <Label Text="{Binding ProjectOwner}" Grid.Row="5" Grid.Column="1"/>
+                                    <Label Text="{Binding ProjectName}" Grid.Row="4"  Grid.Column="1" 
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding ProjectOwner}" Grid.Row="5" Grid.Column="1" 
+                                           TextColor="Black"/>
 
-                                    <Button Text="Expand" Grid.Row="6" Grid.Column="2" CornerRadius="10" Padding="10" Margin="20,25,0,0" FontSize="12"/>
+                                    <Button Text="Expand" Grid.Row="5" Grid.Column="2" 
+                                            CornerRadius="10" BackgroundColor="White" BorderColor="Gray" BorderWidth="1"
+                                            Padding="10" Margin="20,25,0,0" FontSize="10" ImageSource="icon_expand.png"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

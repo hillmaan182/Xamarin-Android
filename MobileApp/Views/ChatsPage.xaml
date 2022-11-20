@@ -37,19 +37,36 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Frame BackgroundColor="#abdbe3" IsVisible="{Binding Incoming}" Grid.Column="0"
+                                <Frame BackgroundColor="#abdbe3" IsVisible="{Binding Incoming}" Grid.Column="0" 
                                               Padding="10"
                                               Margin="10,10,80,10"
-                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray">
-                                    <Label Text="{Binding MessageBody}" TextColor="Black"/>
+                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray" HorizontalOptions="Start">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding MessageBody}" TextColor="Black" Grid.Column="0"/>
+                                        <Label Text="{Binding MessageTime , StringFormat='{0:hh.mm}'}" TextColor="Black" Grid.Column="1" FontSize="8" VerticalOptions="End"/>
+                                    </Grid>
                                 </Frame>
 
                                 <Frame BackgroundColor="Beige" IsVisible="{Binding Outgoing}" Grid.Column="1"
                                               Padding="10"
                                               Margin="80,10,10,10"
-                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray" >
-                                    <Label Text="{Binding MessageBody}" TextColor="Black"/>
+                                              HasShadow="True" CornerRadius="10" BorderColor="DarkGray" HorizontalOptions="End">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding MessageBody}" TextColor="Black"  Grid.Column="0"/>
+                                        <Image Source="icon_ok"  Grid.Column="2"/>
+                                        <Label Text="{Binding MessageTime , StringFormat='{0:hh.mm}'}" TextColor="Black"  Grid.Column="1" FontSize="8" VerticalOptions="End"/>
+                                    </Grid>
                                 </Frame>
                             </Grid>
                         </ViewCell>

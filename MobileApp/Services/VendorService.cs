@@ -29,6 +29,15 @@ namespace MobileApp.Services
             }
             return cnt;
         }
+
+        public int UpdateVendor(Vendor obj)
+        {
+            var db = getContext();
+            db.Update(obj);
+            int c = db.SaveChanges();
+            return c;
+        }
+
         public async Task<List<Vendor>> GetVendorById(int? id)
         {
             var db = getContext();

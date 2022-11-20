@@ -20,6 +20,7 @@ namespace MobileApp
         public DbSet<Review> Review { get; set; }
         public DbSet<Project> Project { get; set; }
         public DbSet<ProjectProduct> ProjectProduct { get; set; }
+        public DbSet<Document> Document { get; set; }
         public DatabaseContext()
         {
             this.Database.EnsureCreated();
@@ -27,7 +28,7 @@ namespace MobileApp
         // overrides the OnConfigure Method 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev40.db");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Dev41.db");
             optionsBuilder.UseSqlite($"Filename={dbPath}");
         }
     }

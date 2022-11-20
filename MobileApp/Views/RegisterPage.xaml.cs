@@ -49,8 +49,10 @@ namespace MobileApp.Views
                 Shipyard objS = new Shipyard();
                 objS.ShipyardName = Name.Text;
                 objS.ShipyardEmail = Email.Text;
-                objS.ShipyardPhone = "00000000";
-                objS.ShipyardAddress = "example street no 32";
+                objS.ShipyardPhone = Phone.Text;
+                objS.ShipyardAddress = Address.Text;
+                objS.ShipyardAbout = "Lorem ipsum dolor sit amet, consectetur adisipicing elit. Nunc vulputate";
+                objS.ShipyardMission = "Happy Live Laugh";
                 objS.UserID = obj.ID;
                 ss.InsertShipyard(objS);
 
@@ -80,16 +82,6 @@ namespace MobileApp.Views
                 // await DisplayActionSheet("Operation", "Cancel", null, "Update", "Delete");
                 await DisplayAlert("Register complete!", "Verification Code has been sent", "OK");
                 await Shell.Current.GoToAsync("//LoginPage");
-                //string res = await DisplayActionSheet("Registration Complete", "Cancel", null, "OK");
-
-                //switch (res)
-                //{
-                //    case "OK":
-                //        await Shell.Current.GoToAsync("//LoginPage");
-                //        break;
-                //}
-
-                //DisplayAlert("Register complete!", "Verification Code has been sent", "OK");
                 
             }
             catch (Exception ex)
@@ -151,6 +143,16 @@ namespace MobileApp.Views
                 if (IsValidEmail(Email.Text) == false)
                 {
                     msg = "Email is not valid!";
+                }
+
+                if (Address.Text == "")
+                {
+                    msg = "Address must be filled";
+                }
+
+                if (Phone.Text == "")
+                {
+                    msg = "Phone must be filled";
                 }
 
                 return msg;

@@ -30,10 +30,18 @@
                            PlaceholderColor="Gray" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="Black"/>
+                        <Entry x:Name="Phone" Placeholder="enter your phone"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           Keyboard="Telephone" 
+                           TextColor="Black"/>
+                        <Entry x:Name="Address" Placeholder="enter your address"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           Keyboard="Text" 
+                           TextColor="Black"/>
                     </StackLayout>
                 </Frame>
 
-                <Button Text="Register" Clicked="BtnRegister_Clicked" BackgroundColor="Beige"/>
+                <Button Text="Register" Clicked="BtnRegister_Clicked" BackgroundColor="Beige" BorderColor="White" BorderWidth="1" CornerRadius="20"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>

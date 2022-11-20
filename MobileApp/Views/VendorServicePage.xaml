@@ -52,7 +52,7 @@
             </ListView>
         </ScrollView>
 
-        <StackLayout Grid.Row="2" BackgroundColor="#73d8eb">
+        <StackLayout Grid.Row="2" BackgroundColor="#73d8eb" Padding="5,0,5,10">
             <Grid BackgroundColor="#73d8eb">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>

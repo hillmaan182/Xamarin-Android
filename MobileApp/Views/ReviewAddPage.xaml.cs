@@ -214,7 +214,7 @@ namespace MobileApp.Views
             obj.UserId = ((App)App.Current).userID;
             int c= rs.InsertReview(obj);
 
-            await Shell.Current.GoToAsync($"{nameof(UserTransaction)}");
+            await Shell.Current.GoToAsync($"//{nameof(UserTransaction)}");
         }
 
         string PhotoPath = null;

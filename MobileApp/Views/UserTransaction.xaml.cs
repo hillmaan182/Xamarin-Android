@@ -23,6 +23,11 @@ namespace MobileApp.Views
             InitializeComponent();
             this.BindingContext = new CardDataViewModel();
             userId = ((App)App.Current).userID;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             showData();
         }
 
@@ -50,7 +55,7 @@ namespace MobileApp.Views
         {
             var getParam = ((Button)sender).CommandParameter;
             int idProduct = Convert.ToInt32(getParam);
-            Shell.Current.GoToAsync($"{nameof(ReviewAddPage)}?Param={idProduct}");
+            Shell.Current.GoToAsync($"{nameof(ReviewAddPage)}?Param1={idProduct}");
         }
 
         private void btnNew_Clicked(object sender, EventArgs e)

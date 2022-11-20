@@ -146,6 +146,12 @@
     <FlyoutItem Title="Other" Icon="icon_feed.png" IsVisible="{Binding IsUser}">
         <ShellContent Route="OtherPage" ContentTemplate="{DataTemplate local:OtherPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="l" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="DocumentPage" ContentTemplate="{DataTemplate local:DocumentPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Chats" Icon="icon_chat.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="MessagePage" ContentTemplate="{DataTemplate local:MessagePage}" />
+    </FlyoutItem>
     <FlyoutItem Title="k" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="ShipyardProfilePage" ContentTemplate="{DataTemplate local:ShipyardProfilePage}" />
     </FlyoutItem>
@@ -179,7 +185,6 @@
         <ShellContent Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
         <ShellContent Route="ChatsPage" ContentTemplate="{DataTemplate local:ChatsPage}" />
         <ShellContent Route="TestPage" ContentTemplate="{DataTemplate local:TestPage}"/>
-        
         <!--<ShellContent Route="ProductUserDetailPage" ContentTemplate="{DataTemplate local:ProductUserDetailPage}"/>-->
     </TabBar>
 

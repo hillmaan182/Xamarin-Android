@@ -9,10 +9,10 @@
 
 
             <StackLayout Margin="10" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
-                <ImageButton x:Name="btnImage" Source="icon_image_add.png"
+                <ImageButton x:Name="btnImage" Source="icon_image_add.png" BackgroundColor="Transparent"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand" Clicked="btnUplImg_Clicked" WidthRequest="155" HeightRequest="155" 
-                             BorderColor="Black" BorderWidth="2"/>
+                     />
                 <!--<StackLayout>
                 <Image x:Name="img" WidthRequest="125" HeightRequest="125"></Image>
             </StackLayout>-->

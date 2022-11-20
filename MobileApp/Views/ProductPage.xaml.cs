@@ -18,12 +18,20 @@ namespace MobileApp.Views
     {
         ProductService services;
         int? VendorID;
+        private string VendorType;
         public ProductPage()
         {
             InitializeComponent();
             services = new ProductService();
             this.BindingContext = new CardDataViewModel();
             VendorID = ((App)App.Current).vendorID;
+
+            var db = getContext();
+            var type = (from q in db.Vendor
+                        where q.ID == VendorID
+                        select q.Type).FirstOrDefault();
+
+            VendorType = type;
         }
         protected override void OnAppearing()
         {
@@ -32,7 +40,7 @@ namespace MobileApp.Views
         }
         private void showProduct()
         {
-            var res = services.GetAllProductsVendor("Product", VendorID).Result;
+            var res = services.GetAllProductsVendor(VendorType, VendorID).Result;
             var newRes = from q in res
                          select new { q.ID, ProductImage = q.ProductImage == "" ? null : q.ProductImage , q.ProductName, ProductPrice = "Rp. " + q.ProductPrice.ToString() , ProductSisa = "Sisa Produk : " + q.ProductSisa.ToString() };
             lstData.ItemsSource = res;
@@ -60,6 +68,10 @@ namespace MobileApp.Views
                 }
                 lstData.SelectedItem = null;
             }
+        }
+        private DatabaseContext getContext()
+        {
+            return new DatabaseContext();
         }
     }
 }

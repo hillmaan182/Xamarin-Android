@@ -9,7 +9,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <SearchBar x:Name="searchProduct" Placeholder="type to search" BackgroundColor="Transparent" Grid.Row="0"/>
+        <SearchBar x:Name="searchProduct" Placeholder="type to search" BackgroundColor="Transparent" Grid.Row="0" TextChanged="searchProduct_TextChanged"/>
 
         <ScrollView Grid.Row="1" BackgroundColor="#73d8eb" >
             <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">

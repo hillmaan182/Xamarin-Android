@@ -6,7 +6,6 @@
     <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
             <RowDefinition Height="125" />
-            <RowDefinition Height="50" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
@@ -16,20 +15,20 @@
                                IconBackgroundColor="SlateGray" 
                                Grid.Row="0"/>
 
-        <SearchBar x:Name="searchText" Placeholder="type to search . . ." 
-                   Grid.Row="1"/>
+        <!--<SearchBar x:Name="searchText" Placeholder="type to search . . ." 
+                   Grid.Row="1"/>-->
 
-        <ScrollView Grid.Row="2">
+        <ScrollView Grid.Row="1" Margin="5,0,5,0">
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="185" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="210" />
+                    <RowDefinition Height="185" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="185" />
                 </Grid.RowDefinitions>
 
 
@@ -39,16 +38,11 @@
                     <CarouselView.EmptyView>
                         <ContentView>
                             <StackLayout HorizontalOptions="Center"
-                             VerticalOptions="CenterAndExpand" HeightRequest="150">
-                                <Label Text="No results matched your filter."
-                           Margin="10,25,10,10"
+                             VerticalOptions="Start" HeightRequest="50">
+                                <Label Text="No liked product vendor"
+                           Margin="10,25,10,0"
                            FontAttributes="Bold"
                            FontSize="18"
-                           HorizontalOptions="Fill"
-                           HorizontalTextAlignment="Center" />
-                                <Label Text="Try a broader filter?"
-                           FontAttributes="Italic"
-                           FontSize="12"
                            HorizontalOptions="Fill"
                            HorizontalTextAlignment="Center" />
                             </StackLayout>
@@ -90,8 +84,8 @@
                     <CarouselView.EmptyView>
                         <ContentView>
                             <StackLayout HorizontalOptions="Center"
-                             VerticalOptions="CenterAndExpand">
-                                <Label Text="No results matched your filter."
+                             VerticalOptions="Start" HeightRequest="50">
+                                <Label Text="No liked service vendor"
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
                            FontSize="18"
@@ -141,8 +135,8 @@
                     <CarouselView.EmptyView>
                         <ContentView>
                             <StackLayout HorizontalOptions="Center"
-                             VerticalOptions="CenterAndExpand">
-                                <Label Text="No results matched your filter."
+                             VerticalOptions="Start" HeightRequest="50">
+                                <Label Text="No liked product"
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
                            FontSize="18"
@@ -189,8 +183,8 @@
                     <CarouselView.EmptyView>
                         <ContentView>
                             <StackLayout HorizontalOptions="Center"
-                             VerticalOptions="CenterAndExpand">
-                                <Label Text="No results matched your filter."
+                             VerticalOptions="Start" HeightRequest="50">
+                                <Label Text="No liked service"
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
                            FontSize="18"

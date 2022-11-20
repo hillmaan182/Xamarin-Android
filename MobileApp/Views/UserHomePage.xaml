@@ -8,13 +8,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="125" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="75" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <view:CardViewHeaderTemplate BorderColor="DarkGray"
@@ -24,19 +24,20 @@
                                Grid.Row="0"
                                Grid.ColumnSpan="2"/>
 
-        <SearchBar x:Name="searchText" Placeholder="type to search . . ." 
+        <!--<SearchBar x:Name="searchText" Placeholder="type to search . . ." 
                    Grid.Row="1"
-                   Grid.ColumnSpan="2"/>
+                   Grid.ColumnSpan="2"/>-->
 
         <Label Text="Search Category"
                FontAttributes="Bold"
                FontSize="20"
-               Grid.Row="2"
-               Grid.ColumnSpan="2" Padding="10"/>
+               Grid.Row="1"
+               Grid.ColumnSpan="2" Padding="10" TextColor="Black"/>
 
         <Button x:Name="btnProduct" ImageSource="icon_product_48.png" 
                 Text="Product" 
-                Grid.Row="3" Grid.Column="0" 
+                FontSize="12"
+                Grid.Row="2" Grid.Column="0" 
                 CornerRadius="8" Padding="15" Margin="10" 
                 BorderColor="Gray" BorderWidth="1" 
                 BackgroundColor="Beige"
@@ -44,13 +45,14 @@
 
         <Button ImageSource="icon_service.png" x:Name="btnService" 
                 Text="Service"
-                Grid.Row="3" Grid.Column="1" 
+                FontSize="12"
+                Grid.Row="2" Grid.Column="1" 
                 CornerRadius="8" Padding="15" Margin="10" 
                 BorderColor="Gray" BorderWidth="1" 
                 BackgroundColor="Beige"
                 Clicked="btnService_Clicked"/>
 
-        <ScrollView Grid.Row="4" Grid.ColumnSpan="2">
+        <ScrollView Grid.Row="3" Grid.ColumnSpan="2">
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

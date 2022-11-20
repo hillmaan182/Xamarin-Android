@@ -15,6 +15,20 @@ namespace MobileApp.Services
             return new DatabaseContext();
         }
 
+        public async Task<List<Products>> GetAllProductByName(string name)
+        {
+            var db = getContext();
+            var res = await db.Product.Where(x => x.ProductName.ToLower().Contains(name.ToLower()) && x.ProductCategory == "Product").ToListAsync();
+            return res;
+        }
+
+        public async Task<List<Products>> GetAllServiceByName(string name)
+        {
+            var db = getContext();
+            var res = await db.Product.Where(x => x.ProductName.ToLower().Contains(name.ToLower()) && x.ProductCategory == "Service").ToListAsync();
+            return res;
+        }
+
         public async Task<List<Products>> GetProductById(int id)
         {
             var db = getContext();
@@ -38,6 +52,14 @@ namespace MobileApp.Services
             var db = getContext();
             var res = await db.Product.ToListAsync();
             var result = await db.Product.Where(x => x.ProductCategory == category && x.VendorID == vendorId).ToListAsync();
+            return result;
+        }
+
+        public async Task<List<Products>> GetAllProdVendor(int? vendorId)
+        {
+            var db = getContext();
+            var res = await db.Product.ToListAsync();
+            var result = await db.Product.Where(x => x.VendorID == vendorId).ToListAsync();
             return result;
         }
 

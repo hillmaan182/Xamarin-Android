@@ -6,13 +6,15 @@
     <Grid RowSpacing="0" BackgroundColor="#73d8eb">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="0">
             <Grid RowSpacing="0" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="370" />
-                    <RowDefinition Height="150" />
+                    <RowDefinition Height="360" />
+                    <RowDefinition Height="165" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
@@ -49,7 +51,7 @@
 
                                             <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
                                            Grid.Row="1" Grid.Column="2" 
-                                           FontSize="20" FontAttributes="Bold"/>
+                                           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
 
                                             <Label Text="{Binding ProductCategory}" 
                                            Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
@@ -65,19 +67,19 @@
 
                                             <Label Text="Product Description" 
                                                Grid.Row="3" Grid.ColumnSpan="3" FontAttributes="Bold"
-                                               />
+                                               TextColor="Black"/>
 
                                             <Label Text="{Binding ProductDescription, TargetNullValue='-'}" 
                                                Grid.Row="4" Grid.ColumnSpan="3"
-                                               />
+                                               TextColor="Black"/>
 
                                             <Label Text="Product Specification" 
                                                Grid.Row="5" Grid.ColumnSpan="3" FontAttributes="Bold"
-                                               />
+                                               TextColor="Black"/>
 
                                             <Label Text="{Binding ProductSpecification , TargetNullValue='-'}" 
                                                Grid.Row="6" Grid.ColumnSpan="3" 
-                                               />
+                                               TextColor="Black"/>
 
                                         </Grid>
                                     </Frame>
@@ -92,7 +94,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Frame Grid.Row="1" CornerRadius="5" HasShadow="True" BackgroundColor="Beige">
+                                    <Frame Grid.Row="1" CornerRadius="10" HasShadow="True" BackgroundColor="Beige">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto" />
@@ -160,7 +162,7 @@
                             <ColumnDefinition Width="30"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Total" Grid.Column="0" HeightRequest="25" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="Start" Padding="20,0,0,0"/>
+                        <Label Text="Total" Grid.Column="0" HeightRequest="25" WidthRequest="60" VerticalOptions="Center" HorizontalOptions="Start" Padding="20,0,0,0" TextColor="Black"/>
                         <ImageButton x:Name="btnAddTotal" Clicked="btnAddTotal_Clicked" BackgroundColor="Transparent" Source="icon_add.png" Grid.Column="1" HeightRequest="25" WidthRequest="25" VerticalOptions="Center" HorizontalOptions="Center"/>
                         <Label x:Name="totalCnt" Text="0" TextColor="Black" Grid.Column="2" HeightRequest="20" WidthRequest="20" VerticalOptions="Center" HorizontalOptions="End"/>
                         <ImageButton x:Name="btnMinusTotal" Clicked="btnMinusTotal_Clicked" BackgroundColor="Transparent" Source="icon_minus.png" Grid.Column="3" HeightRequest="25" WidthRequest="25" VerticalOptions="Center" HorizontalOptions="Start"/>
@@ -168,12 +170,58 @@
                     </Grid>
                 </StackLayout>
 
+                <Label Text="Reviews" Grid.Row="3" Padding="10,0,0,0" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+
+                <CarouselView x:Name="lstReview" Grid.Row="4" PeekAreaInsets="50" Loop="False" IsScrollAnimated="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BackgroundColor="Beige"
+                                   BorderColor="DarkGray" HeightRequest="50" WidthRequest="200"
+                                   CornerRadius="8" HorizontalOptions="Center">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="1"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding ShipyardName}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" TextColor="Black"/>
+                                        <Label Text="{Binding Rating , StringFormat='{0}/5'}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End"  TextColor="Black"/>
+
+                                        <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="1" Grid.ColumnSpan="2" />
+
+                                        <Label Text="{Binding Description}" Grid.Row="2" Grid.ColumnSpan="2"  TextColor="Black"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="Center"
+                                    VerticalOptions="Start">
+                                <Label Text="There is no data"
+                                   Margin="10,0,10,0"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                </CarouselView>
 
             </Grid>
 
         </ScrollView>
 
-        <Grid Grid.Row="1" BackgroundColor="Transparent">
+        <Grid Grid.Row="1" BackgroundColor="Transparent" Padding="5,0,5,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="35"/>
                 <ColumnDefinition Width="35"/>
@@ -182,8 +230,8 @@
             <ImageButton x:Name="btnChat" Source="icon_chat.png" Grid.Column="0" BackgroundColor="Transparent" Clicked="btnChat_Clicked"/>
             <ImageButton x:Name="btnFavorite" Source="icon_favorite.png" Grid.Column="1" BackgroundColor="Transparent" Clicked="btnFavorite_Clicked"/>
             <ImageButton x:Name="btnFavorite2" Source="icon_favorite_red.png" Grid.Column="1" BackgroundColor="Transparent" Clicked="btnFavorite2_Clicked"/>
-            <Button x:Name="btnBuy" Clicked="btnBuy_Clicked" Text="Buy" Grid.Row="0" Grid.Column="2" CornerRadius="10" BorderColor="White" BorderWidth="1"/>
-            <Button Text="Add to Project" Grid.Row="0" Grid.Column="3" CornerRadius="10" BorderColor="White" BorderWidth="1"/>
+            <Button x:Name="btnBuy" Clicked="btnBuy_Clicked" Text="Buy" Grid.Row="0" Grid.Column="2" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
+            <Button Text="Add to Project" Grid.Row="0" Grid.Column="3" CornerRadius="10" BorderColor="Gray" BorderWidth="1" BackgroundColor="Beige"/>
         </Grid>
     </Grid>
 </ContentPage>

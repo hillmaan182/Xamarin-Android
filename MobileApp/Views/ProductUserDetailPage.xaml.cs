@@ -41,8 +41,6 @@ namespace MobileApp.Views
                 return param1;
             }
         }
-
-
         public ProductUserDetailPage()
         {
             InitializeComponent();
@@ -82,6 +80,7 @@ namespace MobileApp.Views
 
             showProduct(id);
             showVendor(vendorID);
+            showReview(id);
         }
 
         private void showProduct(int id)
@@ -96,6 +95,17 @@ namespace MobileApp.Views
         {
             var res = vs.GetVendorById(id).Result;
             lstDataVendor.ItemsSource = res;
+        }
+
+        private void showReview(int id)
+        {
+            var db = getContext();
+            var query = from q in db.Review
+                        join z in db.Shipyard on q.UserId equals z.UserID
+                        where q.ProductId == id
+                        select new { q.ID, q.Rating, q.Description, z.ShipyardName };
+
+            lstReview.ItemsSource = query.ToList();
         }
 
         private void Visit_Vendor(object sender, EventArgs e)
@@ -129,6 +139,24 @@ namespace MobileApp.Views
                 obj.TotalPrice = obj.TotalItem * obj.Price;
 
                 ts.InsertTransaction(obj);
+
+                var db = getContext();
+                var resProd = db.Product.Where(x => x.ID == productID);
+                foreach (var x in res)
+                {
+                    Products p = new Products();
+                    p.ID = x.ID;
+                    p.ProductName = x.ProductName;
+                    p.ProductPrice = x.ProductPrice;
+                    p.ProductSisa = x.ProductSisa - obj.TotalItem;
+                    p.ProductCategory = x.ProductCategory;
+                    p.ProductDescription = x.ProductDescription;
+                    p.ProductImage = x.ProductImage;
+                    p.ProductSeen = x.ProductSeen;
+                    p.VendorID = x.VendorID;
+                    ps.UpdateProduct(p);
+                }
+
             }
             catch (Exception ex)
             {
@@ -148,7 +176,8 @@ namespace MobileApp.Views
             {
                 insertTransaction();
                 await DisplayAlert("Success", "You've just buy the product", "OK");
-                await Shell.Current.GoToAsync("//ProductUserPage");
+                totalCnt.Text = "0";
+                //await Shell.Current.GoToAsync("//ProductUserPage");
             }
             catch (Exception ex)
             {

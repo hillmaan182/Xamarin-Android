@@ -24,14 +24,12 @@ namespace MobileApp.Views
             vs = new VendorService();
             VendorID = ((App)App.Current).vendorID;
             this.BindingContext = new OthersViewModel(false);
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             showProfile();
         }
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    showProfile();
-        //    this.BindingContext = new OthersViewModel(false);
-        //}
 
         private void showProfile()
         {
@@ -40,6 +38,8 @@ namespace MobileApp.Views
             {
                 txtVendorName.Text = x.VendorName;
                 txtVendorAddress.Text = x.VendorAddress;
+                txtPhone.Text = x.VendorPhone;
+                vendorImage.Source = x.VendorImage;
             }
             //lstData.ItemsSource = res;
         }
@@ -49,6 +49,7 @@ namespace MobileApp.Views
             this.BindingContext = new OthersViewModel(true);
             updateImg.IsVisible = false;
             txtVendorName.TextColor = Color.Gray;
+            txtVendorAddress.TextColor = Color.Gray;
             txtVendorAddress.TextColor = Color.Gray;
         }
 
@@ -61,7 +62,34 @@ namespace MobileApp.Views
 
         private void Check_Clicked(object sender, EventArgs e)
         {
-           
+            try
+            {
+                var res = vs.GetVendorById(VendorID).Result;
+                foreach (var x in res)
+                {
+                    Vendor obj = new Vendor();
+                    obj.VendorName = txtVendorName.Text;
+                    obj.VendorAddress = txtVendorAddress.Text;
+                    obj.VendorEmail = x.VendorEmail;
+                    obj.VendorPhone = x.VendorPhone;
+                    obj.VendorAbout = x.VendorAbout;
+                    obj.VendorMission = x.VendorMission;
+                    obj.Type = x.Type;
+                    obj.VendorImage = PhotoPath;
+                    obj.ID = x.ID;
+                    vs.UpdateVendor(obj);
+
+                    this.BindingContext = new OthersViewModel(false);
+                    updateImg.IsVisible = true;
+                    showProfile();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new InvalidOperationException(ex.ToString());
+            }
+            
         }
 
         async Task PickerPhotoAsync()

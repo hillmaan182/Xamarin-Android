@@ -1,5 +1,6 @@
 ﻿using System;
 
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MobileApp.Services;
@@ -18,6 +19,7 @@ namespace MobileApp.Views
         bool _isUpdate;
         int ProductID;
         int? VendorID;
+        private string VendorType;
         public AddProductPage()
         {
             //btnImage.Source = "icon_image_add.png";
@@ -25,6 +27,22 @@ namespace MobileApp.Views
             _services = new ProductService();
             _isUpdate = false;
             VendorID =  ((App)App.Current).vendorID;
+
+            var db = getContext();
+            var type = (from q in db.Vendor
+                        where q.ID == VendorID
+                        select q.Type).FirstOrDefault();
+
+            VendorType = type;
+
+            if (VendorType == "Product")
+            {
+                rb2.IsEnabled = false;
+            } else
+            {
+                rb1.IsEnabled = true;
+            }
+
         }
 
         string PhotoPath = null;
@@ -156,6 +174,10 @@ namespace MobileApp.Views
         private async void btnCancel_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//ProductPage");
+        }
+        private DatabaseContext getContext()
+        {
+            return new DatabaseContext();
         }
     }
 

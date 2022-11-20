@@ -9,7 +9,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="125" />
-                <RowDefinition Height="75" />
+                <RowDefinition Height="0" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
@@ -22,7 +22,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackLayout Padding="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="0">
+                <StackLayout Padding="5" VerticalOptions="CenterAndExpand" Grid.ColumnSpan="2" IsVisible="false">
                     <Button 
                     Text="       Income      "
                     x:Name="btnIncome" 
@@ -39,7 +39,7 @@
 
                 </StackLayout>
 
-                <StackLayout Padding="5" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1">
+                <StackLayout Padding="5" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1" IsVisible="False">
                     <Button 
                     Text="       Outcome      "
                     x:Name="btnOutcome"
@@ -63,14 +63,14 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="120"/>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Income Summary" Grid.Row="0" Grid.ColumnSpan="2"/>
+                    <Label Text="Income Summary" Grid.Row="0" Grid.ColumnSpan="2" TextColor="Black"/>
 
                     <!--<CollectionView x:Name="lstData" Grid.Row="1" Grid.Column="0">
                         <CollectionView.ItemTemplate>
@@ -158,37 +158,35 @@
                                     </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label Text="Incoming Order" Grid.Row="0"/>
-                                        <Label Text="{Binding Total}" Grid.Row="1"/>
-                                        <Label Text="{Binding Percent , StringFormat='{0}% from last month' }" Grid.Row="2"/>
+                                        <Label Text="Incoming Order" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
+                                        <Label Text="{Binding Total}" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                        <Label Text="{Binding Percent , StringFormat='{0}% from last month' }" Grid.Row="2" TextColor="Black" FontSize="12"/>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                         <CollectionView.EmptyView>
-                            <ContentView>
-                                <Frame BackgroundColor="Beige" HasShadow="True" CornerRadius="10" BorderColor="Gray">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="orderFrame_Tapped" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
-                                        </Grid.RowDefinitions>
+                            <Frame BackgroundColor="Beige" HasShadow="True" CornerRadius="10" BorderColor="Gray">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="orderFrame_Tapped" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
 
-                                        <Label Text="Incoming Order" Grid.Row="0"/>
-                                        <Label Text="Rp XXX" Grid.Row="1"/>
-                                        <Label Text="-10% from last month" Grid.Row="2"/>
-                                    </Grid>
-                                </Frame>
-                            </ContentView>
+                                    <Label Text="Incoming Order" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
+                                    <Label Text="Rp XXX" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                    <Label Text="-10% from last month" Grid.Row="2" TextColor="Black" FontSize="8"/>
+                                </Grid>
+                            </Frame>
                         </CollectionView.EmptyView>
                     </CollectionView>
 
@@ -201,14 +199,14 @@
                                     </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label Text="Product Sold" Grid.Row="0"/>
-                                        <Label Text="{Binding Total}" Grid.Row="1"/>
-                                        <Label Text="{Binding Percent , StringFormat='{0}% from last month' }" Grid.Row="2"/>
+                                        <Label Text="Product Sold" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
+                                        <Label Text="{Binding Total}" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                        <Label Text="{Binding Percent , StringFormat='{0}% from last month' }" Grid.Row="2" TextColor="Black" FontSize="12"/>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>
@@ -226,22 +224,22 @@
                                             <RowDefinition Height="20"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label Text="Product Sold" Grid.Row="0"/>
-                                        <Label Text="0" Grid.Row="1"/>
-                                        <Label Text="0% from last month" Grid.Row="2"/>
+                                        <Label Text="Product Sold" Grid.Row="0" TextColor="Black"/>
+                                        <Label Text="0" Grid.Row="1" TextColor="Black"/>
+                                        <Label Text="0% from last month" Grid.Row="2" TextColor="Black"/>
                                     </Grid>
                                 </Frame>
                             </ContentView>
                         </CollectionView.EmptyView>
                     </CollectionView>
 
-                    <Label Text="Income Graph" Grid.Row="2" Grid.ColumnSpan="2"/>
+                    <Label Text="Income Graph" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black"/>
 
                     <forms:ChartView x:Name="NewOrderChart"  
                                HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2"/>
 
                     <forms:ChartView x:Name="SoldChart"  
-                               HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2"/>
+                               HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="Beige"/>
 
                     <!--<forms:ChartView x:Name="SalesChart3"  
                                HeightRequest="250" Grid.Row="4" Grid.ColumnSpan="2"/>-->

@@ -19,6 +19,11 @@ namespace MobileApp.Views
         {
             InitializeComponent();
         }
-        
+
+        private void searchProduct_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //var res = vs.GetAllVendorProductByName(searchProduct.Text).Result;
+            //lstData.ItemsSource = res;
+        }
     }
 }

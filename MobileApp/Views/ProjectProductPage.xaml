@@ -47,7 +47,10 @@
                                            HorizontalOptions="Start" VerticalOptions="Start"
                                            FontSize="15"/>
 
-                                    <Button x:Name="addServiceBtn" CommandParameter="{Binding ID}" Clicked="addServiceBtn_Clicked" Text="add to project" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" FontSize="12"/>
+                                    <Button x:Name="addServiceBtn" CommandParameter="{Binding ID}" 
+                                            Clicked="addServiceBtn_Clicked" Text="add to project" 
+                                            Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" FontSize="12"
+                                            BackgroundColor="White" BorderColor="Gray" BorderWidth="1" CornerRadius="10"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

@@ -26,7 +26,7 @@
                     </StackLayout>
                 </Frame>
 
-                <Button Text="Login" Clicked="btnLogin_Clicked" BackgroundColor="#FBF2CF" CornerRadius="20"/>
+                <Button Text="Login" Clicked="btnLogin_Clicked" BackgroundColor="Beige" CornerRadius="20" BorderColor="White" BorderWidth="1"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>

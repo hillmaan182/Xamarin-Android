@@ -58,7 +58,13 @@ namespace MobileApp.Views
 
         private void searchService_TextChanged(object sender, TextChangedEventArgs e)
         {
+            var db = getContext();
+            var query = from q in db.Product
+                        join x in db.Vendor on q.VendorID equals x.ID
+                        where q.ProductCategory == "Service" && q.ProductName.ToLower().Contains(searchService.Text.ToLower())
+                        select new { q.ID, q.ProductImage, q.ProductName, q.ProductPrice, x.VendorName };
 
+            lstData.ItemsSource = query.ToList();
         }
     }
 }
