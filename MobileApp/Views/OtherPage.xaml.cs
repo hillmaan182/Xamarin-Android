@@ -122,9 +122,10 @@ namespace MobileApp.Views
             await Shell.Current.GoToAsync($"//{nameof(ShipyardProjectPage)}");
         }
 
-        private void History_Tapped(object sender, EventArgs e)
+        private async void History_Tapped(object sender, EventArgs e)
         {
-
+            string status = "Finished";
+            await Shell.Current.GoToAsync($"{nameof(HistoryTransactionUser)}?Param={status}");
         }
 
         private void Trusted_Tapped(object sender, EventArgs e)
@@ -147,9 +148,9 @@ namespace MobileApp.Views
             await Shell.Current.GoToAsync($"//{nameof(DocumentPage)}");
         }
 
-        private void Contact_Tapped(object sender, EventArgs e)
+        private async void Contact_Tapped(object sender, EventArgs e)
         {
-
+            await Shell.Current.GoToAsync($"//{nameof(ContactPage)}");
         }
     }
 }

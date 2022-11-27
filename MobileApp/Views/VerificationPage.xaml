@@ -18,13 +18,13 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Entry x:Name="code1" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="0"
+                        <Entry x:Name="code1" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="0" MaxLength="1"
                            TextColor="Black"/>
-                        <Entry x:Name="code2" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"
+                        <Entry x:Name="code2" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="1" MaxLength="1"
                            TextColor="Black"/>
-                        <Entry x:Name="code3" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="2"
+                        <Entry x:Name="code3" HorizontalTextAlignment="Center" HeightRequest="40" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" MaxLength="1"
                            TextColor="Black"/>
-                        <Entry x:Name="code4" HorizontalTextAlignment="Center" HeightRequest="40"  Keyboard="Numeric" Grid.Row="0" Grid.Column="3"
+                        <Entry x:Name="code4" HorizontalTextAlignment="Center" HeightRequest="40"  Keyboard="Numeric" Grid.Row="0" Grid.Column="3" MaxLength="1"
                            TextColor="Black"/>
                     </Grid>
                 </StackLayout>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ContactPage">
+
+    <Grid BackgroundColor="#73d8eb" Padding="20">
+        <Frame Padding="10" BorderColor="Beige" BackgroundColor="#73d8eb">
+            <Grid BackgroundColor="#73d8eb">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="https://loremflickr.com/400/400/company,logo/all" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0"/>
+
+                <Entry x:Name="messageText" Placeholder="enter message here . . ."  HorizontalOptions="Center"
+               Grid.Row="1" 
+                    TextColor="Black" HeightRequest="100"/>
+
+                <Button Text="Contact Us" 
+                        Grid.Row="2" 
+                        TextColor="Black" FontSize="12" CornerRadius="10" BackgroundColor="Beige" Margin="70,0,70,0" BorderColor="Gray" BorderWidth="1"/>
+
+                <Label Grid.Row="3" 
+                       Text="Contact" FontSize="15" FontAttributes="Bold" TextColor="Black"  Margin="0,30,0,0"
+                       HorizontalOptions="Center" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                <Label Grid.Row="4" 
+                       Text="shipapp.devenv@gmail.com" FontSize="8" FontAttributes="Bold" TextColor="Black"  HorizontalOptions="Center"/>
+
+                <Label Grid.Row="5" 
+                       Text="Based in" FontSize="15" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+                <Label Grid.Row="6" 
+                       Text="Bekasi, West Java" FontSize="8" FontAttributes="Bold" TextColor="Black"  HorizontalOptions="Center"/>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

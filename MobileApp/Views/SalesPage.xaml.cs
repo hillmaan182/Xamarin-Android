@@ -151,6 +151,19 @@ namespace MobileApp.Views
             }
         }
 
+        //public void getSeenChart()
+        //{
+        //    int lastMonth = DateTime.Now.Month - 1;
+        //    int nowMonth = DateTime.Now.Month;
+        //    int nowYear = DateTime.Now.Year;
+
+        //    var db = getContext();
+        //    var before = from q in db.Product
+        //                 where q.VendorID == vendorId  q.BuyDate.Month == lastMonth && q.BuyDate.Year == nowYear
+        //                 group q by new { q.Status }
+        //                 into g
+        //                 select new { Total = g.Count() == 0 ? 0 : g.Count() };
+        //}
         private void incomeClicked(object sender, EventArgs e)
         {
             this.BindingContext = new SalesViewModel(true, false);

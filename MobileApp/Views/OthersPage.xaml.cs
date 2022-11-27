@@ -134,14 +134,17 @@ namespace MobileApp.Views
             updateImg.IsVisible = false;
         }
 
-        private void OnGoing_Tapped(object sender, EventArgs e)
+        private async void OnGoing_Tapped(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new AddProductPage());
+            string status = "New Order";
+            await Shell.Current.GoToAsync($"{nameof(HistoryTransaction)}?Param={status}");
         }
 
-        private void History_Tapped(object sender, EventArgs e)
+        private async void History_Tapped(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new AddProductPage());
+            //await this.Navigation.PushAsync(new HistoryTransaction());
+            string status = "Finished";
+            await Shell.Current.GoToAsync($"{nameof(HistoryTransaction)}?Param={status}");
         }
 
         private void Trusted_Tapped(object sender, EventArgs e)
@@ -156,14 +159,13 @@ namespace MobileApp.Views
             //this.Navigation.PushAsync(new CompanyProfilePage());
         }
 
-        private void Legal_Tapped(object sender, EventArgs e)
+        private async void Legal_Tapped(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new AddProductPage());
+            await Shell.Current.GoToAsync($"//{nameof(DocumentPage)}");
         }
-
-        private void Contact_Tapped(object sender, EventArgs e)
+        private async void Contact_Tapped(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new AddProductPage());
+            await Shell.Current.GoToAsync($"//{nameof(ContactPage)}");
         }
     }
 }

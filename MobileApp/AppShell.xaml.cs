@@ -21,7 +21,10 @@ namespace MobileApp
             Routing.RegisterRoute(nameof(ProjectProductPage), typeof(ProjectProductPage));
             Routing.RegisterRoute(nameof(AddShipyardProjectPage), typeof(AddShipyardProjectPage));
             Routing.RegisterRoute(nameof(DocumentPage), typeof(DocumentPage));
+            Routing.RegisterRoute(nameof(HistoryTransaction), typeof(HistoryTransaction));
+            Routing.RegisterRoute(nameof(HistoryTransactionUser), typeof(HistoryTransactionUser));
             Routing.RegisterRoute(nameof(MessagePage), typeof(MessagePage));
+            Routing.RegisterRoute(nameof(ContactPage), typeof(ContactPage));
             //Routing.RegisterRoute(nameof(ShipyardProjectPage), typeof(ShipyardProjectPage));
 
         }

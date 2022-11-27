@@ -43,7 +43,16 @@ namespace MobileApp.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //init();
+            var db = getContext();
+            var check = (from q in db.Message
+                        where q.ID == 7
+                        select q).ToList();
+
+
+            if (check.Count() == 0)
+            {
+                init();
+            }
             showMessages();
         }
         private void showMessages()
@@ -81,8 +90,13 @@ namespace MobileApp.Views
             }
 
         }
+
+
         public void init()
         {
+
+            var db = getContext();
+          
             ms.delMsg();
 
             Message m = new Message();
@@ -118,7 +132,7 @@ namespace MobileApp.Views
             ms.InsertMessage(m4);
 
             Message m5 = new Message();
-            m5.MessageSender = "vendora";
+            m5.MessageSender = "vendorp1";
             m5.MessageReceiver = "user";
             m5.MessageBody = "bisa ditanyakan ke nomor xxx ini kak untuk pertanyaan lebih lanjut ...";
             m5.MessageTime = DateTime.Now;
@@ -141,7 +155,6 @@ namespace MobileApp.Views
             m7.MessageIsRead = false;
             ms.InsertMessage(m7);
 
-            var db = getContext();
             var query = from q in db.Message
                         where (q.MessageReceiver == vendorname)
                         select q;

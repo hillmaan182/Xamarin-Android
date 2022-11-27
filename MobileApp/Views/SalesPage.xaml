@@ -109,7 +109,7 @@
                         </CollectionView.EmptyView>
                     </CollectionView>-->
 
-                    <!--<CollectionView x:Name="lstData2" Grid.Row="1" Grid.Column="0">
+                    <!--<CollectionView x:Name="lstSeen" Grid.Row="2" Grid.ColumnSpan="2">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Frame BackgroundColor="Beige" HasShadow="True" CornerRadius="10" BorderColor="Gray">
@@ -123,9 +123,9 @@
                                             <RowDefinition Height="20"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label Text="Product Seen" Grid.Row="0"/>
-                                        <Label Text="Rp XXX" Grid.Row="1"/>
-                                        <Label Text="-10% from last month" Grid.Row="2"/>
+                                        <Label Text="Product Seen" Grid.Row="0" TextColor="Black"/>
+                                        <Label Text="{Binding Total}" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                        <Label Text="{Binding Percent , StringFormat='{0}% from last month' }" Grid.Row="2" TextColor="Black" FontSize="12"/>
                                     </Grid>
                                 </Frame>
                             </DataTemplate>
@@ -141,7 +141,7 @@
                                         </Grid.RowDefinitions>
 
                                         <Label Text="Product Seen" Grid.Row="0"/>
-                                        <Label Text="Rp XXX" Grid.Row="1"/>
+                                        <Label Text="0" Grid.Row="1"/>
                                         <Label Text="-10% from last month" Grid.Row="2"/>
                                     </Grid>
                                 </Frame>
@@ -236,7 +236,7 @@
                     <Label Text="Income Graph" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black"/>
 
                     <forms:ChartView x:Name="NewOrderChart"  
-                               HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2"/>
+                               HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="Beige"/>
 
                     <forms:ChartView x:Name="SoldChart"  
                                HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="Beige"/>

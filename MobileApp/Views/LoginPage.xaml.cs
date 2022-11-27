@@ -51,6 +51,7 @@ namespace MobileApp.Views
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
             int val = user.LoginUser(txtUsername.Text, txtPassword.Text).Result;
+            
             if (val == 1)
             {
                 int? vendor = user.GetVendorUser(txtUsername.Text, txtPassword.Text);

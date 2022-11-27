@@ -25,7 +25,7 @@
                 BorderWidth="1" BorderColor="Gray"/>
 
         <ScrollView x:Name="scOngoing" Grid.Row="2" Grid.ColumnSpan="2">
-            <ListView x:Name="lstDataOngoing" HasUnevenRows="True" Margin="10">
+            <ListView x:Name="lstDataOngoing" ItemSelected="lstDataOngoing_ItemSelected" HasUnevenRows="True" Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

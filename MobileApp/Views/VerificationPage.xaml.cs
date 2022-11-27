@@ -23,7 +23,7 @@ namespace MobileApp.Views
             userID = ((App)App.Current).userID;
         }
 
-        private void BtnEnter_Clicked(object sender, EventArgs e)
+        private async void BtnEnter_Clicked(object sender, EventArgs e)
         {
             var res = us.GetDataUserById(userID);
             string code = res.FirstOrDefault().VerifiedCode;
@@ -31,17 +31,33 @@ namespace MobileApp.Views
             string enterCode = code1.Text + code2.Text + code3.Text + code4.Text;
             if (enterCode != code)
             {
-                DisplayAlert("Error", "Verification Code invalid!", "OK");
+               await DisplayAlert("Error", "Verification Code invalid!", "OK");
             } else
             {
-                User obj = new User();
-                obj.IsVerified = true;
-                obj.ID = userID;
-                us.UpdateVerified(obj);
-
-                MessagingCenter.Send<VerificationPage>(this, "user");
-                Shell.Current.GoToAsync($"//{nameof(UserHomePage)}");
+                foreach (var item in res.ToList())
+                {
+                    User obj = new User();
+                    obj.Email = item.Email;
+                    obj.Username = item.Username;
+                    obj.Password = item.Password;
+                    obj.VendorID = item.VendorID;
+                    obj.Role = item.Role;
+                    obj.VerifiedCode = item.VerifiedCode;
+                    obj.IsVerified = true;
+                    obj.ID = userID;
+                    us.UpdateVerified(obj);
+                }
+                await DisplayAlert("Success" , "Verification is complete , you can log in now!" , "OK");
+                //MessagingCenter.Send<VerificationPage>(this, "user");
+                //Shell.Current.GoToAsync($"//{nameof(UserHomePage)}");
+                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
             }
         }
+
+        private DatabaseContext getContext()
+        {
+            return new DatabaseContext();
+        }
+
     }
 }

@@ -92,10 +92,27 @@ namespace MobileApp.Views
             }
             
         }
-
         private DatabaseContext getContext()
         {
             return new DatabaseContext();
+        }
+
+        private async void lstDataOngoing_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                Project obj = (Project)e.SelectedItem;
+                string res = await DisplayActionSheet("Operation", "Cancel", null, "Delete");
+
+                switch (res)
+                {
+                    case "Delete":
+                        ps.DeleteProject(obj);
+                        showProject("OnGoing");
+                        break;
+                }
+                lstDataFinished.SelectedItem = null;
+            }
         }
     }
 }

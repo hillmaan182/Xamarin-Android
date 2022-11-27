@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.HistoryTransaction" Title="History">
+    <Grid BackgroundColor="#73d8eb" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <SearchBar x:Name="searchTrans" Placeholder="type to search . . . " PlaceholderColor="Gray" Grid.Row="0" TextChanged="searchTrans_TextChanged"/>
+
+        <ScrollView Grid.Row="1" BackgroundColor="#73d8eb" >
+            <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD" HasShadow="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="Purchased" Grid.Row="0" Grid.Column="0" TextColor="Black" />
+                                    <Label Text="{Binding BuyDate , StringFormat='{0:yyyy-MM-dd}'}" Grid.Row="0" Grid.Column="1" TextColor="Black" />
+                                    <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" HeightRequest="90" WidthRequest="90" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0"/>
+
+                                    <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{Binding ShipyardName}" Grid.Row="3" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1" TextColor="Black" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+</ContentPage>

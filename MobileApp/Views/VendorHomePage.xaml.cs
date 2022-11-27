@@ -72,6 +72,14 @@ namespace MobileApp.Views
             lstData4.ItemsSource = newQuery.ToList();
             lstData7.ItemsSource = seen.ToList();
 
+            var sold = from q in db.Transaction
+                       where q.Status == "Finished"
+                       group q by new { q.ID }
+                       into g
+                       select new { Total = g.Count() };
+
+            lstData8.ItemsSource = sold.ToList();
+
         }
 
         private DatabaseContext getContext()

@@ -44,5 +44,13 @@ namespace MobileApp.Services
             return c;
         }
 
+        public int DeleteProject(Project obj)
+        {
+            var db = getContext();
+            db.Project.Remove(obj);
+            int c = db.SaveChanges();
+            return c;
+        }
+
     }
 }

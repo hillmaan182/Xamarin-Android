@@ -88,7 +88,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
 
                                         <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
@@ -121,7 +121,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
 
                                         <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
