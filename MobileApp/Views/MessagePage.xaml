@@ -35,21 +35,21 @@
                         </Grid.ColumnDefinitions>
                         
                     </Grid>-->
-                    <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" >
+                    <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" Margin="35,0,35,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Beige" Margin="5" CornerRadius="20" BorderColor="DarkGray">
                                         <Grid>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="50"></RowDefinition>
-                                                <RowDefinition Height="50"></RowDefinition>
+                                                <RowDefinition Height="35"></RowDefinition>
+                                                <RowDefinition Height="35"></RowDefinition>
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <Image Source="icon_user.png" Grid.RowSpan="2" Grid.Column="0"/>
-                                            <Label Text="{Binding MessageSender}"   Grid.Row="0" HorizontalOptions="Start" Grid.Column="1" FontAttributes="Bold" FontSize="35" TextColor="Black"/>
+                                            <Image Source="icon_user.png" Grid.RowSpan="2" Grid.Column="0" HeightRequest="80" WidthRequest="80" Aspect="AspectFit" HorizontalOptions="Center"/>
+                                            <Label Text="{Binding MessageSender}"   Grid.Row="0" HorizontalOptions="End" Grid.Column="1" FontAttributes="Bold" FontSize="25" TextColor="Black"/>
                                             <Label Text="{Binding MessageUnread}" Grid.Row="1" HorizontalOptions="Start" Grid.Column="1" TextColor="Black"/>
                                         </Grid>
                                     </Frame>

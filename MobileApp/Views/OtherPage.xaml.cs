@@ -53,6 +53,21 @@ namespace MobileApp.Views
                 txtName.Text = x.ShipyardName;
                 txtEmail.Text = x.ShipyardEmail;
                 txtAddress.Text = x.ShipyardAddress;
+                if (PhotoPath != null)
+                {
+                    btnUplImg.Source = PhotoPath;
+                }
+                else
+                {
+                    if (x.ShipyardImage != null)
+                    {
+                        btnUplImg.Source = ImageSource.FromFile(x.ShipyardImage);
+                    }
+                    else
+                    {
+                        btnUplImg.Source = ImageSource.FromFile("icon_noimage.png");
+                    }
+                }
             }
         }
 
@@ -108,6 +123,7 @@ namespace MobileApp.Views
             PhotoPath = newFile;
             var stream2 = await photo.OpenReadAsync();
             btnUplImg.Source = ImageSource.FromStream(() => stream2);
+            btnUplImg.IsEnabled = false; 
         }
 
         private async void btnUplImg_Clicked(object sender, EventArgs e)

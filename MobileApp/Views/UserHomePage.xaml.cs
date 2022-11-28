@@ -26,13 +26,14 @@ namespace MobileApp.Views
 
         private void showData()
         {
+            var db = getContext();
+
             var res = vs.GetAllVendorByCategory("Product").Result;
             lstProductVendor.ItemsSource = res;
 
             var res2 = vs.GetAllVendorByCategory("Service").Result;
             lstServiceVendor.ItemsSource = res2;
 
-            var db = getContext();
 
             var query = from q in db.Product
                         join x in db.Vendor on q.VendorID equals x.ID

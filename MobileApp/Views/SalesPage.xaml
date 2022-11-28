@@ -70,7 +70,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Income Summary" Grid.Row="0" Grid.ColumnSpan="2" TextColor="Black"/>
+                    <Label Text="Income Summary" Grid.Row="0" Grid.ColumnSpan="2" TextColor="Black" FontAttributes="Bold"/>
 
                     <!--<CollectionView x:Name="lstData" Grid.Row="1" Grid.Column="0">
                         <CollectionView.ItemTemplate>
@@ -183,8 +183,8 @@
                                     </Grid.RowDefinitions>
 
                                     <Label Text="Incoming Order" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="17"/>
-                                    <Label Text="Rp XXX" Grid.Row="1" TextColor="Black" FontSize="12"/>
-                                    <Label Text="-10% from last month" Grid.Row="2" TextColor="Black" FontSize="8"/>
+                                    <Label Text="Rp 0" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                    <Label Text="0% from last month" Grid.Row="2" TextColor="Black" FontSize="8"/>
                                 </Grid>
                             </Frame>
                         </CollectionView.EmptyView>
@@ -224,16 +224,16 @@
                                             <RowDefinition Height="20"/>
                                         </Grid.RowDefinitions>
 
-                                        <Label Text="Product Sold" Grid.Row="0" TextColor="Black"/>
-                                        <Label Text="0" Grid.Row="1" TextColor="Black"/>
-                                        <Label Text="0% from last month" Grid.Row="2" TextColor="Black"/>
+                                        <Label Text="Product Sold" Grid.Row="0" FontAttributes="Bold" FontSize="17" TextColor="Black"/>
+                                        <Label Text="0" Grid.Row="1" TextColor="Black" FontSize="12"/>
+                                        <Label Text="0% from last month" Grid.Row="2" TextColor="Black" FontSize="12"/>
                                     </Grid>
                                 </Frame>
                             </ContentView>
                         </CollectionView.EmptyView>
                     </CollectionView>
 
-                    <Label Text="Income Graph" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black"/>
+                    <Label Text="Income Graph" Grid.Row="2" Grid.ColumnSpan="2" TextColor="Black" FontAttributes="Bold"/>
 
                     <forms:ChartView x:Name="NewOrderChart"  
                                HeightRequest="250" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor="Beige"/>

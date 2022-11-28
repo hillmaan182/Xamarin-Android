@@ -12,7 +12,7 @@
         <SearchBar Placeholder="type to search" Grid.Row="0" x:Name="searchProduct" TextChanged="searchProduct_TextChanged" BackgroundColor="Beige" Margin="5"/>
 
         <ScrollView Grid.Row="1" BackgroundColor="#73d8eb" >
-            <ListView x:Name="lstData" HasUnevenRows="True" Margin="5">
+            <ListView x:Name="lstData" HasUnevenRows="True" Margin="40,0,40,0" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -31,14 +31,14 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
-                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="95"
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="150" Aspect="AspectFill"
                                            HorizontalOptions="Center" VerticalOptions="Center"/>
                                     <Label Text="{Binding ProductName}" 
-                                           Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" FontSize="25" TextColor="Black"/>
+                                           Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" VerticalOptions="End" FontSize="20" TextColor="Black"/>
                                     <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
                                            Grid.Row="1" Grid.Column="1" 
-                                           HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+                                           HorizontalOptions="Start" VerticalOptions="Center"
+                                           FontSize="15" FontAttributes="Bold" TextColor="Black"/>
                                     <Label Text="{Binding VendorName}" 
                                            Grid.Row="2" Grid.Column="1" TextColor="Black"
                                            HorizontalOptions="Start" VerticalOptions="Start"

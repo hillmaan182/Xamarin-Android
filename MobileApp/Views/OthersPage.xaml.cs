@@ -39,7 +39,23 @@ namespace MobileApp.Views
                 txtVendorName.Text = x.VendorName;
                 txtVendorAddress.Text = x.VendorAddress;
                 txtPhone.Text = x.VendorPhone;
-                vendorImage.Source = x.VendorImage;
+                if (PhotoPath != null)
+                {
+                    vendorImage.Source = PhotoPath;
+                }
+                else
+                {
+                    if (x.VendorImage != null)
+                    {
+                        vendorImage.Source = ImageSource.FromFile(x.VendorImage);
+                    }
+                    else
+                    {
+                        //vendorImage.Source = x.VendorImage;
+                        vendorImage.Source = ImageSource.FromFile("icon_noimage.png");
+                    }
+                   
+                }
             }
             //lstData.ItemsSource = res;
         }
@@ -125,13 +141,15 @@ namespace MobileApp.Views
             PhotoPath = newFile;
             var stream2 = await photo.OpenReadAsync();
             vendorImage.Source = ImageSource.FromStream(() => stream2);
+            //vendorImage.IsEnabled = false;
+           
         }
 
         private async void btnUplImg_Clicked(object sender, EventArgs e)
         {
             await PickerPhotoAsync();
-            this.BindingContext = new OthersViewModel(true);
-            updateImg.IsVisible = false;
+            //this.BindingContext = new OthersViewModel(true);
+            //updateImg.IsVisible = false;
         }
 
         private async void OnGoing_Tapped(object sender, EventArgs e)

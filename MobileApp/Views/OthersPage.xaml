@@ -28,9 +28,9 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <ImageButton x:Name="vendorImage" Source="icon_noimage.jpg" 
+                        <ImageButton x:Name="vendorImage" 
                                      IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
-                                     Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5"/>
+                                     Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5" WidthRequest="150" HeightRequest="120" Aspect="AspectFit"/>
 
                         <Entry x:Name="txtVendorName" Keyboard="Text" 
                                Grid.Row="0" Grid.Column="1" 

@@ -28,7 +28,7 @@
 
                     <ImageButton x:Name="btnUplImg" Source="icon_noimage.jpg" 
                                      IsEnabled="{Binding IsEnabled}" BackgroundColor="Transparent"
-                                     Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5"/>
+                                     Clicked="btnUplImg_Clicked" Grid.RowSpan="3" Margin="-5" WidthRequest="150" HeightRequest="120" Aspect="AspectFit"/>
 
                     <Entry x:Name="txtName" Text="Title" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsEnabled}" FontAttributes="Bold" TextColor="Black">
                         <Entry.Effects>

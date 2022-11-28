@@ -22,12 +22,13 @@ namespace MobileApp.Views
             //User = ((App)App.Current).userLoggedIn;
             InitializeComponent();
             ps = new ProductService();
-            vendorId = ((App)App.Current).vendorID;
-            vendorName = ((App)App.Current).vendorName;
-            this.BindingContext = new VendorHomeViewModel();
+           
         }
         protected override void OnAppearing()
         {
+            vendorId = ((App)App.Current).vendorID;
+            vendorName = ((App)App.Current).vendorName;
+            this.BindingContext = new VendorHomeViewModel();
             base.OnAppearing();
             showAll();
         }

@@ -87,7 +87,7 @@ namespace MobileApp.Views
             var stream2 = await photo.OpenReadAsync();
             //img.Source = ImageSource.FromStream(() => stream2);
             btnImage.Source = ImageSource.FromStream(() => stream2);
-            btnImage.IsEnabled = false;
+            //btnImage.IsEnabled = false;
         }
 
         public AddProductPage(Products obj)

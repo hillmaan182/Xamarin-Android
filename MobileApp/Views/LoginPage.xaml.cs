@@ -112,6 +112,8 @@ namespace MobileApp.Views
             obj.Type = "Product";
             obj.VendorAbout = "Lorem ipsum dolor sit amet, consectetur adisipicing elit. Nunc vulputate";
             obj.VendorMission = "Happy Live Laugh";
+            //obj.VendorImage = "https://i.ibb.co/jDfHJJq/icon-photo1.jpg";
+            obj.VendorImage = "icon_photo1.jpg";
             vendor.InsertVendor(obj);
 
             //

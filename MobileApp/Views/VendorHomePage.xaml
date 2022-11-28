@@ -188,7 +188,7 @@
                         <DataTemplate>
                             <view:CardViewTemplate 
                                        CardTitle="Product Sold"
-                                       CardDescription="10"
+                                       CardDescription="{Binding Total}"
                                        Padding="10"/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
@@ -196,7 +196,7 @@
                         <ContentView>
                             <view:CardViewTemplate 
                                        CardTitle="Product Sold"
-                                       CardDescription="10"
+                                       CardDescription="0"
                                        Padding="10,0,0,14"/>
                         </ContentView>
                     </CollectionView.EmptyView>

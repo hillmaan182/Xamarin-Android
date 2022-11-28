@@ -50,6 +50,17 @@ namespace MobileApp
 
         protected override void OnResume()
         {
+            if (!IsUserLoggedIn)
+            {
+                Shell.Current.GoToAsync("//LoginPage");
+            }else if (IsUserLoggedIn && vendorID == null)
+            {
+                Shell.Current.GoToAsync("//UserHomePage");
+            }
+            else if (IsUserLoggedIn && vendorID != null)
+            {
+                Shell.Current.GoToAsync("//VendorHomePage");
+            }
         }
     }
 }

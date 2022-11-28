@@ -28,7 +28,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.RowSpan="3" Grid.Column="0"/>
+                                    <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.RowSpan="3" Grid.Column="0" WidthRequest="80" Aspect="AspectFill"/>
 
                                     <Label Text="{Binding VendorName}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
                                     <Label Text="{Binding VendorAddress}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>

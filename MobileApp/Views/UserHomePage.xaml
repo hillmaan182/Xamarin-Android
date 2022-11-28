@@ -56,13 +56,13 @@
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="185" />
+                    <RowDefinition Height="175" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="185" />
+                    <RowDefinition Height="175" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="185" />
+                    <RowDefinition Height="175" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="185" />
+                    <RowDefinition Height="175" />
                 </Grid.RowDefinitions>
 
                 <Label Text="Product Vendor Recommendation" Grid.Row="0" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
@@ -76,7 +76,7 @@
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="Gray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameProductVendor_Tapped" CommandParameter="{Binding ID}"/>
                                     </Frame.GestureRecognizers>
@@ -88,9 +88,17 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image  Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="130" Aspect="AspectFill">
+                                            <Image.Source>
+                                                <!--<FileImageSource File="{Binding VendorImage}"/>-->
+                                                <FileImageSource File="{Binding VendorImage , TargetNullValue='icon_noimage.png'}"/>
+                                                <!--<UriImageSource Uri="{Binding VendorImage, TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" />-->
+                                            </Image.Source>
+                                        </Image>
+                                        
+                                        <!--<Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>-->
 
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
@@ -109,7 +117,7 @@
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameServiceVendor_Tapped" CommandParameter="{Binding ID}"/>
                                     </Frame.GestureRecognizers>
@@ -121,9 +129,13 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
-
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Image  Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="120" Aspect="AspectFill">
+                                            <Image.Source>
+                                                <!--<UriImageSource Uri="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" CacheValidity="1" CachingEnabled="true"/>-->
+                                                <FileImageSource File="{Binding VendorImage , TargetNullValue='icon_noimage.png'}"/>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
@@ -142,7 +154,7 @@
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameProduct_Tapped" CommandParameter="{Binding ID}"/>
                                     </Frame.GestureRecognizers>
@@ -154,9 +166,13 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
-
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Image  Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="120" Aspect="AspectFill">
+                                            <Image.Source>
+                                                <!--<UriImageSource Uri="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" CacheValidity="1" CachingEnabled="true"/>-->
+                                                    <FileImageSource File="{Binding ProductImage , TargetNullValue='icon_noimage.png'}"/>
+                                            </Image.Source>
+                                        </Image>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
@@ -175,7 +191,7 @@
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
                                    BorderColor="DarkGray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameService_Tapped" CommandParameter="{Binding ID}"/>
                                     </Frame.GestureRecognizers>
@@ -187,9 +203,14 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image  Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="120" Aspect="AspectFill">
+                                            <Image.Source>
+                                                <!--<UriImageSource Uri="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" CacheValidity="1" CachingEnabled="true"/>-->
+                                                <FileImageSource File="{Binding ProductImage , TargetNullValue='icon_noimage.png'}"/>
+                                            </Image.Source>
+                                        </Image>
 
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding ProductPrice , StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
