@@ -21,6 +21,7 @@ namespace MobileApp.Views
         TransactionService ts;
         UserService us;
         FavoriteProductService fp;
+        FavoriteVendorService fv;
         int productID;
         int vendorID;
         string vendorName;
@@ -49,6 +50,7 @@ namespace MobileApp.Views
             ts = new TransactionService();
             us = new UserService();
             fp = new FavoriteProductService();
+            fv = new FavoriteVendorService();
             this.BindingContext = new CardDataViewModel();
             userID = ((App)App.Current).userID;
             userName = ((App)App.Current).userLoggedIn;
@@ -69,8 +71,8 @@ namespace MobileApp.Views
             vendorID = res.FirstOrDefault().VendorID;
             type = res.FirstOrDefault().ProductCategory;
 
-            var getVendorName = us.GetDataUserByVendorId(vendorID).Result;
-            vendorName = getVendorName.FirstOrDefault().Username;
+            //var getVendorName = us.GetDataUserByVendorId(vendorID).Result;
+            //vendorName = getVendorName.FirstOrDefault().Username;
 
             var getFav = fp.GetFavoriteProducts(productID, userID).Result;
             if (getFav.Count > 0)
@@ -212,6 +214,13 @@ namespace MobileApp.Views
                 obj.UserId = userID;
                 obj.Type = type;
                 fp.InsertFavoriteProduct(obj);
+
+                FavoriteVendor objV = new FavoriteVendor();
+                objV.VendorId = vendorID;
+                objV.UserId = userID;
+                objV.Type = type;
+                fv.InsertFavoriteVendor(objV);
+
             }
             catch (Exception ex)
             {

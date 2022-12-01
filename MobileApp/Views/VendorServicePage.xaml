@@ -28,22 +28,23 @@
                                         <RowDefinition Height="25"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
-                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="95" HeightRequest="150" Aspect="AspectFill"
-                                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="130" HeightRequest="150" Aspect="AspectFill"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding ProductName}" 
-                                           Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" VerticalOptions="End" FontSize="20" TextColor="Black"/>
-                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                           Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" VerticalOptions="End" FontSize="18" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#}'}" 
                                            Grid.Row="1" Grid.Column="1" 
-                                           HorizontalOptions="Start" VerticalOptions="Center"
+                                            HorizontalOptions="Start" VerticalOptions="Center"
                                            FontSize="15" FontAttributes="Bold" TextColor="Black"/>
                                     <Label Text="{Binding VendorName}" 
                                            Grid.Row="2" Grid.Column="1" TextColor="Black"
                                            HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="15"/>
+                                           FontSize="12"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

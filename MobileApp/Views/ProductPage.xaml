@@ -15,7 +15,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="125" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -59,35 +59,38 @@
             </CarouselView.ItemTemplate>
         </CarouselView>-->
 
-        <ScrollView Grid.Row="2" BackgroundColor="#73d8eb" >
-            <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" Margin="40,0,40,0">
+        <ScrollView Grid.Row="2" BackgroundColor="#73d8eb">
+            <ListView x:Name="lstData" HasUnevenRows="True" ItemSelected="lstData_ItemSelected" Margin="40,0,40,0" BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BackgroundColor="Beige" Padding="25,0,25,0" Margin="5" CornerRadius="8" BorderColor="#40B5AD" HasShadow="True"> 
+                            <Frame BackgroundColor="Beige" Padding="10,0,10,0" Margin="1" CornerRadius="8" BorderColor="#40B5AD" HasShadow="True"> 
                                 <Grid BackgroundColor="Transparent">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="45"></RowDefinition>
+                                        <RowDefinition Height="25"></RowDefinition>
                                         <RowDefinition Height="35"></RowDefinition>
-                                        <RowDefinition Height="25"></RowDefinition>
-                                        <RowDefinition Height="25"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
-                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="85" HeightRequest="150" Aspect="AspectFill"
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="150" HeightRequest="105" Aspect="AspectFill"
                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding ProductName}" 
-                                           Grid.Row="0" Grid.Column="1" TextColor="Black" HorizontalOptions="Start" FontSize="20"/>
-                                    <Label Text="{Binding ProductPrice , StringFormat= Rp. {0}}" 
+                                           Grid.Row="0" Grid.Column="1" TextColor="Black" 
+                                           HorizontalOptions="Start" VerticalOptions="End"
+                                           FontSize="15" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
                                            Grid.Row="1" Grid.Column="1" 
-                                           HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="15" FontAttributes="Bold" TextColor="Black"/>
+                                           HorizontalOptions="Start" VerticalOptions="Start" 
+                                           FontSize="12" FontAttributes="Bold" TextColor="Black"/>
                                     <Label Text="{Binding ProductSisa , StringFormat='Sisa Produk :{0}'}" 
                                            Grid.Row="2" Grid.Column="1" TextColor="Black"
                                            HorizontalOptions="Start" VerticalOptions="Start"
-                                           FontSize="15"/>
+                                           FontSize="12"/>
 
                                     <!--<Grid.RowDefinitions>
                                         <RowDefinition Height="100"></RowDefinition>

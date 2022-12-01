@@ -18,28 +18,28 @@
                             <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD">
                                 <Grid RowSpacing="0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="30"/>
                                         <RowDefinition Height="25"/>
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="70"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.RowSpan="3" Grid.Column="0" WidthRequest="80" Aspect="AspectFill"/>
 
-                                    <Label Text="{Binding VendorName}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                                    <Label Text="{Binding VendorAddress}" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
-                                    <Label Text="{Binding VendorPhone}" Grid.Row="2" Grid.Column="1" TextColor="Black"/>
+                                    <Label Text="{Binding VendorName}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="18" TextColor="Black" VerticalOptions="End" LineBreakMode="TailTruncation"/>
+                                    <Label Text="{Binding VendorAddress}" Grid.Row="1" Grid.Column="1" TextColor="Black" FontSize="12" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                    <Label Text="{Binding VendorPhone}" Grid.Row="2" Grid.Column="1" TextColor="Black" FontSize="12"/>
 
                                     <Button x:Name="btnVisit" Clicked="btnVisit_Clicked" CommandParameter="{Binding ID}" 
-                                            Text="Visit" 
+                                            Text="Visit"  HorizontalOptions="End"
                                             Grid.RowSpan="3" Grid.Column="2" 
-                                            CornerRadius="10" Margin="25,20,0,20"
-                                            BackgroundColor="White" BorderColor="Gray" BorderWidth="1"/>
+                                            CornerRadius="10" Margin="0,20,0,20"
+                                            BackgroundColor="White" BorderColor="#40B5AD" BorderWidth="1"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

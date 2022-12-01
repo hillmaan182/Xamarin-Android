@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 
 namespace MobileApp.Views
 {
-    public partial class UserHomePage : ContentPage 
+    public partial class UserHomePage : ContentPage
     {
         VendorService vs;
         //ProductService ps;
@@ -21,7 +21,7 @@ namespace MobileApp.Views
             InitializeComponent();
             this.BindingContext = new CardDataViewModel();
             showData();
-            
+
         }
 
         private void showData()
@@ -29,10 +29,10 @@ namespace MobileApp.Views
             var db = getContext();
 
             var res = vs.GetAllVendorByCategory("Product").Result;
-            lstProductVendor.ItemsSource = res;
+            lstProductVendor.ItemsSource = res.Take(10);
 
             var res2 = vs.GetAllVendorByCategory("Service").Result;
-            lstServiceVendor.ItemsSource = res2;
+            lstServiceVendor.ItemsSource = res2.Take(10);
 
 
             var query = from q in db.Product
@@ -40,14 +40,14 @@ namespace MobileApp.Views
                         where q.ProductCategory == "Product"
                         select new { q.ID, q.ProductImage, q.ProductName, q.ProductPrice, x.VendorName };
 
-            lstProduct.ItemsSource = query.ToList();
+            lstProduct.ItemsSource = query.Take(10).ToList();
 
             var query2 = from q in db.Product
                          join x in db.Vendor on q.VendorID equals x.ID
                          where q.ProductCategory == "Service"
                          select new { q.ID, q.ProductImage, q.ProductName, q.ProductPrice, x.VendorName };
 
-            lstService.ItemsSource = query2.ToList();
+            lstService.ItemsSource = query2.Take(10).ToList();
         }
 
         private DatabaseContext getContext()

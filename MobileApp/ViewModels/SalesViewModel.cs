@@ -21,7 +21,7 @@ namespace MobileApp.ViewModels
                 IsOutcome = false;
                 BorderIncome = Color.Green;
                 BorderOutcome = Color.Beige;
-                User = ((App)App.Current).userName;
+                User = ((App)App.Current).vendorName;
 
             } else if(outcome == true)
             {
@@ -29,7 +29,7 @@ namespace MobileApp.ViewModels
                 IsOutcome = true;
                 BorderIncome = Color.Beige;
                 BorderOutcome = Color.Red;
-                User = ((App)App.Current).userName;
+                User = ((App)App.Current).vendorName;
             }
         }
     }

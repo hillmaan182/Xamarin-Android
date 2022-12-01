@@ -55,8 +55,8 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="Gray" 
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   BorderColor="Gray" HeightRequest="175" WidthRequest="170"
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="5" Margin="5">
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -65,9 +65,9 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="170" Aspect="AspectFill"/>
 
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
@@ -106,8 +106,8 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="Gray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   BorderColor="Gray" HeightRequest="175" WidthRequest="170"
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="5" Margin="5">
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -116,9 +116,9 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding VendorImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="100" WidthRequest="170" Aspect="AspectFill"/>
 
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
@@ -154,8 +154,8 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="DarkGray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   BorderColor="DarkGray" HeightRequest="175" WidthRequest="170"
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="5" Margin="5">
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -164,10 +164,10 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="170" Aspect="AspectFill"/>
 
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
-                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat='Rp. {0:#}'}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
@@ -202,8 +202,8 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="DarkGray" HeightRequest="175"
-                                   CornerRadius="8" HorizontalOptions="Center">
+                                   BorderColor="DarkGray" HeightRequest="175" WidthRequest="170"
+                                   CornerRadius="8" HorizontalOptions="Center" Padding="5" Margin="5">
                                     <Grid RowSpacing="0">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
@@ -212,9 +212,9 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
+                                        <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="170" Aspect="AspectFill"/>
 
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 

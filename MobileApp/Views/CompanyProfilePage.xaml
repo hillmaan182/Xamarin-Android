@@ -10,17 +10,21 @@
             <Color x:Key="Accent">#73d8eb</Color>
             <Style x:Key="Header" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="FontSize" Value="35" />
+                <Setter Property="FontSize" Value="25" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
             <Style x:Key="Body" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
             <Style x:Key="Content" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -62,35 +66,35 @@
                                     <Label Style="{StaticResource Content}" Text="{Binding VendorMission}"   Grid.Row="4" Grid.ColumnSpan="3" />
 
                                     <Label Style="{StaticResource Body}" Text="Our Services"   Grid.Row="5" Grid.ColumnSpan="3"/>
-                                    <Image Source="icon_photo1.png" Grid.Row="6" Grid.Column="0"/>
-                                    <Image Source="icon_photo2.png" Grid.Row="6" Grid.Column="1"/>
-                                    <Image Source="icon_photo3.png" Grid.Row="6" Grid.Column="2"/>
+                                    <Image Source="{Binding img1}" Grid.Row="6" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img2}" Grid.Row="6" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img3}" Grid.Row="6" Grid.Column="2"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
                                     
                                     <Label Style="{StaticResource Body}" Text="Our Experience"   Grid.Row="7" Grid.ColumnSpan="3" />
-                                    <Button BackgroundColor="Red" Grid.Row="8" Grid.Column="0"/>
-                                    <Button BackgroundColor="Orange" Grid.Row="8" Grid.Column="1"/>
-                                    <Button BackgroundColor="Black" Grid.Row="8" Grid.Column="2"/>
+                                    <Image Source="{Binding img4}" Grid.Row="8" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img5}" Grid.Row="8" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img6}" Grid.Row="8" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
 
                                     <Label Style="{StaticResource Body}" Text="Our Affiliates"   Grid.Row="9" Grid.ColumnSpan="3" />
-                                    <Button BackgroundColor="Red" Grid.Row="10" Grid.Column="0"/>
-                                    <Button BackgroundColor="Orange" Grid.Row="10" Grid.Column="1"/>
-                                    <Button BackgroundColor="Black" Grid.Row="10" Grid.Column="2"/>
+                                    <Image Source="{Binding img7}" Grid.Row="10" Grid.Column="0" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img8}" Grid.Row="10" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                    <Image Source="{Binding img9}" Grid.Row="10" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
 
                                     <Label Style="{StaticResource Body}" Text="Class and Certification"   Grid.Row="11" Grid.ColumnSpan="3" />
-                                    <Button BackgroundColor="Red" Grid.Row="12" Grid.Column="0"/>
-                                    <Button BackgroundColor="Orange" Grid.Row="12" Grid.Column="1"/>
-                                    <Button BackgroundColor="Black" Grid.Row="12" Grid.Column="2"/>
+                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="0"/>
+                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="1"/>
+                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="2"/>
 
                                     <Label Style="{StaticResource Body}" Text="Contact Us"   Grid.Row="13" Grid.ColumnSpan="3" />
 
-                                    <Image Source="icon_location.png" Grid.Row="14" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorAddress}"   Grid.Row="14" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Image Source="icon_location.png" Grid.Row="14" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
+                                    <Label Text="{Binding VendorAddress}"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"  VerticalOptions="Center" TextColor="Black"/>
 
-                                    <Image Source="icon_phone.png" Grid.Row="15" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorPhone}"   Grid.Row="15" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Image Source="icon_phone.png" Grid.Row="15" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
+                                    <Label Text="{Binding VendorPhone}"   Grid.Row="15" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
 
-                                    <Image Source="icon_email.png" Grid.Row="16" Grid.Column="0" Margin="-20,0,0,0"/>
-                                    <Label Text="{Binding VendorEmail}"   Grid.Row="16" Grid.Column="1" VerticalOptions="Center"/>
+                                    <Image Source="icon_email.png" Grid.Row="16" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="3" WidthRequest="3"/>
+                                    <Label Text="{Binding VendorEmail}"   Grid.Row="16" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

@@ -9,7 +9,7 @@
             <RowDefinition Height="125" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="70" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -75,7 +75,7 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="Gray" HeightRequest="175"
+                                   BorderColor="Gray" HeightRequest="175" WidthRequest="150"
                                    CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameProductVendor_Tapped" CommandParameter="{Binding ID}"/>
@@ -98,8 +98,8 @@
                                         
                                         <!--<Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>-->
 
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
-                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
@@ -116,7 +116,7 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="DarkGray" HeightRequest="175"
+                                   BorderColor="DarkGray" HeightRequest="175" WidthRequest="150"
                                    CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameServiceVendor_Tapped" CommandParameter="{Binding ID}"/>
@@ -135,8 +135,8 @@
                                                 <FileImageSource File="{Binding VendorImage , TargetNullValue='icon_noimage.png'}"/>
                                             </Image.Source>
                                         </Image>
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
-                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
@@ -152,8 +152,8 @@
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="DarkGray" HeightRequest="175"
+                                <Frame HasShadow="True" BackgroundColor="Beige" 
+                                   BorderColor="DarkGray" HeightRequest="175" WidthRequest="150"
                                    CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameProduct_Tapped" CommandParameter="{Binding ID}"/>
@@ -172,8 +172,8 @@
                                                     <FileImageSource File="{Binding ProductImage , TargetNullValue='icon_noimage.png'}"/>
                                             </Image.Source>
                                         </Image>
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
-                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
@@ -190,7 +190,7 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Frame HasShadow="True" BackgroundColor="Beige"
-                                   BorderColor="DarkGray" HeightRequest="175"
+                                   BorderColor="DarkGray" HeightRequest="175" WidthRequest="150"
                                    CornerRadius="8" HorizontalOptions="Center" Padding="10">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="frameService_Tapped" CommandParameter="{Binding ID}"/>
@@ -210,8 +210,8 @@
                                             </Image.Source>
                                         </Image>
 
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black"/>
-                                        <Label Text="{Binding ProductPrice , StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding ProductPrice , StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
                                         <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
