@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Grid.RowSpan="3"
-                   Grid.Column="0" HorizontalOptions="End" Source="company_logo.png"/>
+                   Grid.Column="0" HorizontalOptions="End" Source="janson.png"/>
 
             <Label Grid.Row="0"
                    Grid.Column="1"

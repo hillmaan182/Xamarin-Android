@@ -36,7 +36,7 @@
                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                                     <Label Text="{Binding ProductName}" 
                                            Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" VerticalOptions="End" FontSize="18" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#}'}" 
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#,0}'}" 
                                            Grid.Row="1" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Center"
                                            FontSize="12" FontAttributes="Bold" TextColor="Black"/>

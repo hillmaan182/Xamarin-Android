@@ -69,7 +69,7 @@
                                             <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
 
                                             <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
-                                            <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                            <Label Text="{Binding ProductPrice, StringFormat='Rp. {0:#,0}'}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
                                             <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
                                         </Grid>
                                     </Frame>
@@ -117,7 +117,7 @@
                                             <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80"/>
 
                                             <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black"/>
-                                            <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
+                                            <Label Text="{Binding ProductPrice, StringFormat='Rp. {0:#,0}'}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
                                             <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black" FontSize="10"/>
                                         </Grid>
                                     </Frame>

@@ -35,12 +35,12 @@
                                     <Label Text="{Binding BuyDate , StringFormat='{0:yyyy-MM-dd}'}" Grid.Row="0" Grid.Column="1" TextColor="Black" />
                                     <BoxView WidthRequest="1" BackgroundColor="Gray" Grid.Row="1" Grid.ColumnSpan="2"/>
 
-                                    <Image Source="{Binding ProductImage , TargetNullValue='company_logo.png'}" HeightRequest="90" WidthRequest="90" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0"/>
+                                    <Image Source="{Binding ProductImage , TargetNullValue='janson.png'}" HeightRequest="90" WidthRequest="90" Grid.Row="2" Grid.RowSpan="4" Grid.Column="0"/>
 
                                     <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" TextColor="Black" />
                                     <Label Text="{Binding ShipyardName}" Grid.Row="3" Grid.Column="1" TextColor="Black" />
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1" TextColor="Black" />
-                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1" TextColor="Black" />
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0:#,0}'}" Grid.Row="5" Grid.Column="1" TextColor="Black" />
                                 </Grid>
                             </Frame>
                         </ViewCell>

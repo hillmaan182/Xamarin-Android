@@ -83,7 +83,7 @@
                                            Grid.Row="0" Grid.Column="1" TextColor="Black" 
                                            HorizontalOptions="Start" VerticalOptions="End"
                                            FontSize="15" LineBreakMode="TailTruncation" />
-                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#,0}'}" 
                                            Grid.Row="1" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Start" 
                                            FontSize="12" FontAttributes="Bold" TextColor="Black"/>

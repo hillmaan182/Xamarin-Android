@@ -38,7 +38,7 @@
                                            HorizontalOptions="Center" VerticalOptions="Center"/>
                                     <Label Text="{Binding ProductName}" 
                                            Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" FontSize="25" TextColor="Black"/>
-                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0}'}" 
+                                    <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#,0}'}" 
                                            Grid.Row="1" Grid.Column="1" 
                                            HorizontalOptions="Start" VerticalOptions="Start"
                                            FontSize="20" FontAttributes="Bold" TextColor="Black"/>

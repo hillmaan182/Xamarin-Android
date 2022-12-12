@@ -20,6 +20,7 @@ namespace MobileApp.Views
         private string param1;
         private int ProductId;
         ReviewService rs;
+        TransactionService ts;
         public string Param1
         {
             set
@@ -36,6 +37,7 @@ namespace MobileApp.Views
         {
             InitializeComponent();
             rs = new ReviewService();
+            ts =    new TransactionService();
             star1.IsVisible = true;
             star2.IsVisible = true;
             star3.IsVisible = true;
@@ -206,12 +208,15 @@ namespace MobileApp.Views
 
         private async void btnSave_Clicked(object sender, EventArgs e)
         {
+            var a = ts.GetAllTransactionsById(Convert.ToInt32(param1)).Result;
+
             Review obj = new Review();
             obj.Rating = star;
             obj.Image = PhotoPath;
             obj.Description = txtReview.Text;
-            obj.ProductId = Convert.ToInt32(param1);
+            obj.ProductId = a.FirstOrDefault().ProductID;
             obj.UserId = ((App)App.Current).userID;
+            obj.TransactionId = Convert.ToInt32(param1);
             int c= rs.InsertReview(obj);
 
             await Shell.Current.GoToAsync($"//{nameof(UserTransaction)}");

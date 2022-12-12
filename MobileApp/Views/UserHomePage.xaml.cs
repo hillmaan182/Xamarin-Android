@@ -73,7 +73,8 @@ namespace MobileApp.Views
             var getParam = tapGesture.CommandParameter;
 
             int idVendor = Convert.ToInt32(getParam);
-            await Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+            await Shell.Current.GoToAsync($"//{nameof(CompanyCataloguePage)}?Param={idVendor}");
+            //Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
 
         }
 
@@ -85,7 +86,8 @@ namespace MobileApp.Views
             var getParam = tapGesture.CommandParameter;
 
             int idVendor = Convert.ToInt32(getParam);
-            await Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+            await Shell.Current.GoToAsync($"//{nameof(CompanyCataloguePage)}?Param={idVendor}");
+            //Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
 
         }
 

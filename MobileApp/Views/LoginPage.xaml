@@ -12,7 +12,7 @@
             <StackLayout Orientation="Vertical" Padding="30" Spacing="30" BackgroundColor="#73d8eb" >
                 <BoxView HeightRequest="10"/>
                 <Label HorizontalOptions="Center" Text="Welcome" FontAttributes="Bold" FontSize="30"/>
-                <Image HorizontalOptions="Center" WidthRequest="150" Source="company_logo.jpg"/>
+                <Image HorizontalOptions="Center" WidthRequest="150" Source="janson.jpg"/>
                 <Frame BackgroundColor="Transparent" HasShadow="False">
                     <StackLayout Orientation="Vertical" Spacing="10">
                         <Entry x:Name="txtUsername" 

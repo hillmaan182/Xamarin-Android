@@ -65,8 +65,8 @@
 
                                     <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold"  TextColor="Black"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
-                                    <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1" TextColor="Black"/> 
-                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"  TextColor="Black"/>
+                                    <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1" TextColor="Black"/>
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0:#,0}'}" Grid.Row="5" Grid.Column="1"  TextColor="Black"/>
 
                                     <Button x:Name="btnShipProduct" 
                                             Clicked="btnShipProduct_Clicked" CommandParameter="{Binding ID}" 
@@ -133,7 +133,7 @@
                                     <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold"  TextColor="Black"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"  TextColor="Black"/>
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1"  TextColor="Black"/>
-                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1"  TextColor="Black"/>
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0:#,0}'}" Grid.Row="5" Grid.Column="1"  TextColor="Black"/>
 
                                     <Button x:Name="btnFinishOrder" 
                                             Clicked="btnFinishOrder_Clicked" CommandParameter="{Binding ID}" 
@@ -201,7 +201,7 @@
                                     <Label Text="{Binding ProductName}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold" TextColor="Black"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
                                     <Label Text="{Binding TotalItem , StringFormat='{0} item(s)'}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
-                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0}'}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
+                                    <Label Text="{Binding TotalPrice , StringFormat='Rp. {0:#,0}'}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Black"/>
 
                                 </Grid>
                             </Frame>

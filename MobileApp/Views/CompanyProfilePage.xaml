@@ -30,77 +30,89 @@
     </ContentPage.Resources>
 
     <ContentPage.Content >
-        <ScrollView>
-            <ListView x:Name="lvVendor" HasUnevenRows="True" BackgroundColor="#73d8eb">
-                <ListView.ItemTemplate >
-                    <DataTemplate >
-                        <ViewCell >
-                            <Frame BackgroundColor="#73d8eb">
-                                <Grid BackgroundColor="#73d8eb">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="85"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="85"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="85"></RowDefinition>
-                                        <RowDefinition Height="Auto"></RowDefinition>
-                                        <RowDefinition Height="85"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Style="{StaticResource Header}" Text="{Binding VendorName}"   Grid.Row="0" Grid.ColumnSpan="3" />
+        <Grid>
 
-                                    <Label Style="{StaticResource Body}" Text="About Us"  Grid.Row="1" Grid.ColumnSpan="3"/>
-                                    <Label Style="{StaticResource Content}" Text="{Binding VendorAbout}"   Grid.Row="2" Grid.ColumnSpan="3"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                                    <Label Style="{StaticResource Body}" Text="Vision and Mission"   Grid.Row="3" Grid.ColumnSpan="3" />
-                                    <Label Style="{StaticResource Content}" Text="{Binding VendorMission}"   Grid.Row="4" Grid.ColumnSpan="3" />
+            <ScrollView Grid.Row="0" Grid.ColumnSpan="2">
+                <ListView x:Name="lvVendor" HasUnevenRows="True" BackgroundColor="#73d8eb">
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <ViewCell >
+                                <Frame BackgroundColor="#73d8eb">
+                                    <Grid BackgroundColor="#73d8eb">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="85"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="85"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="85"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="85"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Style="{StaticResource Header}" Text="{Binding VendorName}"   Grid.Row="0" Grid.ColumnSpan="3" />
 
-                                    <Label Style="{StaticResource Body}" Text="Our Services"   Grid.Row="5" Grid.ColumnSpan="3"/>
-                                    <Image Source="{Binding img1}" Grid.Row="6" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img2}" Grid.Row="6" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img3}" Grid.Row="6" Grid.Column="2"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    
-                                    <Label Style="{StaticResource Body}" Text="Our Experience"   Grid.Row="7" Grid.ColumnSpan="3" />
-                                    <Image Source="{Binding img4}" Grid.Row="8" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img5}" Grid.Row="8" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img6}" Grid.Row="8" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Label Style="{StaticResource Body}" Text="About Us"  Grid.Row="1" Grid.ColumnSpan="3"/>
+                                        <Label Style="{StaticResource Content}" Text="{Binding VendorAbout}"   Grid.Row="2" Grid.ColumnSpan="3"/>
 
-                                    <Label Style="{StaticResource Body}" Text="Our Affiliates"   Grid.Row="9" Grid.ColumnSpan="3" />
-                                    <Image Source="{Binding img7}" Grid.Row="10" Grid.Column="0" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img8}" Grid.Row="10" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
-                                    <Image Source="{Binding img9}" Grid.Row="10" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Label Style="{StaticResource Body}" Text="Vision and Mission"   Grid.Row="3" Grid.ColumnSpan="3" />
+                                        <Label Style="{StaticResource Content}" Text="{Binding VendorMission}"   Grid.Row="4" Grid.ColumnSpan="3" />
 
-                                    <Label Style="{StaticResource Body}" Text="Class and Certification"   Grid.Row="11" Grid.ColumnSpan="3" />
-                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="0"/>
-                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="1"/>
-                                    <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="2"/>
+                                        <Label Style="{StaticResource Body}" Text="Our Services"   Grid.Row="5" Grid.ColumnSpan="3"/>
+                                        <Image Source="{Binding img1}" Grid.Row="6" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img2}" Grid.Row="6" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img3}" Grid.Row="6" Grid.Column="2"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
 
-                                    <Label Style="{StaticResource Body}" Text="Contact Us"   Grid.Row="13" Grid.ColumnSpan="3" />
+                                        <Label Style="{StaticResource Body}" Text="Our Experience"   Grid.Row="7" Grid.ColumnSpan="3" />
+                                        <Image Source="{Binding img4}" Grid.Row="8" Grid.Column="0"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img5}" Grid.Row="8" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img6}" Grid.Row="8" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
 
-                                    <Image Source="icon_location.png" Grid.Row="14" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
-                                    <Label Text="{Binding VendorAddress}"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"  VerticalOptions="Center" TextColor="Black"/>
+                                        <Label Style="{StaticResource Body}" Text="Our Affiliates"   Grid.Row="9" Grid.ColumnSpan="3" />
+                                        <Image Source="{Binding img7}" Grid.Row="10" Grid.Column="0" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img8}" Grid.Row="10" Grid.Column="1"  WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+                                        <Image Source="{Binding img9}" Grid.Row="10" Grid.Column="2" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
 
-                                    <Image Source="icon_phone.png" Grid.Row="15" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
-                                    <Label Text="{Binding VendorPhone}"   Grid.Row="15" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
+                                        <Label Style="{StaticResource Body}" Text="Class and Certification"   Grid.Row="11" Grid.ColumnSpan="3" />
+                                        <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="0"/>
+                                        <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="1"/>
+                                        <Image Source="{Binding img1}" Grid.Row="12" Grid.Column="2"/>
 
-                                    <Image Source="icon_email.png" Grid.Row="16" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="3" WidthRequest="3"/>
-                                    <Label Text="{Binding VendorEmail}"   Grid.Row="16" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
-                                </Grid>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
+                                        <Label Style="{StaticResource Body}" Text="Contact Us"   Grid.Row="13" Grid.ColumnSpan="3" />
+
+                                        <Image Source="icon_location.png" Grid.Row="14" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
+                                        <Label Text="{Binding VendorAddress}"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"  VerticalOptions="Center" TextColor="Black"/>
+
+                                        <Image Source="icon_phone.png" Grid.Row="15" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="5" WidthRequest="5"/>
+                                        <Label Text="{Binding VendorPhone}"   Grid.Row="15" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
+
+                                        <Image Source="icon_email.png" Grid.Row="16" Grid.Column="0" Margin="-20,5,0,5" Aspect="AspectFit" HeightRequest="3" WidthRequest="3"/>
+                                        <Label Text="{Binding VendorEmail}"   Grid.Row="16" Grid.Column="1"  Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="Black"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="Catalogue" x:Name="btnCatelogue" Clicked="btnCatelogue_Clicked" CornerRadius="10" Padding="5" Margin="5" BorderWidth="1" BorderColor="Beige"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="Profile" x:Name="btnProfile" CornerRadius="10" Padding="5" Margin="5" BorderWidth="1" BorderColor="Beige"/>
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

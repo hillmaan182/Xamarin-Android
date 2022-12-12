@@ -62,8 +62,16 @@ namespace MobileApp.Views
                 switch (res)
                 {
                     case "Delete":
-                        services.DeleteProduct(obj);
-                        showProduct();
+                        string res2 = await DisplayActionSheet("Are you sure?", "Cancel", null, "Okay", "No");
+                        switch (res2)
+                        {
+                            case "Okay":
+                            services.DeleteProduct(obj);
+                            showProduct();
+                            break;
+                            case "No":
+                                break;
+                        }
                         break;
                 }
                 lstData.SelectedItem = null;

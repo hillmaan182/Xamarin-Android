@@ -17,6 +17,8 @@ namespace MobileApp.Views
     {
         VendorService vs;
         int? id;
+        int? IdVendor;
+
 
         string param;
         public string Param
@@ -44,9 +46,12 @@ namespace MobileApp.Views
             if (id != null)
             {
                 vendorId = id;
-            }else
+                IdVendor = vendorId;
+            }
+            else
             {
                 vendorId = Convert.ToInt32(param);
+                IdVendor = vendorId;
             }
             showVendorProfile(vendorId);
         }
@@ -82,5 +87,9 @@ namespace MobileApp.Views
             return new DatabaseContext();
         }
 
+        private void btnCatelogue_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync($"//{nameof(CompanyCataloguePage)}?Param={IdVendor}");
+        }
     }
 }

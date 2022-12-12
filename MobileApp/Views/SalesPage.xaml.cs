@@ -57,37 +57,44 @@ namespace MobileApp.Views
             {
                 var now = from q in db.Transaction
                           where q.VendorID == vendorId && q.Status == "New Order" && q.BuyDate.Month == nowMonth && q.BuyDate.Year == nowYear
-                          group q by new { q.VendorID }
-                        into g
-                          select new { Total = g.Count(), Percent = g.Count() / 100 };
+                          group q by new { q.BuyDate.Month}
+                            into g
+                          select new { Total = g.Count(), Percent = g.Count() / 100 , Month = g.Key};
 
                 lstNewOrder.ItemsSource = now.ToList();
 
-
                 List<Entry> entries1 = new List<Entry>();
-                entries1.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.Month.ToString(), ValueLabel = "0" });
+                entries1.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.ToString("MM"), ValueLabel = "0" });
                 foreach (var x in now.ToList())
                 {
-                    entries1.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = "Oct", ValueLabel = x.Total.ToString() });
+                    entries1.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = x.Month.ToString(), ValueLabel = x.Total.ToString() });
                 }
 
                 NewOrderChart.Chart = new LineChart() { Entries = entries1 };
             }
             else
             {
+                var test = from q in db.Transaction
+                           where q.VendorID == vendorId && q.Status == "New Order" && q.BuyDate.Month == nowMonth && q.BuyDate.Year == nowYear
+                           group q by q.BuyDate.Month into g
+                           select new {Total = g.Count() , Month = g.Key};
+
+                var aaaa = test.ToList();
+
+
                 var now = from q in db.Transaction
                           where q.VendorID == vendorId && q.Status == "New Order" && q.BuyDate.Month == nowMonth && q.BuyDate.Year == nowYear
-                          group q by new { q.VendorID }
+                          group q by new { q.BuyDate.Month }
                         into g
-                          select new { Total = g.Count(), Percent = g.Count() / before.FirstOrDefault().Total };
+                          select new { Total = g.Count(), Percent = g.Count() / before.FirstOrDefault().Total, Month = g.Key };
 
                 lstNewOrder.ItemsSource = now.ToList();
 
                 List<Entry> entries1 = new List<Entry>();
-                entries1.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.Month.ToString(), ValueLabel = "0" });
+                entries1.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.ToString("MM"), ValueLabel = "0" });
                 foreach (var x in now.ToList())
                 {
-                    entries1.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = "Oct", ValueLabel = x.Total.ToString() });
+                    entries1.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = x.Month.ToString(), ValueLabel = x.Total.ToString() });
                 }
 
                 NewOrderChart.Chart = new LineChart() { Entries = entries1 };
@@ -114,18 +121,18 @@ namespace MobileApp.Views
             {
                 var now = from q in db.Transaction
                           where q.VendorID == vendorId && q.Status == "Finished" && q.BuyDate.Month == nowMonth && q.BuyDate.Year == nowYear
-                          group q by new { q.VendorID }
+                          group q by new { q.BuyDate.Month}
                         into g
-                          select new { Total = g.Count(), Percent = g.Count() / 100 };
+                          select new { Total = g.Count(), Percent = g.Count() / 100 , Month = g.Key};
 
                 lstSold.ItemsSource = now.ToList();
 
 
                 List<Entry> entries2 = new List<Entry>();
-                entries2.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.Month.ToString(), ValueLabel = "0" });
+                entries2.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.ToString("MM"), ValueLabel = "0" });
                 foreach (var x in now.ToList())
                 {
-                    entries2.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = "Oct", ValueLabel = x.Total.ToString() });
+                    entries2.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = x.Month.ToString(), ValueLabel = x.Total.ToString() });
                 }
 
                 SoldChart.Chart = new LineChart() { Entries = entries2 };
@@ -134,17 +141,17 @@ namespace MobileApp.Views
             {
                 var now = from q in db.Transaction
                           where q.VendorID == vendorId && q.Status == "Finished" && q.BuyDate.Month == nowMonth && q.BuyDate.Year == nowYear
-                          group q by new { q.VendorID }
+                          group q by new { q.BuyDate.Month }
                         into g
-                          select new { Total = g.Count(), Percent = g.Count() / before.FirstOrDefault().Total };
+                          select new { Total = g.Count(), Percent = g.Count() / before.FirstOrDefault().Total , Month = g.Key  };
 
                 lstSold.ItemsSource = now.ToList();
 
                 List<Entry> entries2 = new List<Entry>();
-                entries2.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.Month.ToString(), ValueLabel = "0" });
+                entries2.Add(new Entry(0) { Color = SKColor.Parse("#FF1943"), Label = DateTime.Now.ToString("MM"), ValueLabel = "0" });
                 foreach (var x in now.ToList())
                 {
-                    entries2.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = "Oct", ValueLabel = x.Total.ToString() });
+                    entries2.Add(new Entry(x.Total) { Color = SKColor.Parse("#FF1943"), Label = x.Month.ToString(), ValueLabel = x.Total.ToString() });
                 }
 
                 SoldChart.Chart = new LineChart() { Entries = entries2 };

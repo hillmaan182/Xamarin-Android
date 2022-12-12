@@ -30,7 +30,7 @@
                                     <Image Source="{Binding ProductImage , TargetNullValue='icon_noimage.png'}" Grid.Row="0" HorizontalOptions="Center"/>
 
                                     <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding ProductPrice, StringFormat='Rp. {0:#,0}'}" Grid.Row="2" HorizontalOptions="Center"/>
                                     <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center"/>
 
                                 </Grid>

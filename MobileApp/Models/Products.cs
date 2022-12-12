@@ -23,7 +23,6 @@ namespace MobileApp.Models
         public int ProductSeen { get; set; }
 
         public int VendorID { get; set; }
-        public Vendor Vendor { get; set; }
 
     }
 }

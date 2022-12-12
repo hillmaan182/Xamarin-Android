@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.CompanyCataloguePage" Title="Catalogue">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#73d8eb</Color>
+            <Style x:Key="Header" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="25" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="Body" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="Content" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content >
+        <Grid BackgroundColor="#73d8eb">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0" Grid.ColumnSpan="2">
+
+                <Grid BackgroundColor="#73d8eb">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <ListView x:Name="lvVendor" HasUnevenRows="True" BackgroundColor="#73d8eb" Grid.Row="0">
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
+                                <ViewCell >
+                                    <Frame BackgroundColor="Transparent" Padding="5" Margin="5" CornerRadius="8" WidthRequest="150">
+                                        <Grid BackgroundColor="Transparent">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+
+                                            <Image Source="{Binding VendorImage}" Grid.Row="0" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center"/>
+
+                                            <Label Style="{StaticResource Header}" Text="{Binding VendorName}"  Grid.Row="1"/>
+
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                    <ListView x:Name="lstProduct" HasUnevenRows="True" BackgroundColor="#73d8eb" Grid.Row="1">
+                        <ListView.ItemTemplate >
+                            <DataTemplate >
+                                <ViewCell >
+                                    <Frame BackgroundColor="Beige" Padding="5" Margin="5" CornerRadius="8" BorderColor="#40B5AD" WidthRequest="150">
+                                        <Grid BackgroundColor="Transparent">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="35"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="{Binding ProductImage,TargetNullValue='icon_noimage.png'}" 
+                                           Grid.RowSpan="3" Grid.Column="0" WidthRequest="130" HeightRequest="150" Aspect="AspectFill"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding ProductName}" 
+                                           Grid.Row="0" Grid.Column="1"  HorizontalOptions="Start" VerticalOptions="End" FontSize="18" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                            <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#,0}'}" 
+                                           Grid.Row="1" Grid.Column="1" 
+                                           HorizontalOptions="Start" VerticalOptions="Center"
+                                           FontSize="12" FontAttributes="Bold" TextColor="Black"/>
+                                            <Label Text="{Binding VendorName}" 
+                                           Grid.Row="2" Grid.Column="1" TextColor="Black"
+                                           HorizontalOptions="Start" VerticalOptions="Start"
+                                           FontSize="12"/>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </Grid>
+            </ScrollView>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="Catalogue" x:Name="btnCatelogue" CornerRadius="10" Padding="5" Margin="5" BorderWidth="1" BorderColor="Beige"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="Profile" x:Name="btnProfile" Clicked="btnProfile_Clicked" CornerRadius="10" Padding="5" Margin="5" BorderWidth="1" BorderColor="Beige"/>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

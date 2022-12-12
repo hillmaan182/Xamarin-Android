@@ -27,11 +27,11 @@
                    Grid.Column="0"
                    Text="{Binding CardTitle, FallbackValue='Card Title'}"
                    FontAttributes="Bold"
-                   FontSize="Large"
+                   FontSize="20"
                    VerticalTextAlignment="Center"
                    HorizontalTextAlignment="Start" TextColor="Black"/>
             <Image Grid.RowSpan="3"
-                   Grid.Column="1" HorizontalOptions="End" Source="company_logo.png"/>
+                   Grid.Column="1" HorizontalOptions="End" Source="janson.png" Aspect="AspectFit" HeightRequest="100" WidthRequest="100"/>
            
             <Label Grid.Row="2"
                    Grid.Column="0"

@@ -77,6 +77,8 @@ namespace MobileApp.Views
             var getFav = fp.GetFavoriteProducts(productID, userID).Result;
             if (getFav.Count > 0)
             {
+                btnFavorite.IsVisible = false;
+                btnFavorite2.IsVisible = true;
                 favoriteId = getFav.FirstOrDefault().ID;
             }
 
@@ -114,7 +116,8 @@ namespace MobileApp.Views
         {
             var getParam = ((Button)sender).CommandParameter;
             int idVendor = Convert.ToInt32(getParam);
-            Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+            Shell.Current.GoToAsync($"//{nameof(CompanyCataloguePage)}?Param={idVendor}");
+            //Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
         }
 
         private void insertTransaction()

@@ -77,5 +77,12 @@ namespace MobileApp.Services
             return res;
         }
 
+        public async Task<List<Transaction>> GetAllTransactionsById(int id)
+        {
+            var _dbContext = getContext();
+            var res = await _dbContext.Transaction.Where(x => x.ID == id).ToListAsync();
+            return res;
+        }
+
     }
 }

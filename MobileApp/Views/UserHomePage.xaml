@@ -98,9 +98,9 @@
                                         
                                         <!--<Image Source="{Binding VendorImage , TargetNullValue='https://loremflickr.com/400/400/company,logo/all'}" Grid.Row="0" HorizontalOptions="Center" HeightRequest="80" WidthRequest="80" Aspect="AspectFit"/>-->
 
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" FontSize="8" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" FontSize="8" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
                                 </Frame>
@@ -135,9 +135,9 @@
                                                 <FileImageSource File="{Binding VendorImage , TargetNullValue='icon_noimage.png'}"/>
                                             </Image.Source>
                                         </Image>
-                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="1" FontSize="10" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorAddress}" Grid.Row="2" FontSize="8" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorPhone}" Grid.Row="3" FontSize="8" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
                                 </Frame>
@@ -146,7 +146,7 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-                <Label Text="Service Vendor Recommendation" Grid.Row="4" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+                <Label Text="Product Recommendation" Grid.Row="4" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
 
                 <CarouselView x:Name="lstProduct" Grid.Row="5" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
                     <CarouselView.ItemTemplate>
@@ -172,9 +172,9 @@
                                                     <FileImageSource File="{Binding ProductImage , TargetNullValue='icon_noimage.png'}"/>
                                             </Image.Source>
                                         </Image>
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding ProductPrice, StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding ProductPrice, StringFormat= 'Rp. {0:#,0}'}"  FontSize="8" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3"  FontSize="8" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
                                 </Frame>
@@ -183,7 +183,7 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-                <Label Text="Service Vendor Recommendation" Grid.Row="6" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
+                <Label Text="Service Recommendation" Grid.Row="6" FontAttributes="Bold" FontSize="20" Padding="10,0,0,0" TextColor="Black"/>
 
                 <CarouselView x:Name="lstService" Grid.Row="7" PeekAreaInsets="90" Loop="False" IsScrollAnimated="True">
                     <CarouselView.ItemTemplate>
@@ -210,9 +210,9 @@
                                             </Image.Source>
                                         </Image>
 
-                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="15" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding ProductPrice , StringFormat=Rp. {0}}" Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
-                                        <Label Text="{Binding VendorName}" Grid.Row="3" HorizontalOptions="Center" TextColor="Black"/>
+                                        <Label Text="{Binding ProductName}" Grid.Row="1" FontAttributes="Bold" FontSize="10" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding ProductPrice , StringFormat= 'Rp. {0:#,0}'}"  FontSize="8"  Grid.Row="2" HorizontalOptions="Center" TextColor="Black" LineBreakMode="TailTruncation" MaxLines="1"/>
+                                        <Label Text="{Binding VendorName}" Grid.Row="3"  FontSize="8" HorizontalOptions="Center" TextColor="Black"/>
 
                                     </Grid>
                                 </Frame>

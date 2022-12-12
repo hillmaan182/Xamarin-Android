@@ -146,6 +146,12 @@
     <FlyoutItem Title="Other" Icon="icon_feed.png" IsVisible="{Binding IsUser}" >
         <ShellContent Route="OtherPage" ContentTemplate="{DataTemplate local:OtherPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="x" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="CompanyCataloguePage" ContentTemplate="{DataTemplate local:CompanyCataloguePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="y" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
+        <ShellContent Route="CompanyProfilePage" ContentTemplate="{DataTemplate local:CompanyProfilePage}" />
+    </FlyoutItem>
     <FlyoutItem Title="l" Icon="icon_home.png" Shell.FlyoutItemIsVisible="False">
         <ShellContent Route="DocumentPage" ContentTemplate="{DataTemplate local:DocumentPage}" />
     </FlyoutItem>

@@ -36,7 +36,8 @@ namespace MobileApp.Views
         {
             var getParam = ((Button)sender).CommandParameter;
             int idVendor = Convert.ToInt32(getParam);
-            Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
+            Shell.Current.GoToAsync($"//{nameof(CompanyCataloguePage)}?Param={idVendor}");
+            //Shell.Current.GoToAsync($"{nameof(CompanyProfilePage)}?Param={idVendor}");
         }
         private async void serviceBtn_Clicked(object sender, EventArgs e)
         {
